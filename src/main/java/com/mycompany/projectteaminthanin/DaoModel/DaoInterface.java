@@ -5,10 +5,16 @@
  */
 package com.mycompany.projectteaminthanin.DaoModel;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author ADMIN
+ * @author Mesaya
  */
-public interface DaoInterface {
-    
+public interface DaoInterface<T> {
+    public int add(T object);
+    public ArrayList<T> getAll();
+    public T get(int id);
+    public int delete(int id);
+    public int update(T object);
 }
