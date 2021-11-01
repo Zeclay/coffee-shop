@@ -85,7 +85,7 @@ public class DaoProduct implements DaoInterface<Product> {
                 String name = result.getString("ProductName");
                 String type = result.getString("Type");
                 double price = result.getDouble("Price");
-                Product product = new Product(id, name, type, price);
+                Product product = new Product(pid, name, type, price);
                 return product;
             }
         } catch (SQLException ex) {
@@ -143,12 +143,12 @@ public class DaoProduct implements DaoInterface<Product> {
 //        System.out.println(dao.get(50));
 //        int id = dao.add(new Product(-1, "Olieng", "Coffee", 30.0));
 //        System.out.println("id " + id);
-//        Product lastProduct = dao.get(28);
-//        System.out.println("Last Product" + lastProduct);
-//        lastProduct.setPrice(300);
-//        int row = dao.update(lastProduct);
-//        Product updateProduct = dao.get(28);
-//        System.out.println("Update Product" + updateProduct);
+        Product lastProduct = dao.get(29);
+        System.out.println("Last Product" + lastProduct);
+        lastProduct.setPrice(300);
+        int row = dao.update(lastProduct);
+        Product updateProduct = dao.get(29);
+        System.out.println("Update Product" + updateProduct);
 //        dao.delete(28);
 //        Product deleteProduct = dao.get(28);
 //        System.out.println("Delete product: " + deleteProduct);
