@@ -30,10 +30,10 @@ public class LoginPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         tfName = new javax.swing.JTextField();
         lblName = new javax.swing.JLabel();
-        tfName1 = new javax.swing.JTextField();
         lblName1 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -45,12 +45,6 @@ public class LoginPanel extends javax.swing.JPanel {
 
         lblName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblName.setText("username :");
-
-        tfName1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfName1ActionPerformed(evt);
-            }
-        });
 
         lblName1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblName1.setText("password :");
@@ -66,6 +60,8 @@ public class LoginPanel extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/projectteaminthanin/logo.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
+        jPasswordField1.setText("jPasswordField1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -78,7 +74,7 @@ public class LoginPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tfName, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                    .addComponent(tfName1))
+                    .addComponent(jPasswordField1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(166, Short.MAX_VALUE)
@@ -100,10 +96,10 @@ public class LoginPanel extends javax.swing.JPanel {
                     .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblName))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblName1)
-                    .addComponent(tfName1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblName1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPasswordField1))
+                .addGap(45, 45, 45)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(104, Short.MAX_VALUE))
         );
@@ -130,10 +126,6 @@ public class LoginPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNameActionPerformed
 
-    private void tfName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfName1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfName1ActionPerformed
-
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -143,9 +135,9 @@ public class LoginPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblName1;
     private javax.swing.JTextField tfName;
-    private javax.swing.JTextField tfName1;
     // End of variables declaration//GEN-END:variables
 }
