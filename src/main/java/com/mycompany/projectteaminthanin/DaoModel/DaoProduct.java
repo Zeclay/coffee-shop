@@ -149,7 +149,7 @@ public class DaoProduct implements DaoInterface<Product> {
 //        int row = dao.update(lastProduct);
 //        Product updateProduct = dao.get(28);
 //        System.out.println("Update Product" + updateProduct);
-        dao.delete(28);
+//        dao.delete(28);
 //        Product deleteProduct = dao.get(28);
 //        System.out.println("Delete product: " + deleteProduct);
     }
