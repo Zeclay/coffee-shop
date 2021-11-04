@@ -5,6 +5,10 @@
  */
 package com.mycompany.projectteaminthanin;
 
+import com.mycompany.projectteaminthanin.Menu.CoffeePanel;
+import com.mycompany.projectteaminthanin.Menu.FruitPanel;
+import com.mycompany.projectteaminthanin.Menu.TeaAndCocoaPanel;
+
 /**
  *
  * @author AuyouknoW
@@ -28,7 +32,7 @@ public class Point_of_sell extends javax.swing.JPanel {
     private void initComponents() {
 
         btnCoffee2 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrMenuPanel = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -174,10 +178,25 @@ public class Point_of_sell extends javax.swing.JPanel {
         btnClear.setText("CLEAR");
 
         btnCoffee.setText("COFFEE");
+        btnCoffee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCoffeeActionPerformed(evt);
+            }
+        });
 
         btnTea.setText("TEA & COCOA");
+        btnTea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTeaActionPerformed(evt);
+            }
+        });
 
         btnFriut.setText("FRUIT DRINK");
+        btnFriut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFriutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -221,19 +240,31 @@ public class Point_of_sell extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jScrollPane1.setViewportView(jPanel1);
+        scrMenuPanel.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(scrMenuPanel)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(scrMenuPanel)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCoffeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCoffeeActionPerformed
+        scpmenu.setViewportView(new CoffeePanel());
+    }//GEN-LAST:event_btnCoffeeActionPerformed
+
+    private void btnTeaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeaActionPerformed
+        scpmenu.setViewportView(new TeaAndCocoaPanel());
+    }//GEN-LAST:event_btnTeaActionPerformed
+
+    private void btnFriutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFriutActionPerformed
+        scpmenu.setViewportView(new FruitPanel());
+    }//GEN-LAST:event_btnFriutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -248,12 +279,12 @@ public class Point_of_sell extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> listProduct;
     private javax.swing.JPanel pnlShowname;
     private javax.swing.JPanel pnlTotal;
     private javax.swing.JScrollPane scpmenu;
+    private javax.swing.JScrollPane scrMenuPanel;
     private javax.swing.JTextField tfSearch;
     private javax.swing.JLabel txtMember;
     private javax.swing.JLabel txtNameMember;
