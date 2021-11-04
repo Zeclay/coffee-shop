@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[888, 469]"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -16,22 +21,18 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="868" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
+          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="868" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -44,6 +45,24 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="tblStock">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              </Table>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
     <Container class="javax.swing.JPanel" name="jPanel1">
 
       <Layout>
@@ -52,56 +71,56 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lblName" alignment="1" max="32767" attributes="0"/>
-                      <Component id="lblType" alignment="1" max="32767" attributes="0"/>
-                      <Component id="lblID" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblPrice" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblnameStock" alignment="1" max="32767" attributes="0"/>
+                      <Component id="lbamountStock" alignment="1" max="32767" attributes="0"/>
+                      <Component id="lblidStock" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblpriceStock" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="btnSave" min="-2" pref="67" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btnsaveStock" min="-2" pref="67" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnCancle" min="-2" max="-2" attributes="0"/>
+                          <Component id="btncancleStock" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="lblShowID" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtType" max="32767" attributes="0"/>
-                          <Component id="txtName" pref="200" max="32767" attributes="0"/>
-                          <Component id="txtPrice" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblshowidStock" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtamountStock" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtnameStock" alignment="0" pref="200" max="32767" attributes="0"/>
+                          <Component id="txtpriceStock" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="587" max="32767" attributes="0"/>
+                  <EmptySpace pref="592" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblID" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblShowID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblidStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblshowidStock" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblnameStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtnameStock" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblType" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtType" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbamountStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtamountStock" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblPrice" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblpriceStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtpriceStock" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnSave" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnCancle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnsaveStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btncancleStock" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -109,54 +128,54 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblName">
+        <Component class="javax.swing.JLabel" name="lblnameStock">
           <Properties>
             <Property name="text" type="java.lang.String" value="Name : "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblID">
+        <Component class="javax.swing.JLabel" name="lblidStock">
           <Properties>
             <Property name="text" type="java.lang.String" value="ID      :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblType">
+        <Component class="javax.swing.JLabel" name="lbamountStock">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Type  : "/>
+            <Property name="text" type="java.lang.String" value="Amount :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblPrice">
+        <Component class="javax.swing.JLabel" name="lblpriceStock">
           <Properties>
             <Property name="text" type="java.lang.String" value="Price   : "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtName">
+        <Component class="javax.swing.JTextField" name="txtnameStock">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtType">
+        <Component class="javax.swing.JTextField" name="txtamountStock">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTypeActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtamountStockActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPrice">
+        <Component class="javax.swing.JTextField" name="txtpriceStock">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblShowID">
+        <Component class="javax.swing.JLabel" name="lblshowidStock">
           <Properties>
             <Property name="text" type="java.lang.String" value="?"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnSave">
+        <Component class="javax.swing.JButton" name="btnsaveStock">
           <Properties>
             <Property name="text" type="java.lang.String" value="Save"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsaveStockActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnCancle">
+        <Component class="javax.swing.JButton" name="btncancleStock">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancle"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancleActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncancleStockActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -215,24 +234,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
           </Events>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTable" name="tblProduct">
-          <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="4">
-                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                <Column editable="true" title="Title 4" type="java.lang.Object"/>
-              </Table>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

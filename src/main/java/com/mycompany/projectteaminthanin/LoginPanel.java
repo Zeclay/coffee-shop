@@ -11,11 +11,14 @@ package com.mycompany.projectteaminthanin;
  */
 public class LoginPanel extends javax.swing.JPanel {
 
+     private MainFrame mainFrame;
     /**
      * Creates new form LoginPanel
      */
-    public LoginPanel() {
+    public LoginPanel(MainFrame mainFrame) {
         initComponents();
+        this.mainFrame = mainFrame;
+        
     }
 
     /**
@@ -59,8 +62,6 @@ public class LoginPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/projectteaminthanin/logo.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-
-        jPasswordField1.setText("jPasswordField1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,9 +128,12 @@ public class LoginPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_tfNameActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
+         String userName = tfName.getText();
+         String password = new String(jPasswordField1.getPassword());
+         
+       
     }//GEN-LAST:event_btnLoginActionPerformed
-
+       
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
