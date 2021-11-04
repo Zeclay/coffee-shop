@@ -161,8 +161,8 @@ public class DaoEmployee implements DaoInterface<Employee> {
         DaoEmployee dao = new DaoEmployee();
 //        System.out.println(dao.getAll());
 //        System.out.println(dao.get(1));
-//        int id = dao.add(new Employee(-1, "Man sudsoy", "1754433221123", "0992222111","08/12/1999","Bangkok","Male","Employee",10000));
-//        System.out.println("id " + id);
+        int id = dao.add(new Employee(-1, "Man sudsoy", "1754433221123", "0992222111","08/12/1999","Bangkok","Male","Employee",10000));
+        System.out.println("id " + id);
 //        Employee last = dao.get(8);
 //        System.out.println("Last Employee" + last);
 //        last.setSalary(30000);
