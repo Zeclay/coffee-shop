@@ -6,6 +6,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -14,33 +15,33 @@ import java.util.ArrayList;
 public class Receipt {
 
     private int rep_id;
-    private Employee emp_id;
-    private String date;
-    private Customer cus_id;
+    private Employee employee;
+    private Date date;
+    private Customer customer;
     private double total;
     private double cash;
     private double change;
     private ArrayList<ReceiptDetail> receiptDetail;
 
-    public Receipt(int rep_id, Employee emp_id, String date, Customer cus_id, double total, double cash, double change) {
+    public Receipt(int rep_id, Employee emp_id, Date date, Customer cus_id, double total, double cash, double change) {
         this.rep_id = rep_id;
-        this.emp_id = emp_id;
+        this.employee = emp_id;
         this.date = date;
-        this.cus_id = cus_id;
+        this.customer = cus_id;
         this.total = total;
         this.cash = cash;
         this.change = change;
         receiptDetail = new ArrayList<>();
     }
 
-    public Receipt(Employee seller, Customer customer, String date) {
-        this(-1, seller, date, customer, 0, 0, 0);
+    public Receipt(Employee seller, Customer customer) {
+        this(-1, seller, null, customer, 0, 0, 0);
     }
 
     public void addReceiptDetail(int id, Product product, int amount, double price) {
         for (int row = 0; row < receiptDetail.size(); row++) {
             ReceiptDetail r = receiptDetail.get(row);
-            if (r.getProd_id().getProductId() == product.getProductId()) {
+            if (r.getProduct().getProductId() == product.getProductId()) {
                 r.addAmount(amount);
                 return;
             }
@@ -73,28 +74,28 @@ public class Receipt {
         this.rep_id = rep_id;
     }
 
-    public Employee getEmp_id() {
-        return emp_id;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setEmp_id(Employee emp_id) {
-        this.emp_id = emp_id;
+    public void setEmployee(Employee emp_id) {
+        this.employee = emp_id;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public Customer getCus_id() {
-        return cus_id;
+    public Customer getCustomer() {
+        return customer;
     }
 
     public void setCus_id(Customer cus_id) {
-        this.cus_id = cus_id;
+        this.customer = cus_id;
     }
 
     public double getTotal() {
@@ -123,7 +124,10 @@ public class Receipt {
 
     @Override
     public String toString() {
-        String str = "Receipt{" + "rep_id=" + rep_id + ", emp_id=" + emp_id + ", date=" + date + ", cus_id=" + cus_id + ", total=" + this.getAllTotal() + ", cash=" + cash + ", change=" + change + "}\n";
+        for (ReceiptDetail r : receiptDetail) {
+            total += r.getTotal();
+        }
+        String str = "Receipt{" + "rep_id=" + rep_id + ", emp_id=" + employee + ", date=" + date + ", cus_id=" + customer + ", total=" + this.getAllTotal() + ", cash=" + cash + ", change=" + change + "}\n";
         for (ReceiptDetail r : receiptDetail) {
             str += r.toString() + "\n";
         }

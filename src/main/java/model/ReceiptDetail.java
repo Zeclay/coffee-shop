@@ -12,14 +12,14 @@ package model;
 public class ReceiptDetail {
 
     private int repde_id;
-    private Receipt rep_id;
-    private Product prod_id;
+    private Receipt receipt;
+    private Product product;
     private int amount;
     private double price;
 
     @Override
     public String toString() {
-        return "ReceiptDetail{" + "repde_id=" + repde_id + ", rep_id=" + rep_id + ", prod_id=" + prod_id + ", amount=" + amount + ", total=" + this.getTotal() + "}";
+        return "ReceiptDetail{" + "repde_id=" + repde_id +  ", prod_id=" + product + ", amount=" + amount + ", total=" + this.getTotal() + "}";
     }
 
     public int getRepde_id() {
@@ -37,20 +37,20 @@ public class ReceiptDetail {
         this.repde_id = repde_id;
     }
 
-    public Receipt getRep_id() {
-        return rep_id;
+    public Receipt getReceipt() {
+        return receipt;
     }
 
     public void setRep_id(Receipt rep_id) {
-        this.rep_id = rep_id;
+        this.receipt = rep_id;
     }
 
-    public Product getProd_id() {
-        return prod_id;
+    public Product getProduct() {
+        return product;
     }
 
     public void setProd_id(Product prod_id) {
-        this.prod_id = prod_id;
+        this.product = prod_id;
     }
 
     public int getAmount() {
@@ -62,7 +62,7 @@ public class ReceiptDetail {
     }
 
     public double getTotal() {
-        return amount*price;
+        return amount*product.getPrice();
     }
 
     public void setPrice(double price) {
@@ -71,8 +71,8 @@ public class ReceiptDetail {
 
     public ReceiptDetail(int repde_id, Receipt rep_id, Product prod_id, int amount, double total) {
         this.repde_id = repde_id;
-        this.rep_id = rep_id;
-        this.prod_id = prod_id;
+        this.receipt = rep_id;
+        this.product = prod_id;
         this.amount = amount;
         this.price = total;
     }
