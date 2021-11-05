@@ -110,8 +110,7 @@
                               <Component id="txtCashReceipt" max="32767" attributes="0"/>
                               <Component id="txtChangeReceipt" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" pref="343" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="406" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -121,35 +120,30 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblidReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblshowidReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblEmpIdReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtEMPIDReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTotalReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtTotalReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lbDateReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtDateReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbCashReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCashReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblCusIdReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCUSIDReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbChangeReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtChangeReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="jLabel1" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblidReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblshowidReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblEmpIdReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtEMPIDReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTotalReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtTotalReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbDateReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtDateReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbCashReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCashReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblCusIdReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCUSIDReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbChangeReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtChangeReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -211,14 +205,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncancleReceiptActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="36" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Receipt Management"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTotalReceipt">
           <Properties>

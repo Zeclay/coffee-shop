@@ -14,37 +14,52 @@ import model.User;
  * @author NITRO 5
  */
 public class UserService {
-    private  static ArrayList<String> userName = new ArrayList<>();
-    private  static ArrayList<String> Password = new ArrayList<>();
+
     private static User currentUser = null;
+    private static ArrayList<String> userName = new ArrayList<>();
+    private static ArrayList<String> Password = new ArrayList<>();
+    
     DaoUser daoUser;
 
     public UserService() {
-         daoUser = new DaoUser();
-         for(User dao : daoUser.getAll()){
-             userName.add(dao.getUsername());
-             Password.add(dao.getPassword());
-         }
-        
+        daoUser = new DaoUser();
+        for (User dao : daoUser.getAll()) {
+            userName.add(dao.getUsername());
+            Password.add(dao.getPassword());
+        }
+
     }
-    public boolean checkLogin(String username,String password){
-        for(int i = 0;i<userName.size();i++){
-            if(userName.get(i).equals(username)){
-                if(Password.get(i).equals(password)){
-                    return true;
-                }
+
+    public static User getCurrentUser() {
+        return currentUser;
+    }
+
+    public static void setCurrentUser(User currentUser) {
+        UserService.currentUser = currentUser;
+    }
+
+    public boolean checkLogin(String username, String password) {
+        ArrayList<User> daou = daoUser.getAll();
+        
+        for (int i = 0; i < daou.size(); i++) {
+            if (daou.get(i).getUsername().equals(username) && daou.get(i).getPassword().equals(password)) {
+                currentUser = daou.get(i);
+                System.out.println(currentUser);
+                return true;
+
             }
         }
         return false;
     }
-    
+
     public static void clearUserName() {
         userName.clear();
     }
+
     public static void clearPassword() {
         Password.clear();
     }
-    
+
     public static ArrayList<String> getUserName() {
         return userName;
     }
@@ -60,6 +75,5 @@ public class UserService {
     public static void setPassword(ArrayList<String> Password) {
         UserService.Password = Password;
     }
-    
-    
+
 }

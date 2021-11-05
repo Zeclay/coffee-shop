@@ -146,6 +146,8 @@ public class LoginPanel extends javax.swing.JPanel {
          }else{
              //ไม่ผ่าน
              lblWarning.setText("Username or Password is Incorrect");
+             tfName.setText("");
+             jPasswordField1.setText("");
          }
          us.clearUserName();
          us.clearPassword();

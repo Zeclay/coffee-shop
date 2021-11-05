@@ -17,13 +17,19 @@ import OtherPage.TableUser;
  * @author ROG
  */
 public class MainMenuPanel extends javax.swing.JPanel {
-private MainFrame mainFrame;
+
+    private MainFrame mainFrame;
+
     /**
      * Creates new form MainMenuPanel
      */
     public MainMenuPanel(MainFrame mainFrame) {
         initComponents();
         this.mainFrame = mainFrame;
+        lblTitle.setText("MainMenu");
+        UserService us = new UserService();
+        lblCurrentUser.setText(us.getCurrentUser().getEmployee().getName());
+//        System.out.println(us.getCurrentUser().getUsername());
     }
 
     /**
@@ -36,6 +42,9 @@ private MainFrame mainFrame;
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblCurrentUser = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnpointofsell = new javax.swing.JButton();
         btnEmployee = new javax.swing.JButton();
@@ -50,15 +59,45 @@ private MainFrame mainFrame;
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        lblTitle.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("Title");
+        lblTitle.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+                lblTitleAncestorMoved(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Welcome");
+
+        lblCurrentUser.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCurrentUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCurrentUser.setText("Name");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 986, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCurrentUser, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCurrentUser, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -174,7 +213,7 @@ private MainFrame mainFrame;
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 576, Short.MAX_VALUE)
+            .addGap(0, 581, Short.MAX_VALUE)
         );
 
         pnlShowFrame.setViewportView(jPanel3);
@@ -187,7 +226,7 @@ private MainFrame mainFrame;
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnlShowFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addComponent(pnlShowFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 838, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,41 +235,52 @@ private MainFrame mainFrame;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlShowFrame)))
+                    .addComponent(pnlShowFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnpointofsellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpointofsellActionPerformed
+        lblTitle.setText("Point Of Sell");
         pnlShowFrame.setViewportView(new Point_of_sell());
     }//GEN-LAST:event_btnpointofsellActionPerformed
 
     private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
+        lblTitle.setText("Employee Management");
         pnlShowFrame.setViewportView(new TableEmployeePanel());
     }//GEN-LAST:event_btnEmployeeActionPerformed
 
     private void btnCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerActionPerformed
-       pnlShowFrame.setViewportView(new TableCustomer());
+        lblTitle.setText("Customer Management");
+        pnlShowFrame.setViewportView(new TableCustomer());
     }//GEN-LAST:event_btnCustomerActionPerformed
 
     private void btnStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockActionPerformed
-       pnlShowFrame.setViewportView(new TableStock());
+        lblTitle.setText("Stock Management");
+        pnlShowFrame.setViewportView(new TableStock());
     }//GEN-LAST:event_btnStockActionPerformed
 
     private void btnReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceiptActionPerformed
+        lblTitle.setText("Receipt Management");
         pnlShowFrame.setViewportView(new TableReceiptPanel());
     }//GEN-LAST:event_btnReceiptActionPerformed
 
     private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
+        lblTitle.setText("Product Management");
         pnlShowFrame.setViewportView(new TableProductPanel());
     }//GEN-LAST:event_btnProductActionPerformed
 
     private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
+        lblTitle.setText("User Management");
         pnlShowFrame.setViewportView(new TableUser());
     }//GEN-LAST:event_btnUserActionPerformed
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         mainFrame.logOut();
     }//GEN-LAST:event_btnLogOutActionPerformed
+
+    private void lblTitleAncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lblTitleAncestorMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblTitleAncestorMoved
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -242,9 +292,12 @@ private MainFrame mainFrame;
     private javax.swing.JButton btnStock;
     private javax.swing.JButton btnUser;
     private javax.swing.JButton btnpointofsell;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblCurrentUser;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JScrollPane pnlShowFrame;
     // End of variables declaration//GEN-END:variables
 }
