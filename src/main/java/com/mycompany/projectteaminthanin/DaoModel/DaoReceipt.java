@@ -216,10 +216,10 @@ public class DaoReceipt implements DaoInterface<Receipt> {
 //        Receipt receipt = new Receipt(emp, cus);
 //        receipt.addReceiptDetail(p1, 1);
 //        receipt.addReceiptDetail(p2, 3);
-        DaoReceipt dao = new DaoReceipt();
+  //      DaoReceipt dao = new DaoReceipt();
 //        System.out.println("id = " + dao.add(receipt));
 //        System.out.println("Receipt after add" + receipt);
-        System.out.println("Get all" + dao.getAll());
+  //      System.out.println("Get all" + dao.getAll());
 ////
 // System.out.println(receipt);
 

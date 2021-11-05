@@ -81,6 +81,12 @@ public class Receipt {
     public void setEmployee(Employee emp_id) {
         this.employee = emp_id;
     }
+    public void setEmpID(int id){
+        employee.setEmployeeId(id);
+    }
+    public int getEmpID(){
+        return employee.getEmployeeId();
+    }
 
     public Date getDate() {
         return date;
@@ -94,8 +100,15 @@ public class Receipt {
         return customer;
     }
 
-    public void setCus_id(Customer cus_id) {
+    public void setCustomer(Customer cus_id) {
         this.customer = cus_id;
+    }
+    public int getCusID(){
+        return customer.getCustomerId();
+    }
+    
+    public void setCusID(int id){
+        customer.setCustomerId(id);
     }
 
     public double getTotal() {

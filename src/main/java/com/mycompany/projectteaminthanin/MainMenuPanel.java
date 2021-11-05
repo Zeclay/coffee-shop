@@ -6,6 +6,7 @@
 package com.mycompany.projectteaminthanin;
 
 import OtherPage.TableProductPanel;
+import OtherPage.TableReceiptPanel;
 import OtherPage.TableStock;
 
 /**
@@ -212,7 +213,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnStockActionPerformed
 
     private void btnReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceiptActionPerformed
-        // TODO add your handling code here:
+        pnlShowFrame.setViewportView(new TableReceiptPanel());
     }//GEN-LAST:event_btnReceiptActionPerformed
 
     private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed

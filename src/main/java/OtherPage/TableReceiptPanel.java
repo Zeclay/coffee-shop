@@ -5,11 +5,15 @@
  */
 package OtherPage;
 
-import com.mycompany.projectteaminthanin.DaoModel.DaoStock;
+import com.mycompany.projectteaminthanin.DaoModel.DaoReceipt;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
-import model.Stock;
+import model.Receipt;
 
 /**
  *
@@ -17,63 +21,94 @@ import model.Stock;
  */
 public class TableReceiptPanel extends javax.swing.JPanel {
 
-    private ArrayList<Stock> stockList;
-    private Stocktablemodel model;
-    Stock editedStock;
+    private ArrayList<Receipt> receiptList;
+    private ReceiptTablemodel model;
+    Receipt editedReceipt;
+
     /**
      * Creates new form TableStock
      */
     public TableReceiptPanel() {
         initComponents();
-        DaoStock dao = new DaoStock();
+        DaoReceipt dao = new DaoReceipt();
         initForm();
         loadTable(dao);
     }
-     public void initForm() {
+
+    public void initForm() {
         lblidReceipt.setEnabled(false);
-        txtnameReceipt.setEnabled(false);
-        txtamountReceipt.setEnabled(false);
-        txtpriceReceipt.setEnabled(false);
+        txtEMPIDReceipt.setEnabled(false);
+        txtDateReceipt.setEnabled(false);
+        txtCUSIDReceipt.setEnabled(false);
+        txtCashReceipt.setEnabled(false);
+        txtChangeReceipt.setEnabled(false);
+        txtTotalReceipt.setEnabled(false);
+
         btnsaveReceipt.setEnabled(false);
         btncancleReceipt.setEnabled(false);
     }
-     public void refreshTable() {
-        DaoStock dao = new DaoStock();
-        ArrayList<Stock> newList = dao.getAll();
-        stockList.clear();
-        stockList.addAll(newList);
+
+    public void refreshTable() {
+        DaoReceipt dao = new DaoReceipt();
+        ArrayList<Receipt> newList = dao.getAll();
+        receiptList.clear();
+        receiptList.addAll(newList);
         tblReceipt.revalidate();
         tblReceipt.repaint();
     }
-      public void clearEditForm() {
-        editedStock = null;
+
+    public void clearEditForm() {
+        editedReceipt = null;
         lblshowidReceipt.setText("");
-        txtnameReceipt.setText("");
-        txtamountReceipt.setText("");
-        txtpriceReceipt.setText("");
+        txtEMPIDReceipt.setText("");
+        txtDateReceipt.setText("");
+        txtCUSIDReceipt.setText("");
+        txtCashReceipt.setText("");
+        txtChangeReceipt.setText("");
+        txtTotalReceipt.setText("");
         initForm();
 
     }
-      public void loadFormToStock() {
-        editedStock.setStockprod_name(txtnameReceipt.getText());
-        editedStock.setAmount(Integer.parseInt(txtamountReceipt.getText()));
-        editedStock.setPrice(Double.parseDouble(txtpriceReceipt.getText()));
+
+    public void loadFormToReceipt() {
+        
+        try {
+            editedReceipt.setEmpID(Integer.parseInt(txtEMPIDReceipt.getText()));
+            editedReceipt.setDate(new SimpleDateFormat("dd-MM-yyyy").parse(txtDateReceipt.getText()));
+            editedReceipt.setCusID(Integer.parseInt(txtCUSIDReceipt.getText()));
+            editedReceipt.setTotal(Double.parseDouble(txtTotalReceipt.getText()));
+            editedReceipt.setCash(Double.parseDouble(txtCashReceipt.getText()));
+            editedReceipt.setChange(Double.parseDouble(txtChangeReceipt.getText()));
+            
+        } catch (ParseException ex) {
+            Logger.getLogger(TableReceiptPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
-      public void loadTable(DaoStock dao) {
-        stockList = dao.getAll();
-        model = new Stocktablemodel(stockList);
+
+    public void loadTable(DaoReceipt dao) {
+        receiptList = dao.getAll();
+        model = new ReceiptTablemodel(receiptList);
         tblReceipt.setModel(model);
     }
-     public void loadStockToForm() {
-        if (editedStock.getStock_id() >= 0) {
-            lblshowidReceipt.setText("" + editedStock.getStock_id());
+
+    public void loadReceiptToForm() {
+        if (editedReceipt.getRep_id() >= 0) {
+            lblshowidReceipt.setText("" + editedReceipt.getRep_id());
         }
-        txtnameReceipt.setText(editedStock.getStockprod_name());
-        txtamountReceipt.setText(editedStock.getAmount()+"");
-        txtpriceReceipt.setText("" + editedStock.getPrice());
-        txtnameReceipt.setEnabled(true);
-        txtamountReceipt.setEnabled(true);
-        txtpriceReceipt.setEnabled(true);
+        txtEMPIDReceipt.setText(editedReceipt.getEmpID()+"");
+        txtDateReceipt.setText(editedReceipt.getDate()+"");
+        txtCUSIDReceipt.setText("" + editedReceipt.getCusID());
+        txtTotalReceipt.setText(editedReceipt.getTotal()+"");
+        txtCashReceipt.setText(""+editedReceipt.getCash());
+        txtChangeReceipt.setText(""+editedReceipt.getChange());
+        txtEMPIDReceipt.setEnabled(true);
+        txtDateReceipt.setEnabled(true);
+        txtCUSIDReceipt.setEnabled(true);
+        txtTotalReceipt.setEnabled(true);
+        txtCashReceipt.setEnabled(true);
+        txtChangeReceipt.setEnabled(true);
         btnsaveReceipt.setEnabled(true);
         btncancleReceipt.setEnabled(true);
     }
@@ -90,17 +125,23 @@ public class TableReceiptPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblReceipt = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        lblnameReceipt = new javax.swing.JLabel();
+        lblEmpIdReceipt = new javax.swing.JLabel();
         lblidReceipt = new javax.swing.JLabel();
-        lbamountReceipt = new javax.swing.JLabel();
-        lblpriceReceipt = new javax.swing.JLabel();
-        txtnameReceipt = new javax.swing.JTextField();
-        txtamountReceipt = new javax.swing.JTextField();
-        txtpriceReceipt = new javax.swing.JTextField();
+        lbDateReceipt = new javax.swing.JLabel();
+        lblCusIdReceipt = new javax.swing.JLabel();
+        txtEMPIDReceipt = new javax.swing.JTextField();
+        txtDateReceipt = new javax.swing.JTextField();
+        txtCUSIDReceipt = new javax.swing.JTextField();
         lblshowidReceipt = new javax.swing.JLabel();
         btnsaveReceipt = new javax.swing.JButton();
         btncancleReceipt = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        lblTotalReceipt = new javax.swing.JLabel();
+        txtTotalReceipt = new javax.swing.JTextField();
+        lbCashReceipt = new javax.swing.JLabel();
+        txtCashReceipt = new javax.swing.JTextField();
+        lbChangeReceipt = new javax.swing.JLabel();
+        txtChangeReceipt = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -120,17 +161,17 @@ public class TableReceiptPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblReceipt);
 
-        lblnameReceipt.setText("Name : ");
+        lblEmpIdReceipt.setText("EMPID : ");
 
-        lblidReceipt.setText("ID      :");
+        lblidReceipt.setText("ID : ");
 
-        lbamountReceipt.setText("Amount :");
+        lbDateReceipt.setText("Date : ");
 
-        lblpriceReceipt.setText("Price   : ");
+        lblCusIdReceipt.setText("CUSID : ");
 
-        txtamountReceipt.addActionListener(new java.awt.event.ActionListener() {
+        txtDateReceipt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtamountReceiptActionPerformed(evt);
+                txtDateReceiptActionPerformed(evt);
             }
         });
 
@@ -153,31 +194,63 @@ public class TableReceiptPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Receipt Management");
 
+        lblTotalReceipt.setText("Total : ");
+
+        lbCashReceipt.setText("Cash : ");
+
+        txtCashReceipt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCashReceiptActionPerformed(evt);
+            }
+        });
+
+        lbChangeReceipt.setText("Change : ");
+
+        txtChangeReceipt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtChangeReceiptActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblnameReceipt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbamountReceipt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbDateReceipt)
                     .addComponent(lblidReceipt)
-                    .addComponent(lblpriceReceipt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(lblEmpIdReceipt)
+                    .addComponent(lblCusIdReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnsaveReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btncancleReceipt)
-                        .addContainerGap(654, Short.MAX_VALUE))
+                        .addContainerGap(657, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblshowidReceipt)
-                            .addComponent(txtamountReceipt)
-                            .addComponent(txtnameReceipt, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(txtpriceReceipt))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtDateReceipt, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(txtCUSIDReceipt)
+                            .addComponent(txtEMPIDReceipt))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbCashReceipt)
+                                    .addComponent(lblTotalReceipt)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(lbChangeReceipt)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTotalReceipt)
+                            .addComponent(txtCashReceipt)
+                            .addComponent(txtChangeReceipt))
+                        .addGap(63, 63, 63)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -191,16 +264,22 @@ public class TableReceiptPanel extends javax.swing.JPanel {
                             .addComponent(lblshowidReceipt))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblnameReceipt)
-                            .addComponent(txtnameReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblEmpIdReceipt)
+                            .addComponent(txtEMPIDReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTotalReceipt)
+                            .addComponent(txtTotalReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbamountReceipt)
-                            .addComponent(txtamountReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbDateReceipt)
+                            .addComponent(txtDateReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbCashReceipt)
+                            .addComponent(txtCashReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblpriceReceipt)
-                            .addComponent(txtpriceReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblCusIdReceipt)
+                            .addComponent(txtCUSIDReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbChangeReceipt)
+                            .addComponent(txtChangeReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -268,17 +347,17 @@ public class TableReceiptPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtamountReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtamountReceiptActionPerformed
+    private void txtDateReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateReceiptActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtamountReceiptActionPerformed
+    }//GEN-LAST:event_txtDateReceiptActionPerformed
 
     private void btnsaveReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveReceiptActionPerformed
-        loadFormToStock();
-        DaoStock dao = new DaoStock();
-        if (editedStock.getStock_id() >= 0) {
-            dao.update(editedStock);
+        loadFormToReceipt();
+        DaoReceipt dao = new DaoReceipt();
+        if (editedReceipt.getRep_id() >= 0) {
+            dao.update(editedReceipt);
         } else {
-            dao.add(editedStock);
+            dao.add(editedReceipt);
         }
         refreshTable();
         clearEditForm();
@@ -290,8 +369,8 @@ public class TableReceiptPanel extends javax.swing.JPanel {
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         if (tblReceipt.getSelectedRow() >= 0) {
-            editedStock = stockList.get(tblReceipt.getSelectedRow());
-            loadStockToForm();
+            editedReceipt = receiptList.get(tblReceipt.getSelectedRow());
+            loadReceiptToForm();
         }
     }//GEN-LAST:event_btnEditActionPerformed
 
@@ -299,13 +378,21 @@ public class TableReceiptPanel extends javax.swing.JPanel {
         if (JOptionPane.showConfirmDialog(null, "Are you sure?", "WARNING",
             JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
         if (tblReceipt.getSelectedRow() >= 0) {
-            DaoStock dao = new DaoStock();
-            editedStock = stockList.get(tblReceipt.getSelectedRow());
-            dao.delete(editedStock.getStock_id());
+            DaoReceipt dao = new DaoReceipt();
+            editedReceipt = receiptList.get(tblReceipt.getSelectedRow());
+            dao.delete(editedReceipt.getRep_id());
         }
         refreshTable();
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void txtCashReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCashReceiptActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCashReceiptActionPerformed
+
+    private void txtChangeReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtChangeReceiptActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtChangeReceiptActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -317,61 +404,74 @@ public class TableReceiptPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbamountReceipt;
+    private javax.swing.JLabel lbCashReceipt;
+    private javax.swing.JLabel lbChangeReceipt;
+    private javax.swing.JLabel lbDateReceipt;
+    private javax.swing.JLabel lblCusIdReceipt;
+    private javax.swing.JLabel lblEmpIdReceipt;
+    private javax.swing.JLabel lblTotalReceipt;
     private javax.swing.JLabel lblidReceipt;
-    private javax.swing.JLabel lblnameReceipt;
-    private javax.swing.JLabel lblpriceReceipt;
     private javax.swing.JLabel lblshowidReceipt;
     private javax.swing.JTable tblReceipt;
-    private javax.swing.JTextField txtamountReceipt;
-    private javax.swing.JTextField txtnameReceipt;
-    private javax.swing.JTextField txtpriceReceipt;
+    private javax.swing.JTextField txtCUSIDReceipt;
+    private javax.swing.JTextField txtCashReceipt;
+    private javax.swing.JTextField txtChangeReceipt;
+    private javax.swing.JTextField txtDateReceipt;
+    private javax.swing.JTextField txtEMPIDReceipt;
+    private javax.swing.JTextField txtTotalReceipt;
     // End of variables declaration//GEN-END:variables
-private class Stocktablemodel extends AbstractTableModel{
-   
-    
-    private final ArrayList<Stock> data;
-       
-    String[] columnName = {"ID", "Name", "Amount", "Price"};
+private class ReceiptTablemodel extends AbstractTableModel {
 
-        private Stocktablemodel(ArrayList<Stock> data) {
-            this.data=data;
+        private final ArrayList<Receipt> data;
+
+        String[] columnName = {"ID", "EMP_ID", "DATE", "CUS_ID","Total","Cash","Change"};
+
+        private ReceiptTablemodel(ArrayList<Receipt> data) {
+            this.data = data;
         }
 
         @Override
         public int getRowCount() {
-           return this.data.size();
+            return this.data.size();
         }
 
         @Override
         public int getColumnCount() {
-            return 4;
+            return 7;
         }
 
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
-             Stock stock = this.data.get(rowIndex);
+            Receipt receipt = this.data.get(rowIndex);
             if (columnIndex == 0) {
-                return stock.getStock_id();
+                return receipt.getRep_id();
             }
             if (columnIndex == 1) {
-                return stock.getStockprod_name();
+                return receipt.getEmpID();
             }
             if (columnIndex == 2) {
-                return stock.getAmount();
+                return receipt.getDate();
             }
             if (columnIndex == 3) {
-                return stock.getPrice();
+                return receipt.getCusID();
+            }
+            if(columnIndex == 4){
+                return receipt.getTotal();
+            }
+            if(columnIndex == 5){
+                return receipt.getCash();
+            }
+            if(columnIndex == 6){
+                return receipt.getCash();
             }
             return "";
         }
-         @Override
+
+        @Override
         public String getColumnName(int column) {
             return columnName[column];
         }
 
-        }
-    
-}
+    }
 
-        
+}
