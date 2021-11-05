@@ -5,6 +5,7 @@
  */
 package com.mycompany.projectteaminthanin;
 
+import com.mycompany.projectteaminthanin.DaoModel.DaoUser;
 import java.util.ArrayList;
 import model.User;
 
@@ -16,6 +17,16 @@ public class UserService {
     private  static ArrayList<String> userName = new ArrayList<>();
     private  static ArrayList<String> Password = new ArrayList<>();
     private static User currentUser = null;
-  
+    DaoUser daoUser;
+
+    public UserService() {
+         daoUser = new DaoUser();
+         for(User dao : daoUser.getAll()){
+             userName.add(dao.getUsername());
+             Password.add(dao.getPassword());
+         }
+        
+    }
+    
     
 }

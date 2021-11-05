@@ -124,12 +124,13 @@ public class LoginPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNameActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_tfNameActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
          String userName = tfName.getText();
          String password = new String(jPasswordField1.getPassword());
+         
          
        
     }//GEN-LAST:event_btnLoginActionPerformed
