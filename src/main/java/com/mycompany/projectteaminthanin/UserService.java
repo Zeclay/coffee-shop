@@ -27,6 +27,16 @@ public class UserService {
          }
         
     }
+    public boolean checkLogin(String username,String password){
+        for(int i = 0;i<userName.size();i++){
+            if(userName.get(i) == username){
+                if(Password.get(i) == password){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     
     
 }

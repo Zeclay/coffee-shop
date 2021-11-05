@@ -130,7 +130,12 @@ public class LoginPanel extends javax.swing.JPanel {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
          String userName = tfName.getText();
          String password = new String(jPasswordField1.getPassword());
-         
+         UserService us = new UserService();
+         if(us.checkLogin(userName, password)){
+             //ผ่าน
+         }else{
+             //ไม่ผ่าน
+         }
          
        
     }//GEN-LAST:event_btnLoginActionPerformed
