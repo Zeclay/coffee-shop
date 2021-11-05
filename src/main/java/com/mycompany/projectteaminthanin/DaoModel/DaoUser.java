@@ -53,16 +53,16 @@ public class DaoUser implements DaoInterface<User> {
         Database db = Database.getInstance();
         conn = db.getConnection();
         try {
-            String sql = "SELECT user_id,emp_id,emp.Name as emp_name,username,password FROM User,Employee emp WHERE user_id = emp_id;";
+            String sql = "SELECT user_id,emp_id,username,password FROM User;";
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
                 int id = result.getInt("user_id");
                 int empId = result.getInt("emp_id");
-                String emp_Name = result.getString("emp_name");
+//                String emp_Name = result.getString("emp_name");
                 String username = result.getString("username");
                 String password = result.getString("password");
-                User user = new User(id, new Employee(empId, emp_Name, "", "", null, "", "", "", 0.0), username, password);
+                User user = new User(id, new Employee(empId, "", "", "", null, "", "", "", 0.0), username, password);
                 list.add(user);
             }
         } catch (SQLException ex) {
@@ -142,10 +142,13 @@ public class DaoUser implements DaoInterface<User> {
     }
 
     public static void main(String[] args) {
-//        DaoUser dao = new DaoUser();
+        DaoUser dao = new DaoUser();
 //        User last = dao.get(5);
 //        last.setPassword("password");
 //        dao.update(last);
+System.out.println(dao.getAll());
+
+
 
     }
 

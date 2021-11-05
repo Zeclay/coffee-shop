@@ -33,8 +33,8 @@ public class User {
         return employee;
     }
 
-    public void setEmployee(Employee emp_id) {
-        this.employee = emp_id;
+    public void setEmployee(int emp_id) {
+      employee.setEmployeeId(emp_id);
     }
 
     public String getUsername() {
@@ -51,6 +51,10 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public int getEmpID(){
+        return  employee.getEmployeeId();
     }
 
     @Override

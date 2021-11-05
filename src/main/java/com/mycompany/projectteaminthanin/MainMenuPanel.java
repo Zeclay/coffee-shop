@@ -9,6 +9,7 @@ import OtherPage.TableEmployeePanel;
 import OtherPage.TableProductPanel;
 import OtherPage.TableReceiptPanel;
 import OtherPage.TableStock;
+import OtherPage.TableUser;
 
 /**
  *
@@ -222,7 +223,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnProductActionPerformed
 
     private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
-        // TODO add your handling code here:
+        pnlShowFrame.setViewportView(new TableUser());
     }//GEN-LAST:event_btnUserActionPerformed
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed

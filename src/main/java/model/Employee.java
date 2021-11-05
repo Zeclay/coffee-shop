@@ -105,8 +105,12 @@ public class Employee {
         this.salary = salary;
     }
 
-    @Override
-    public String toString() {
+    public Employee() {
+    }
+
+
+@Override
+        public String toString() {
         return "Employee{" + "EmployeeId=" + EmployeeId + ", Name=" + Name
                 + ", PID=" + PID + ", Phone=" + Phone + ", BirthDay=" + BirthDay
                 + ", Address=" + Address + ", Gender=" + Gender + ", Type=" + Type
