@@ -6,9 +6,12 @@
 package OtherPage;
 
 import com.mycompany.projectteaminthanin.DaoModel.DaoReceipt;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -71,20 +74,21 @@ public class TableReceiptPanel extends javax.swing.JPanel {
     }
 
     public void loadFormToReceipt() {
-        
+
         try {
             editedReceipt.setEmpID(Integer.parseInt(txtEMPIDReceipt.getText()));
-            editedReceipt.setDate(new SimpleDateFormat("dd-MM-yyyy").parse(txtDateReceipt.getText()));
+            String sDate1 = txtDateReceipt.getText();
+            Date date1 = new SimpleDateFormat("yyyy-mm-dd").parse(sDate1);
+            editedReceipt.setDate(date1);
             editedReceipt.setCusID(Integer.parseInt(txtCUSIDReceipt.getText()));
             editedReceipt.setTotal(Double.parseDouble(txtTotalReceipt.getText()));
             editedReceipt.setCash(Double.parseDouble(txtCashReceipt.getText()));
             editedReceipt.setChange(Double.parseDouble(txtChangeReceipt.getText()));
-            
+
         } catch (ParseException ex) {
-            Logger.getLogger(TableReceiptPanel.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ERRORRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
         }
-        
-        
+
     }
 
     public void loadTable(DaoReceipt dao) {
@@ -97,12 +101,15 @@ public class TableReceiptPanel extends javax.swing.JPanel {
         if (editedReceipt.getRep_id() >= 0) {
             lblshowidReceipt.setText("" + editedReceipt.getRep_id());
         }
-        txtEMPIDReceipt.setText(editedReceipt.getEmpID()+"");
-        txtDateReceipt.setText(editedReceipt.getDate()+"");
+        txtEMPIDReceipt.setText(editedReceipt.getEmpID() + "");
+        Date date = editedReceipt.getDate();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        String strDate = dateFormat.format(date);
+        txtDateReceipt.setText(strDate);
         txtCUSIDReceipt.setText("" + editedReceipt.getCusID());
-        txtTotalReceipt.setText(editedReceipt.getTotal()+"");
-        txtCashReceipt.setText(""+editedReceipt.getCash());
-        txtChangeReceipt.setText(""+editedReceipt.getChange());
+        txtTotalReceipt.setText(editedReceipt.getTotal() + "");
+        txtCashReceipt.setText("" + editedReceipt.getCash());
+        txtChangeReceipt.setText("" + editedReceipt.getChange());
         txtEMPIDReceipt.setEnabled(true);
         txtDateReceipt.setEnabled(true);
         txtCUSIDReceipt.setEnabled(true);
@@ -376,13 +383,13 @@ public class TableReceiptPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         if (JOptionPane.showConfirmDialog(null, "Are you sure?", "WARNING",
-            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-        if (tblReceipt.getSelectedRow() >= 0) {
-            DaoReceipt dao = new DaoReceipt();
-            editedReceipt = receiptList.get(tblReceipt.getSelectedRow());
-            dao.delete(editedReceipt.getRep_id());
-        }
-        refreshTable();
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            if (tblReceipt.getSelectedRow() >= 0) {
+                DaoReceipt dao = new DaoReceipt();
+                editedReceipt = receiptList.get(tblReceipt.getSelectedRow());
+                dao.delete(editedReceipt.getRep_id());
+            }
+            refreshTable();
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -424,7 +431,7 @@ private class ReceiptTablemodel extends AbstractTableModel {
 
         private final ArrayList<Receipt> data;
 
-        String[] columnName = {"ID", "EMP_ID", "DATE", "CUS_ID","Total","Cash","Change"};
+        String[] columnName = {"ID", "EMP_ID", "DATE", "CUS_ID", "Total", "Cash", "Change"};
 
         private ReceiptTablemodel(ArrayList<Receipt> data) {
             this.data = data;
@@ -455,13 +462,13 @@ private class ReceiptTablemodel extends AbstractTableModel {
             if (columnIndex == 3) {
                 return receipt.getCusID();
             }
-            if(columnIndex == 4){
+            if (columnIndex == 4) {
                 return receipt.getTotal();
             }
-            if(columnIndex == 5){
+            if (columnIndex == 5) {
                 return receipt.getCash();
             }
-            if(columnIndex == 6){
+            if (columnIndex == 6) {
                 return receipt.getCash();
             }
             return "";
