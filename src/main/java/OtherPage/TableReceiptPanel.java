@@ -15,7 +15,7 @@ import model.Stock;
  *
  * @author NITRO 5
  */
-public class TableStock extends javax.swing.JPanel {
+public class TableReceiptPanel extends javax.swing.JPanel {
 
     private ArrayList<Stock> stockList;
     private Stocktablemodel model;
@@ -23,59 +23,59 @@ public class TableStock extends javax.swing.JPanel {
     /**
      * Creates new form TableStock
      */
-    public TableStock() {
+    public TableReceiptPanel() {
         initComponents();
         DaoStock dao = new DaoStock();
         initForm();
         loadTable(dao);
     }
      public void initForm() {
-        lblidStock.setEnabled(false);
-        txtnameStock.setEnabled(false);
-        txtamountStock.setEnabled(false);
-        txtpriceStock.setEnabled(false);
-        btnsaveStock.setEnabled(false);
-        btncancleStock.setEnabled(false);
+        lblidReceipt.setEnabled(false);
+        txtnameReceipt.setEnabled(false);
+        txtamountReceipt.setEnabled(false);
+        txtpriceReceipt.setEnabled(false);
+        btnsaveReceipt.setEnabled(false);
+        btncancleReceipt.setEnabled(false);
     }
      public void refreshTable() {
         DaoStock dao = new DaoStock();
         ArrayList<Stock> newList = dao.getAll();
         stockList.clear();
         stockList.addAll(newList);
-        tblStock.revalidate();
-        tblStock.repaint();
+        tblReceipt.revalidate();
+        tblReceipt.repaint();
     }
       public void clearEditForm() {
         editedStock = null;
-        lblshowidStock.setText("");
-        txtnameStock.setText("");
-        txtamountStock.setText("");
-        txtpriceStock.setText("");
+        lblshowidReceipt.setText("");
+        txtnameReceipt.setText("");
+        txtamountReceipt.setText("");
+        txtpriceReceipt.setText("");
         initForm();
 
     }
       public void loadFormToStock() {
-        editedStock.setStockprod_name(txtnameStock.getText());
-        editedStock.setAmount(Integer.parseInt(txtamountStock.getText()));
-        editedStock.setPrice(Double.parseDouble(txtpriceStock.getText()));
+        editedStock.setStockprod_name(txtnameReceipt.getText());
+        editedStock.setAmount(Integer.parseInt(txtamountReceipt.getText()));
+        editedStock.setPrice(Double.parseDouble(txtpriceReceipt.getText()));
     }
       public void loadTable(DaoStock dao) {
         stockList = dao.getAll();
         model = new Stocktablemodel(stockList);
-        tblStock.setModel(model);
+        tblReceipt.setModel(model);
     }
      public void loadStockToForm() {
         if (editedStock.getStock_id() >= 0) {
-            lblshowidStock.setText("" + editedStock.getStock_id());
+            lblshowidReceipt.setText("" + editedStock.getStock_id());
         }
-        txtnameStock.setText(editedStock.getStockprod_name());
-        txtamountStock.setText(editedStock.getAmount()+"");
-        txtpriceStock.setText("" + editedStock.getPrice());
-        txtnameStock.setEnabled(true);
-        txtamountStock.setEnabled(true);
-        txtpriceStock.setEnabled(true);
-        btnsaveStock.setEnabled(true);
-        btncancleStock.setEnabled(true);
+        txtnameReceipt.setText(editedStock.getStockprod_name());
+        txtamountReceipt.setText(editedStock.getAmount()+"");
+        txtpriceReceipt.setText("" + editedStock.getPrice());
+        txtnameReceipt.setEnabled(true);
+        txtamountReceipt.setEnabled(true);
+        txtpriceReceipt.setEnabled(true);
+        btnsaveReceipt.setEnabled(true);
+        btncancleReceipt.setEnabled(true);
     }
 
     /**
@@ -88,27 +88,26 @@ public class TableStock extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblStock = new javax.swing.JTable();
+        tblReceipt = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        lblnameStock = new javax.swing.JLabel();
-        lblidStock = new javax.swing.JLabel();
-        lbamountStock = new javax.swing.JLabel();
-        lblpriceStock = new javax.swing.JLabel();
-        txtnameStock = new javax.swing.JTextField();
-        txtamountStock = new javax.swing.JTextField();
-        txtpriceStock = new javax.swing.JTextField();
-        lblshowidStock = new javax.swing.JLabel();
-        btnsaveStock = new javax.swing.JButton();
-        btncancleStock = new javax.swing.JButton();
+        lblnameReceipt = new javax.swing.JLabel();
+        lblidReceipt = new javax.swing.JLabel();
+        lbamountReceipt = new javax.swing.JLabel();
+        lblpriceReceipt = new javax.swing.JLabel();
+        txtnameReceipt = new javax.swing.JTextField();
+        txtamountReceipt = new javax.swing.JTextField();
+        txtpriceReceipt = new javax.swing.JTextField();
+        lblshowidReceipt = new javax.swing.JLabel();
+        btnsaveReceipt = new javax.swing.JButton();
+        btncancleReceipt = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(888, 469));
 
-        tblStock.setModel(new javax.swing.table.DefaultTableModel(
+        tblReceipt.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -119,40 +118,40 @@ public class TableStock extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblStock);
+        jScrollPane1.setViewportView(tblReceipt);
 
-        lblnameStock.setText("Name : ");
+        lblnameReceipt.setText("Name : ");
 
-        lblidStock.setText("ID      :");
+        lblidReceipt.setText("ID      :");
 
-        lbamountStock.setText("Amount :");
+        lbamountReceipt.setText("Amount :");
 
-        lblpriceStock.setText("Price   : ");
+        lblpriceReceipt.setText("Price   : ");
 
-        txtamountStock.addActionListener(new java.awt.event.ActionListener() {
+        txtamountReceipt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtamountStockActionPerformed(evt);
+                txtamountReceiptActionPerformed(evt);
             }
         });
 
-        lblshowidStock.setText("?");
+        lblshowidReceipt.setText("?");
 
-        btnsaveStock.setText("Save");
-        btnsaveStock.addActionListener(new java.awt.event.ActionListener() {
+        btnsaveReceipt.setText("Save");
+        btnsaveReceipt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsaveStockActionPerformed(evt);
+                btnsaveReceiptActionPerformed(evt);
             }
         });
 
-        btncancleStock.setText("Cancle");
-        btncancleStock.addActionListener(new java.awt.event.ActionListener() {
+        btncancleReceipt.setText("Cancle");
+        btncancleReceipt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncancleStockActionPerformed(evt);
+                btncancleReceiptActionPerformed(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("Stock Management");
+        jLabel1.setText("Receipt Management");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -161,25 +160,25 @@ public class TableStock extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblnameStock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbamountStock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblidStock)
-                    .addComponent(lblpriceStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblnameReceipt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbamountReceipt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblidReceipt)
+                    .addComponent(lblpriceReceipt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnsaveStock, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnsaveReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btncancleStock)
+                        .addComponent(btncancleReceipt)
                         .addContainerGap(654, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblshowidStock)
-                            .addComponent(txtamountStock)
-                            .addComponent(txtnameStock, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(txtpriceStock))
+                            .addComponent(lblshowidReceipt)
+                            .addComponent(txtamountReceipt)
+                            .addComponent(txtnameReceipt, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(txtpriceReceipt))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,34 +187,27 @@ public class TableStock extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblidStock)
-                            .addComponent(lblshowidStock))
+                            .addComponent(lblidReceipt)
+                            .addComponent(lblshowidReceipt))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblnameStock)
-                            .addComponent(txtnameStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblnameReceipt)
+                            .addComponent(txtnameReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbamountStock)
-                            .addComponent(txtamountStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbamountReceipt)
+                            .addComponent(txtamountReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblpriceStock)
-                            .addComponent(txtpriceStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblpriceReceipt)
+                            .addComponent(txtpriceReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnsaveStock)
-                    .addComponent(btncancleStock))
+                    .addComponent(btnsaveReceipt)
+                    .addComponent(btncancleReceipt))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        btnAdd.setText("Add");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
 
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -236,11 +228,9 @@ public class TableStock extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDelete)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -249,7 +239,6 @@ public class TableStock extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd)
                     .addComponent(btnDelete)
                     .addComponent(btnEdit))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -279,11 +268,11 @@ public class TableStock extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtamountStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtamountStockActionPerformed
+    private void txtamountReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtamountReceiptActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtamountStockActionPerformed
+    }//GEN-LAST:event_txtamountReceiptActionPerformed
 
-    private void btnsaveStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveStockActionPerformed
+    private void btnsaveReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveReceiptActionPerformed
         loadFormToStock();
         DaoStock dao = new DaoStock();
         if (editedStock.getStock_id() >= 0) {
@@ -293,20 +282,15 @@ public class TableStock extends javax.swing.JPanel {
         }
         refreshTable();
         clearEditForm();
-    }//GEN-LAST:event_btnsaveStockActionPerformed
+    }//GEN-LAST:event_btnsaveReceiptActionPerformed
 
-    private void btncancleStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancleStockActionPerformed
+    private void btncancleReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancleReceiptActionPerformed
         clearEditForm();
-    }//GEN-LAST:event_btncancleStockActionPerformed
-
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        editedStock = new Stock(-1, "", 0, 0.0);
-       loadStockToForm();
-    }//GEN-LAST:event_btnAddActionPerformed
+    }//GEN-LAST:event_btncancleReceiptActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        if (tblStock.getSelectedRow() >= 0) {
-            editedStock = stockList.get(tblStock.getSelectedRow());
+        if (tblReceipt.getSelectedRow() >= 0) {
+            editedStock = stockList.get(tblReceipt.getSelectedRow());
             loadStockToForm();
         }
     }//GEN-LAST:event_btnEditActionPerformed
@@ -314,9 +298,9 @@ public class TableStock extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         if (JOptionPane.showConfirmDialog(null, "Are you sure?", "WARNING",
             JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-        if (tblStock.getSelectedRow() >= 0) {
+        if (tblReceipt.getSelectedRow() >= 0) {
             DaoStock dao = new DaoStock();
-            editedStock = stockList.get(tblStock.getSelectedRow());
+            editedStock = stockList.get(tblReceipt.getSelectedRow());
             dao.delete(editedStock.getStock_id());
         }
         refreshTable();
@@ -325,24 +309,23 @@ public class TableStock extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btncancleStock;
-    private javax.swing.JButton btnsaveStock;
+    private javax.swing.JButton btncancleReceipt;
+    private javax.swing.JButton btnsaveReceipt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbamountStock;
-    private javax.swing.JLabel lblidStock;
-    private javax.swing.JLabel lblnameStock;
-    private javax.swing.JLabel lblpriceStock;
-    private javax.swing.JLabel lblshowidStock;
-    private javax.swing.JTable tblStock;
-    private javax.swing.JTextField txtamountStock;
-    private javax.swing.JTextField txtnameStock;
-    private javax.swing.JTextField txtpriceStock;
+    private javax.swing.JLabel lbamountReceipt;
+    private javax.swing.JLabel lblidReceipt;
+    private javax.swing.JLabel lblnameReceipt;
+    private javax.swing.JLabel lblpriceReceipt;
+    private javax.swing.JLabel lblshowidReceipt;
+    private javax.swing.JTable tblReceipt;
+    private javax.swing.JTextField txtamountReceipt;
+    private javax.swing.JTextField txtnameReceipt;
+    private javax.swing.JTextField txtpriceReceipt;
     // End of variables declaration//GEN-END:variables
 private class Stocktablemodel extends AbstractTableModel{
    

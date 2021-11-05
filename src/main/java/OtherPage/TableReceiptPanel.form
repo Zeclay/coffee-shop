@@ -49,7 +49,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tblStock">
+        <Component class="javax.swing.JTable" name="tblReceipt">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
@@ -71,28 +71,28 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lblnameStock" alignment="1" max="32767" attributes="0"/>
-                      <Component id="lbamountStock" alignment="1" max="32767" attributes="0"/>
-                      <Component id="lblidStock" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblpriceStock" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblnameReceipt" alignment="1" max="32767" attributes="0"/>
+                      <Component id="lbamountReceipt" alignment="1" max="32767" attributes="0"/>
+                      <Component id="lblidReceipt" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblpriceReceipt" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnsaveStock" min="-2" pref="67" max="-2" attributes="0"/>
+                          <Component id="btnsaveReceipt" min="-2" pref="67" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btncancleStock" min="-2" max="-2" attributes="0"/>
+                          <Component id="btncancleReceipt" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="654" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="lblshowidStock" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtamountStock" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtnameStock" alignment="0" pref="200" max="32767" attributes="0"/>
-                              <Component id="txtpriceStock" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblshowidReceipt" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtamountReceipt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtnameReceipt" alignment="0" pref="200" max="32767" attributes="0"/>
+                              <Component id="txtpriceReceipt" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel1" min="-2" pref="429" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" pref="343" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -105,31 +105,31 @@
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblidStock" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblshowidStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblidReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblshowidReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblnameStock" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtnameStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblnameReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtnameReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lbamountStock" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtamountStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbamountReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtamountReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblpriceStock" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtpriceStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblpriceReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtpriceReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jLabel1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnsaveStock" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btncancleStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnsaveReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btncancleReceipt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -137,54 +137,54 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblnameStock">
+        <Component class="javax.swing.JLabel" name="lblnameReceipt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Name : "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblidStock">
+        <Component class="javax.swing.JLabel" name="lblidReceipt">
           <Properties>
             <Property name="text" type="java.lang.String" value="ID      :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbamountStock">
+        <Component class="javax.swing.JLabel" name="lbamountReceipt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Amount :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblpriceStock">
+        <Component class="javax.swing.JLabel" name="lblpriceReceipt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Price   : "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtnameStock">
+        <Component class="javax.swing.JTextField" name="txtnameReceipt">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtamountStock">
+        <Component class="javax.swing.JTextField" name="txtamountReceipt">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtamountStockActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtamountReceiptActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtpriceStock">
+        <Component class="javax.swing.JTextField" name="txtpriceReceipt">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblshowidStock">
+        <Component class="javax.swing.JLabel" name="lblshowidReceipt">
           <Properties>
             <Property name="text" type="java.lang.String" value="?"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnsaveStock">
+        <Component class="javax.swing.JButton" name="btnsaveReceipt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Save"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsaveStockActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsaveReceiptActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btncancleStock">
+        <Component class="javax.swing.JButton" name="btncancleReceipt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancle"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncancleStockActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncancleReceiptActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
@@ -192,7 +192,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="36" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Stock Management"/>
+            <Property name="text" type="java.lang.String" value="Receipt Management"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -203,11 +203,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="btnAdd" min="-2" pref="63" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="btnEdit" min="-2" pref="63" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -218,7 +216,6 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -228,14 +225,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnAdd">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Add"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="btnEdit">
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit"/>
