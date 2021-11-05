@@ -133,6 +133,8 @@ public class LoginPanel extends javax.swing.JPanel {
          UserService us = new UserService();
          if(us.checkLogin(userName, password)){
              //ผ่าน
+             System.out.println(us+"pass");
+             mainFrame.switchToMainMenu();
          }else{
              //ไม่ผ่าน
          }

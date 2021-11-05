@@ -15,6 +15,9 @@ public class MainFrame extends javax.swing.JFrame {
     /** Creates new form MainFrame */
     public MainFrame() {
         initComponents();
+        pnlScreen.setViewportView(new LoginPanel(this));
+    }
+    public void switchToMainMenu(){
         pnlScreen.setViewportView(new MainMenuPanel());
     }
 
