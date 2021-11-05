@@ -17,12 +17,13 @@ import OtherPage.TableUser;
  * @author ROG
  */
 public class MainMenuPanel extends javax.swing.JPanel {
-
+private MainFrame mainFrame;
     /**
      * Creates new form MainMenuPanel
      */
-    public MainMenuPanel() {
+    public MainMenuPanel(MainFrame mainFrame) {
         initComponents();
+        this.mainFrame = mainFrame;
     }
 
     /**
@@ -228,7 +229,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnUserActionPerformed
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
-        // TODO add your handling code here:
+        mainFrame.logOut();
     }//GEN-LAST:event_btnLogOutActionPerformed
 
 

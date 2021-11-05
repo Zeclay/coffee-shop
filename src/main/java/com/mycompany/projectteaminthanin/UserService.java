@@ -29,13 +29,36 @@ public class UserService {
     }
     public boolean checkLogin(String username,String password){
         for(int i = 0;i<userName.size();i++){
-            if(userName.get(i) == username){
-                if(Password.get(i) == password){
+            if(userName.get(i).equals(username)){
+                if(Password.get(i).equals(password)){
                     return true;
                 }
             }
         }
         return false;
+    }
+    
+    public static void clearUserName() {
+        userName.clear();
+    }
+    public static void clearPassword() {
+        Password.clear();
+    }
+    
+    public static ArrayList<String> getUserName() {
+        return userName;
+    }
+
+    public static void setUserName(ArrayList<String> userName) {
+        UserService.userName = userName;
+    }
+
+    public static ArrayList<String> getPassword() {
+        return Password;
+    }
+
+    public static void setPassword(ArrayList<String> Password) {
+        UserService.Password = Password;
     }
     
     

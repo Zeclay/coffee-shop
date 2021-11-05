@@ -11,14 +11,19 @@ package com.mycompany.projectteaminthanin;
  * @author ROG
  */
 public class MainFrame extends javax.swing.JFrame {
-
+    
     /** Creates new form MainFrame */
     public MainFrame() {
         initComponents();
         pnlScreen.setViewportView(new LoginPanel(this));
+        //switchToMainMenu();
     }
     public void switchToMainMenu(){
-        pnlScreen.setViewportView(new MainMenuPanel());
+        pnlScreen.setViewportView(new MainMenuPanel(this));
+    }
+    
+    public void logOut(){
+        pnlScreen.setViewportView(new LoginPanel(this));
     }
 
     /** This method is called from within the constructor to
