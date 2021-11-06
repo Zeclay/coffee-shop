@@ -10,20 +10,26 @@ import com.mycompany.projectteaminthanin.Menu.CoffeePanel;
 import com.mycompany.projectteaminthanin.Menu.FrameRegister;
 import com.mycompany.projectteaminthanin.Menu.FruitPanel;
 import com.mycompany.projectteaminthanin.Menu.TeaAndCocoaPanel;
+import java.util.ArrayList;
 import model.Customer;
+import model.Product;
+import model.User;
 
 /**
  *
  * @author AuyouknoW
  */
 public class Point_of_sell extends javax.swing.JPanel {
+
     public boolean beMember = false;
+    public ArrayList<Product> cart = new ArrayList<>();
+
     /**
      * Creates new form Point_of_sell
      */
     public Point_of_sell() {
         initComponents();
-        scpmenu.setViewportView(new CoffeePanel());
+        scpmenu.setViewportView(new CoffeePanel(cart));
     }
 
     /**
@@ -43,13 +49,13 @@ public class Point_of_sell extends javax.swing.JPanel {
         tfSearch = new javax.swing.JTextField();
         pnlShowname = new javax.swing.JPanel();
         txtNameMember = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        listProduct = new javax.swing.JList<>();
         pnlTotal = new javax.swing.JPanel();
         txtTotal = new javax.swing.JLabel();
         btnRegister = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         scpmenu = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         btnPay = new javax.swing.JButton();
@@ -98,13 +104,6 @@ public class Point_of_sell extends javax.swing.JPanel {
                 .addGap(0, 1, Short.MAX_VALUE))
         );
 
-        listProduct.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(listProduct);
-
         txtTotal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtTotal.setText("TOTAL");
@@ -139,19 +138,25 @@ public class Point_of_sell extends javax.swing.JPanel {
         btnClear.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnClear.setText("CLEAR");
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
-                            .addComponent(pnlTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tfSearch)
-                            .addComponent(pnlShowname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addComponent(txtMember, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,7 +168,14 @@ public class Point_of_sell extends javax.swing.JPanel {
                         .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(pnlTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfSearch)
+                            .addComponent(pnlShowname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -178,7 +190,7 @@ public class Point_of_sell extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegister)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -194,11 +206,11 @@ public class Point_of_sell extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 648, Short.MAX_VALUE)
+            .addGap(0, 919, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 392, Short.MAX_VALUE)
+            .addGap(0, 435, Short.MAX_VALUE)
         );
 
         scpmenu.setViewportView(jPanel3);
@@ -270,41 +282,56 @@ public class Point_of_sell extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrMenuPanel)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(scrMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrMenuPanel)
+            .addComponent(scrMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCoffeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCoffeeActionPerformed
-        scpmenu.setViewportView(new CoffeePanel());
+        scpmenu.setViewportView(new CoffeePanel(cart));
     }//GEN-LAST:event_btnCoffeeActionPerformed
 
     private void btnTeaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeaActionPerformed
-        scpmenu.setViewportView(new TeaAndCocoaPanel());
+        scpmenu.setViewportView(new TeaAndCocoaPanel(cart));
     }//GEN-LAST:event_btnTeaActionPerformed
 
     private void btnFriutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFriutActionPerformed
-        scpmenu.setViewportView(new FruitPanel());
+        scpmenu.setViewportView(new FruitPanel(cart));
     }//GEN-LAST:event_btnFriutActionPerformed
+    DaoCustomer daoCus = new DaoCustomer();
+    UserService us = new UserService();
+    Customer currentCustomer = daoCus.get(6);
+    User currentEmp = us.getCurrentUser();
+
 
     private void tfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchActionPerformed
         String tel = tfSearch.getText();
-        DaoCustomer daoCus = new DaoCustomer();
-        
-        for(Customer c : daoCus.getAll()){
-            if(tel.equals(c.getPhone())){
-                txtNameMember.setText("Name : "+c.getName());
+
+        for (Customer c : daoCus.getAll()) {
+            if (tel.equals(c.getPhone())) {
+                txtNameMember.setText("Name : " + c.getName());
+                currentCustomer = c;
                 beMember = true;
                 tfSearch.setEnabled(false);
                 btnRegister.setEnabled(false);
-                System.out.println("MemberStatus : " +beMember);
+
+                System.out.println("MemberStatus : " + beMember);
+                System.out.println("Customer : " + currentCustomer.getName());
+                System.out.println("EMP : " + currentEmp.getEmployee().getName());
+                System.out.println("");
                 return;
             }
         }
-        System.out.println("MemberStatus : " +beMember);
+
+        System.out.println("MemberStatus : " + beMember);
+        System.out.println("Customer : " + currentCustomer.getName());
+        System.out.println("EMP : " + currentEmp.getEmployee().getName());
+        System.out.println("");
         txtNameMember.setText("Not Found");
         tfSearch.setText("");
     }//GEN-LAST:event_tfSearchActionPerformed
@@ -331,8 +358,8 @@ public class Point_of_sell extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JList<String> listProduct;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JPanel pnlShowname;
     private javax.swing.JPanel pnlTotal;
     private javax.swing.JScrollPane scpmenu;

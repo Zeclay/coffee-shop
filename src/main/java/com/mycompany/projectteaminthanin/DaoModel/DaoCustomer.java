@@ -138,7 +138,7 @@ public class DaoCustomer implements DaoInterface<Customer> {
     public static void main(String[] args) {
         DaoCustomer dao = new DaoCustomer();
         System.out.println(dao.getAll());
-
+//        dao.add(new Customer(999,"Unknown (Not Member)","",""));
 //        int id = dao.add(new Customer(-1, "Mesaya Koedsorot", "0843540991", "20/04/2542"));
 //        System.out.println("id " + id);
 //        Customer last = dao.get(8);

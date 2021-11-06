@@ -5,17 +5,23 @@
  */
 package com.mycompany.projectteaminthanin.Menu;
 
+import java.util.ArrayList;
+import model.Product;
+
 /**
  *
  * @author SUPAKIT KONGKAM
  */
 public class CoffeePanel extends javax.swing.JPanel {
 
+    ArrayList<Product> cart;
+
     /**
      * Creates new form CoffeePanel
      */
-    public CoffeePanel() {
+    public CoffeePanel(ArrayList<Product> cart) {
         initComponents();
+        this.cart = cart;
     }
 
     /**
