@@ -9,6 +9,7 @@ import com.mycompany.projectteaminthanin.DaoModel.DaoCustomer;
 import com.mycompany.projectteaminthanin.Menu.CoffeePanel;
 import com.mycompany.projectteaminthanin.Menu.FruitPanel;
 import com.mycompany.projectteaminthanin.Menu.TeaAndCocoaPanel;
+import javax.swing.JOptionPane;
 import model.Customer;
 
 /**
@@ -125,6 +126,11 @@ public class Point_of_sell extends javax.swing.JPanel {
         );
 
         btnRegister.setText("Register");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
 
         btnDelete.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnDelete.setText("DELETE");
@@ -302,6 +308,10 @@ public class Point_of_sell extends javax.swing.JPanel {
     private void tfSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfSearchMouseClicked
         tfSearch.setText("");
     }//GEN-LAST:event_tfSearchMouseClicked
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
