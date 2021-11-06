@@ -7,9 +7,9 @@ package com.mycompany.projectteaminthanin;
 
 import com.mycompany.projectteaminthanin.DaoModel.DaoCustomer;
 import com.mycompany.projectteaminthanin.Menu.CoffeePanel;
+import com.mycompany.projectteaminthanin.Menu.FrameRegister;
 import com.mycompany.projectteaminthanin.Menu.FruitPanel;
 import com.mycompany.projectteaminthanin.Menu.TeaAndCocoaPanel;
-import javax.swing.JOptionPane;
 import model.Customer;
 
 /**
@@ -310,7 +310,8 @@ public class Point_of_sell extends javax.swing.JPanel {
     }//GEN-LAST:event_tfSearchMouseClicked
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        
+        FrameRegister rgf = new FrameRegister();
+        rgf.newScreen();
     }//GEN-LAST:event_btnRegisterActionPerformed
 
 

@@ -5,17 +5,23 @@
  */
 package com.mycompany.projectteaminthanin.Menu;
 
+import com.mycompany.projectteaminthanin.DaoModel.DaoCustomer;
+import model.Customer;
+
 /**
  *
  * @author ROG
  */
 public class RegisterForm extends javax.swing.JPanel {
 
+    FrameRegister frameRegister;
+
     /**
      * Creates new form RegisterForm
      */
-    public RegisterForm() {
+    public RegisterForm(FrameRegister frameRegister) {
         initComponents();
+        this.frameRegister = frameRegister;
     }
 
     /**
@@ -47,8 +53,18 @@ public class RegisterForm extends javax.swing.JPanel {
         jLabel4.setText("Birthday (DD/MM/YYYY)");
 
         btnConfirm.setText("Confirm");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
 
         btnCancle.setText("Cancle");
+        btnCancle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancleActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -94,6 +110,19 @@ public class RegisterForm extends javax.swing.JPanel {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        DaoCustomer dao = new DaoCustomer();
+        String phoneNumber = tfPnumber.getText();
+        String name = tfName.getText();
+        String birthDay = tfBD.getText();
+        dao.add(new Customer(-1,name,phoneNumber,birthDay));
+        frameRegister.dispose();
+    }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void btnCancleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancleActionPerformed
+        frameRegister.dispose();
+    }//GEN-LAST:event_btnCancleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
