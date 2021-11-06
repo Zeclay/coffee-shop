@@ -86,7 +86,7 @@ public class DaoReceipt implements DaoInterface<Receipt> {
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
                 int repid = result.getInt("rep_id");
-                Date date = new SimpleDateFormat("dd-MM-yyyy").parse(result.getString("date"));//date can fix
+                Date date = new SimpleDateFormat("yyyy-MM-dd").parse(result.getString("date"));//date can fix
                 int emp_id = result.getInt("emp_id");
                 String empName = result.getString("empName");
                 int cusId = result.getInt("cus_id");
@@ -127,7 +127,7 @@ public class DaoReceipt implements DaoInterface<Receipt> {
 
                 int repid = result.getInt("rep_id");
 
-                Date date = new SimpleDateFormat("dd-MM-yyyy").parse(result.getString("date"));//date can fix
+                Date date = new SimpleDateFormat("yyyy-MM-dd").parse(result.getString("date"));//date can fix
                 int emp_id = result.getInt("emp_id");
                 String empName = result.getString("empName");
                 int cusId = result.getInt("cus_id");
@@ -219,11 +219,11 @@ public class DaoReceipt implements DaoInterface<Receipt> {
 //        System.out.println("id = " + dao.add(receipt));
 //        System.out.println("Receipt after add" + receipt);
         //      System.out.println("Get all" + dao.getAll());
-////
+
 // System.out.println(receipt);
 
 //        DaoReceipt dao = new DaoReceipt();
-//        System.out.println(dao.get(1));
+//        System.out.println(dao.get(2));
 //        System.out.println(receipt.getReceiptDetail().get(0).toString());
 //        System.out.println(receipt.getReceiptDetail().get(1).toString());
     }
