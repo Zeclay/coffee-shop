@@ -120,13 +120,13 @@ public class DaoReceipt implements DaoInterface<Receipt> {
             String sql = "SELECT rep_id,date,emp_id,emp.Name as empName,cus_id,c.Name as cus_name ,total,cash,change FROM Receipt r ,Customer c, Employee emp WHERE r.cus_id = c.CustomerId AND r.emp_id = emp.EmployeeId AND rep_id = ? ORDER BY date DESC;";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
-            
+
             ResultSet result = stmt.executeQuery();
 
             if (result.next()) {
-                
+
                 int repid = result.getInt("rep_id");
-                
+
                 Date date = new SimpleDateFormat("dd-MM-yyyy").parse(result.getString("date"));//date can fix
                 int emp_id = result.getInt("emp_id");
                 String empName = result.getString("empName");
@@ -135,12 +135,11 @@ public class DaoReceipt implements DaoInterface<Receipt> {
                 double total = result.getDouble("total");
                 double cash = result.getDouble("cash");
                 double change = result.getDouble("change");
-                
-                
+
                 Receipt receipt = new Receipt(id, new Employee(emp_id, empName, "", "", "", "", "", "", 0.0), date, new Customer(cusId, cusName, "", ""), total, cash, change);
-                
+
                 getReceiptDetail(conn, id, receipt);
-                
+
                 return receipt;
             }
         } catch (SQLException ex) {
@@ -166,20 +165,20 @@ public class DaoReceipt implements DaoInterface<Receipt> {
         PreparedStatement stmtDetail = conn.prepareStatement(sqlDetail);
         stmtDetail.setInt(1, id);
         ResultSet resultDetail = stmtDetail.executeQuery();
-        
+
         while (resultDetail.next()) {
-            
+
             int receiveId = resultDetail.getInt("repde_id");
             int productId = resultDetail.getInt("prod_id");
             String productName = resultDetail.getString("pd_name");
             double productPrice = resultDetail.getDouble("pd_price");
-            
+
             double price = resultDetail.getDouble("price");
             int amount = resultDetail.getInt("amount");
-            
-            Product product = new Product(productId,productName,"",productPrice);
-            receipt.addReceiptDetail(receiveId,product, amount,price);
-            
+
+            Product product = new Product(productId, productName, "", productPrice);
+            receipt.addReceiptDetail(receiveId, product, amount, price);
+
         }
     }
 
@@ -216,16 +215,15 @@ public class DaoReceipt implements DaoInterface<Receipt> {
 //        Receipt receipt = new Receipt(emp, cus);
 //        receipt.addReceiptDetail(p1, 1);
 //        receipt.addReceiptDetail(p2, 3);
-  //      DaoReceipt dao = new DaoReceipt();
+//        DaoReceipt dao = new DaoReceipt();
 //        System.out.println("id = " + dao.add(receipt));
 //        System.out.println("Receipt after add" + receipt);
-  //      System.out.println("Get all" + dao.getAll());
+        //      System.out.println("Get all" + dao.getAll());
 ////
 // System.out.println(receipt);
 
 //        DaoReceipt dao = new DaoReceipt();
 //        System.out.println(dao.get(1));
-
 //        System.out.println(receipt.getReceiptDetail().get(0).toString());
 //        System.out.println(receipt.getReceiptDetail().get(1).toString());
     }
