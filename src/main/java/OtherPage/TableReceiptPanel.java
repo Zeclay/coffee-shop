@@ -253,7 +253,7 @@ public class TableReceiptPanel extends javax.swing.JPanel {
                             .addComponent(txtTotalReceipt)
                             .addComponent(txtCashReceipt)
                             .addComponent(txtChangeReceipt))
-                        .addGap(406, 406, 406))))
+                        .addGap(500, 500, 500))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
