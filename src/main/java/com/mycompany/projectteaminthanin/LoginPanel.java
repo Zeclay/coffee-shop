@@ -83,6 +83,12 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
 
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
+
         lblWarning.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblWarning.setForeground(new java.awt.Color(255, 0, 0));
 
@@ -156,6 +162,11 @@ public class LoginPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_tfNameActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        Login();
+
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void Login() {
         String userName = tfName.getText();
         String password = new String(jPasswordField1.getPassword());
         UserService us = new UserService();
@@ -173,8 +184,11 @@ public class LoginPanel extends javax.swing.JPanel {
         }
         us.clearUserName();
         us.clearPassword();
+    }
 
-    }//GEN-LAST:event_btnLoginActionPerformed
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        Login();
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
