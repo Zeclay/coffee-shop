@@ -23,6 +23,7 @@ public class Point_of_sell extends javax.swing.JPanel {
      */
     public Point_of_sell() {
         initComponents();
+        scpmenu.setViewportView(new CoffeePanel());
     }
 
     /**
