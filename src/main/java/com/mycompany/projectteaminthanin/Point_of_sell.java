@@ -17,7 +17,7 @@ import model.Customer;
  * @author AuyouknoW
  */
 public class Point_of_sell extends javax.swing.JPanel {
-    public static boolean beMember = false;
+    public boolean beMember = false;
     /**
      * Creates new form Point_of_sell
      */
@@ -299,9 +299,11 @@ public class Point_of_sell extends javax.swing.JPanel {
                 beMember = true;
                 tfSearch.setEnabled(false);
                 btnRegister.setEnabled(false);
+                System.out.println("MemberStatus : " +beMember);
                 return;
             }
         }
+        System.out.println("MemberStatus : " +beMember);
         txtNameMember.setText("Not Found");
         tfSearch.setText("");
     }//GEN-LAST:event_tfSearchActionPerformed
