@@ -396,7 +396,8 @@ public class Point_of_sell extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
        int choose = table.getSelectedRow();
        CartModel.removeRow(choose);
-       cart.remove(choose);
+       Cart lastTotal = cart.remove(choose);
+       total -= lastTotal.getAmount()*lastTotal.getProduct().getPrice();
        txtTotal.setText("Total : "+total);
        btnDelete.setEnabled(false);
     }//GEN-LAST:event_btnDeleteActionPerformed
