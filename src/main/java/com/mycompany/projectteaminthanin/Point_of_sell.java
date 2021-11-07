@@ -33,6 +33,8 @@ public class Point_of_sell extends javax.swing.JPanel {
         initComponents();
         scpmenu.setViewportView(new CoffeePanel(this));
         CartModel = (DefaultTableModel) table.getModel();
+        btnDelete.setEnabled(false);
+        
     }
 
     public DefaultTableModel getCartModel() {
@@ -145,9 +147,19 @@ public class Point_of_sell extends javax.swing.JPanel {
 
         btnDelete.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnClear.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnClear.setText("CLEAR");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -157,6 +169,11 @@ public class Point_of_sell extends javax.swing.JPanel {
                 "Product", "Amount", "Price"
             }
         ));
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
         tableCart.setViewportView(table);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -347,7 +364,7 @@ public class Point_of_sell extends javax.swing.JPanel {
     }//GEN-LAST:event_tfSearchActionPerformed
 
     public void setlblTotal(double total){
-        txtTotal.setText(total+"");
+        txtTotal.setText("Total : "+total);
     }
     private void tfSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfSearchMouseClicked
         tfSearch.setText("");
@@ -361,6 +378,28 @@ public class Point_of_sell extends javax.swing.JPanel {
     private void btnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayActionPerformed
         System.out.println(cart);
     }//GEN-LAST:event_btnPayActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        cart.clear();
+        int cTable =table.getRowCount();
+        for(int i = 0;i<cTable;i++){
+            CartModel.removeRow(0);
+        }
+        total = 0;
+        txtTotal.setText("Total : "+total);
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+        btnDelete.setEnabled(true);
+    }//GEN-LAST:event_tableMouseClicked
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+       int choose = table.getSelectedRow();
+       CartModel.removeRow(choose);
+       cart.remove(choose);
+       txtTotal.setText("Total : "+total);
+       btnDelete.setEnabled(false);
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
