@@ -128,7 +128,7 @@ public class Receipt {
     }
 
     public double getChange() {
-        return this.getAllTotal()-cash;
+        return change;
     }
 
     public void setChange(double change) {
