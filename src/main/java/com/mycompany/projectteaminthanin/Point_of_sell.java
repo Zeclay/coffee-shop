@@ -322,9 +322,10 @@ public class Point_of_sell extends javax.swing.JPanel {
             }
         });
 
-        tfcash.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tfcash.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         tfcash.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfcash.setText("cash");
+        tfcash.setPreferredSize(new java.awt.Dimension(74, 28));
         tfcash.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tfcashMouseClicked(evt);
@@ -336,10 +337,12 @@ public class Point_of_sell extends javax.swing.JPanel {
             }
         });
 
-        txtCashChange.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCashChange.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtCashChange.setText("change money :");
 
-        tfChange.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tfChange.setEditable(false);
+        tfChange.setBackground(new java.awt.Color(255, 255, 255));
+        tfChange.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         tfChange.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfChange.setText("change");
 
@@ -389,7 +392,7 @@ public class Point_of_sell extends javax.swing.JPanel {
                     .addComponent(txtCashChange, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfcash, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfChange, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         scrMenuPanel.setViewportView(jPanel1);
@@ -511,10 +514,21 @@ public class Point_of_sell extends javax.swing.JPanel {
             for(int i = 0;i<cart.size();i++){
                 rep.addReceiptDetail(cart.get(i).getProduct(), cart.get(i).getAmount());
             }
+            rep.setTotal(total);
+            rep.setCash(cash);
+            double change = cash-total;
+            rep.setChange(change);
             DaoReceipt daoReceipt = new DaoReceipt();
+            tfcash.setVisible(false);
+            txtCashChange.setText("Change : ");
+            tfChange.setVisible(true);
+            tfChange.setText(""+change);
+            
+            //////////////////////////////////////////////////////////////////////
             lastId = daoReceipt.add(rep);
             //////////////////////////////////////////////////////////////////////
             System.out.println(lastId);
+            
         }else{
             JOptionPane.showMessageDialog(new JFrame(), "Cash < Total", "Warning",
                     JOptionPane.ERROR_MESSAGE);
