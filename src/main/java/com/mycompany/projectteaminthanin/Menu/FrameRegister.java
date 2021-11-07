@@ -36,6 +36,10 @@ public class FrameRegister extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Register_Form");
+        setMaximumSize(new java.awt.Dimension(364, 340));
+        setMinimumSize(new java.awt.Dimension(364, 340));
+        setResizable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

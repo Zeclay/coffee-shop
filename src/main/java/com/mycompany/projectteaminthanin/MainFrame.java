@@ -43,6 +43,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inthanin_Coffee");
+        setMaximumSize(new java.awt.Dimension(1250, 737));
+        setMinimumSize(new java.awt.Dimension(1250, 737));
+        setResizable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

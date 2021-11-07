@@ -22,7 +22,7 @@ import model.User;
 public class Point_of_sell extends javax.swing.JPanel {
 
     public boolean beMember = false;
-    public ArrayList<Product> cart = new ArrayList<>();
+    public ArrayList<Cart> cart = new ArrayList<>();
 
     /**
      * Creates new form Point_of_sell
@@ -55,7 +55,7 @@ public class Point_of_sell extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableCart = new javax.swing.JTable();
         scpmenu = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         btnPay = new javax.swing.JButton();
@@ -138,7 +138,7 @@ public class Point_of_sell extends javax.swing.JPanel {
         btnClear.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnClear.setText("CLEAR");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableCart.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -149,7 +149,7 @@ public class Point_of_sell extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableCart);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -299,6 +299,7 @@ public class Point_of_sell extends javax.swing.JPanel {
     private void btnFriutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFriutActionPerformed
         scpmenu.setViewportView(new FruitPanel(cart));
     }//GEN-LAST:event_btnFriutActionPerformed
+    
     DaoCustomer daoCus = new DaoCustomer();
     UserService us = new UserService();
     Customer currentCustomer = daoCus.get(6);
@@ -355,11 +356,11 @@ public class Point_of_sell extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel pnlShowname;
     private javax.swing.JPanel pnlTotal;
     private javax.swing.JScrollPane scpmenu;
     private javax.swing.JScrollPane scrMenuPanel;
+    private javax.swing.JTable tableCart;
     private javax.swing.JTextField tfSearch;
     private javax.swing.JLabel txtMember;
     private javax.swing.JLabel txtNameMember;
