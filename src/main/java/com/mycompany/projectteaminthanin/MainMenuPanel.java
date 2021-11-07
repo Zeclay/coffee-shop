@@ -11,6 +11,12 @@ import OtherPage.TableProductPanel;
 import OtherPage.TableReceiptPanel;
 import OtherPage.TableStock;
 import OtherPage.TableUser;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.Timer;
 
 /**
  *
@@ -19,17 +25,34 @@ import OtherPage.TableUser;
 public class MainMenuPanel extends javax.swing.JPanel {
 
     private MainFrame mainFrame;
-
+    Timer timer;
     /**
      * Creates new form MainMenuPanel
      */
     public MainMenuPanel(MainFrame mainFrame) {
         initComponents();
+        timerController();
         this.mainFrame = mainFrame;
         lblTitle.setText("MainMenu");
         UserService us = new UserService();
         lblCurrentUser.setText(us.getCurrentUser().getEmployee().getName());
 //        System.out.println(us.getCurrentUser().getUsername());
+    }
+
+    private void timerController() {
+        ActionListener actionListener = new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Date date = new Date();
+                DateFormat timerFormat = new SimpleDateFormat("HH:mm:ss");
+                String time = timerFormat.format(date);
+                lblTimer.setText(time);
+            }
+            
+        };
+        timer = new Timer(1000,actionListener);
+        timer.setInitialDelay(0);
+        timer.start();
     }
 
     /**
@@ -55,6 +78,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
         btnProduct = new javax.swing.JButton();
         btnUser = new javax.swing.JButton();
         btnLogOut = new javax.swing.JButton();
+        lblTimer = new javax.swing.JLabel();
         pnlShowFrame = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
 
@@ -73,11 +97,11 @@ public class MainMenuPanel extends javax.swing.JPanel {
             }
         });
 
-        lblWelcome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblWelcome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblWelcome.setText("Welcome");
 
-        lblCurrentUser.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCurrentUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCurrentUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCurrentUser.setText("Name");
 
@@ -175,6 +199,9 @@ public class MainMenuPanel extends javax.swing.JPanel {
             }
         });
 
+        lblTimer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTimer.setText("TimerBox");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -182,6 +209,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblTimer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnpointofsell, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
                     .addComponent(btnEmployee, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -195,7 +223,9 @@ public class MainMenuPanel extends javax.swing.JPanel {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(5, 5, 5)
+                .addComponent(lblTimer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnpointofsell, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -306,6 +336,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblCurrentUser;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblTimer;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JScrollPane pnlShowFrame;
