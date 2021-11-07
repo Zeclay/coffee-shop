@@ -128,7 +128,7 @@ public class FruitPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBluePeaLemonIce)
                     .addComponent(btnPunchIce))
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 DaoProduct daoPro = new DaoProduct();
