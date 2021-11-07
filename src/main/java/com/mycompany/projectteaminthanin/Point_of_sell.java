@@ -11,6 +11,8 @@ import com.mycompany.projectteaminthanin.Menu.FrameRegister;
 import com.mycompany.projectteaminthanin.Menu.FruitPanel;
 import com.mycompany.projectteaminthanin.Menu.TeaAndCocoaPanel;
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Customer;
 import model.Product;
@@ -32,6 +34,8 @@ public class Point_of_sell extends javax.swing.JPanel {
      */
     public Point_of_sell() {
         initComponents();
+        disableCheckOut();
+
         scpmenu.setViewportView(new CoffeePanel(this));
         CartModel = (DefaultTableModel) table.getModel();
         btnDelete.setEnabled(false);
@@ -44,6 +48,32 @@ public class Point_of_sell extends javax.swing.JPanel {
 
     public void setCartModel(DefaultTableModel CartModel) {
         this.CartModel = CartModel;
+    }
+
+    public void disableCheckOut() {
+        txtCashChange.setVisible(false);
+        tfcash.setVisible(false);
+        tfChange.setVisible(false);
+        btnPrintReceipt.setEnabled(false);
+    }
+
+    public void enableCheckOut() {
+        txtCashChange.setVisible(true);
+        tfcash.setVisible(true);
+        btnPrintReceipt.setEnabled(true);
+        disableLeft();
+        disableScreen();
+    }
+
+    public void disableLeft() {
+        table.setEnabled(false);
+        tfSearch.setEnabled(false);
+        btnRegister.setEnabled(false);
+        btnDelete.setEnabled(false);
+        btnClear.setEnabled(false);
+    }
+    public void disableScreen(){
+        scpmenu.setEnabled(false); // cant disable
     }
 
     /**
@@ -70,7 +100,7 @@ public class Point_of_sell extends javax.swing.JPanel {
         btnClear = new javax.swing.JButton();
         tableCart = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnPrintReceipt = new javax.swing.JButton();
         scpmenu = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         btnPay = new javax.swing.JButton();
@@ -78,7 +108,7 @@ public class Point_of_sell extends javax.swing.JPanel {
         btnTea = new javax.swing.JButton();
         btnFriut = new javax.swing.JButton();
         tfcash = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        txtCashChange = new javax.swing.JLabel();
         tfChange = new javax.swing.JTextField();
 
         btnCoffee2.setText("COFFEE");
@@ -181,8 +211,8 @@ public class Point_of_sell extends javax.swing.JPanel {
         });
         tableCart.setViewportView(table);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setText("PrintReceipt");
+        btnPrintReceipt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnPrintReceipt.setText("PrintReceipt");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -210,7 +240,7 @@ public class Point_of_sell extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnPrintReceipt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -233,7 +263,7 @@ public class Point_of_sell extends javax.swing.JPanel {
                     .addComponent(btnDelete)
                     .addComponent(btnClear))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPrintReceipt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -289,8 +319,8 @@ public class Point_of_sell extends javax.swing.JPanel {
         tfcash.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfcash.setText("cash");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("change money :");
+        txtCashChange.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCashChange.setText("change money :");
 
         tfChange.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tfChange.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -309,7 +339,7 @@ public class Point_of_sell extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
+                                .addComponent(txtCashChange)
                                 .addGap(18, 18, 18)
                                 .addComponent(tfcash, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
@@ -339,7 +369,7 @@ public class Point_of_sell extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCashChange, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfcash, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfChange, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(13, Short.MAX_VALUE))
@@ -417,9 +447,14 @@ public class Point_of_sell extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayActionPerformed
-        System.out.println(cart);
-        System.out.println("Price : " + total);
-
+        if (CartModel.getRowCount() > 0) {
+            System.out.println(cart);
+            System.out.println("Price : " + total);
+            enableCheckOut();
+        } else {
+            JOptionPane.showMessageDialog(new JFrame(), "Please Select Product First.", "Warning",
+                    JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_btnPayActionPerformed
 
@@ -454,10 +489,9 @@ public class Point_of_sell extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnFriut;
     private javax.swing.JButton btnPay;
+    private javax.swing.JButton btnPrintReceipt;
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton btnTea;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -470,6 +504,7 @@ public class Point_of_sell extends javax.swing.JPanel {
     private javax.swing.JTextField tfChange;
     private javax.swing.JTextField tfSearch;
     private javax.swing.JTextField tfcash;
+    private javax.swing.JLabel txtCashChange;
     private javax.swing.JLabel txtMember;
     private javax.swing.JLabel txtNameMember;
     private javax.swing.JLabel txtTotal;
