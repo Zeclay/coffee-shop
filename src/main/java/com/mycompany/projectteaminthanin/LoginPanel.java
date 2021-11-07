@@ -36,7 +36,7 @@ public class LoginPanel extends javax.swing.JPanel {
         File file = new File("img/logo.png");
         try {
             BufferedImage image = ImageIO.read(file);
-            
+
             lblImg.setIcon(new ImageIcon(image));
         } catch (IOException ex) {
 

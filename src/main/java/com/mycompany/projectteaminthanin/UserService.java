@@ -18,7 +18,7 @@ public class UserService {
     private static User currentUser = null;
     private static ArrayList<String> userName = new ArrayList<>();
     private static ArrayList<String> Password = new ArrayList<>();
-    
+
     DaoUser daoUser;
 
     public UserService() {
@@ -40,7 +40,7 @@ public class UserService {
 
     public boolean checkLogin(String username, String password) {
         ArrayList<User> daou = daoUser.getAll();
-        
+
         for (int i = 0; i < daou.size(); i++) {
             if (daou.get(i).getUsername().equals(username) && daou.get(i).getPassword().equals(password)) {
                 currentUser = daou.get(i);

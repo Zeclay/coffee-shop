@@ -20,6 +20,7 @@ public class TableStock extends javax.swing.JPanel {
     private ArrayList<Stock> stockList;
     private Stocktablemodel model;
     Stock editedStock;
+
     /**
      * Creates new form TableStock
      */
@@ -29,7 +30,8 @@ public class TableStock extends javax.swing.JPanel {
         initForm();
         loadTable(dao);
     }
-     public void initForm() {
+
+    public void initForm() {
         lblidStock.setEnabled(false);
         txtnameStock.setEnabled(false);
         txtamountStock.setEnabled(false);
@@ -37,7 +39,8 @@ public class TableStock extends javax.swing.JPanel {
         btnsaveStock.setEnabled(false);
         btncancleStock.setEnabled(false);
     }
-     public void refreshTable() {
+
+    public void refreshTable() {
         DaoStock dao = new DaoStock();
         ArrayList<Stock> newList = dao.getAll();
         stockList.clear();
@@ -45,7 +48,8 @@ public class TableStock extends javax.swing.JPanel {
         tblStock.revalidate();
         tblStock.repaint();
     }
-      public void clearEditForm() {
+
+    public void clearEditForm() {
         editedStock = null;
         lblshowidStock.setText("");
         txtnameStock.setText("");
@@ -54,22 +58,25 @@ public class TableStock extends javax.swing.JPanel {
         initForm();
 
     }
-      public void loadFormToStock() {
+
+    public void loadFormToStock() {
         editedStock.setStockprod_name(txtnameStock.getText());
         editedStock.setAmount(Integer.parseInt(txtamountStock.getText()));
         editedStock.setPrice(Double.parseDouble(txtpriceStock.getText()));
     }
-      public void loadTable(DaoStock dao) {
+
+    public void loadTable(DaoStock dao) {
         stockList = dao.getAll();
         model = new Stocktablemodel(stockList);
         tblStock.setModel(model);
     }
-     public void loadStockToForm() {
+
+    public void loadStockToForm() {
         if (editedStock.getStock_id() >= 0) {
             lblshowidStock.setText("" + editedStock.getStock_id());
         }
         txtnameStock.setText(editedStock.getStockprod_name());
-        txtamountStock.setText(editedStock.getAmount()+"");
+        txtamountStock.setText(editedStock.getAmount() + "");
         txtpriceStock.setText("" + editedStock.getPrice());
         txtnameStock.setEnabled(true);
         txtamountStock.setEnabled(true);
@@ -293,7 +300,7 @@ public class TableStock extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         editedStock = new Stock(-1, "", 0, 0.0);
-       loadStockToForm();
+        loadStockToForm();
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
@@ -305,13 +312,13 @@ public class TableStock extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         if (JOptionPane.showConfirmDialog(null, "Are you sure?", "WARNING",
-            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-        if (tblStock.getSelectedRow() >= 0) {
-            DaoStock dao = new DaoStock();
-            editedStock = stockList.get(tblStock.getSelectedRow());
-            dao.delete(editedStock.getStock_id());
-        }
-        refreshTable();
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            if (tblStock.getSelectedRow() >= 0) {
+                DaoStock dao = new DaoStock();
+                editedStock = stockList.get(tblStock.getSelectedRow());
+                dao.delete(editedStock.getStock_id());
+            }
+            refreshTable();
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -335,20 +342,19 @@ public class TableStock extends javax.swing.JPanel {
     private javax.swing.JTextField txtnameStock;
     private javax.swing.JTextField txtpriceStock;
     // End of variables declaration//GEN-END:variables
-private class Stocktablemodel extends AbstractTableModel{
-   
-    
-    private final ArrayList<Stock> data;
-       
-    String[] columnName = {"ID", "Name", "Amount", "Price"};
+private class Stocktablemodel extends AbstractTableModel {
+
+        private final ArrayList<Stock> data;
+
+        String[] columnName = {"ID", "Name", "Amount", "Price"};
 
         private Stocktablemodel(ArrayList<Stock> data) {
-            this.data=data;
+            this.data = data;
         }
 
         @Override
         public int getRowCount() {
-           return this.data.size();
+            return this.data.size();
         }
 
         @Override
@@ -358,7 +364,7 @@ private class Stocktablemodel extends AbstractTableModel{
 
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
-             Stock stock = this.data.get(rowIndex);
+            Stock stock = this.data.get(rowIndex);
             if (columnIndex == 0) {
                 return stock.getStock_id();
             }
@@ -373,13 +379,12 @@ private class Stocktablemodel extends AbstractTableModel{
             }
             return "";
         }
-         @Override
+
+        @Override
         public String getColumnName(int column) {
             return columnName[column];
         }
 
-        }
-    
-}
+    }
 
-        
+}

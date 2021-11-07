@@ -17,15 +17,18 @@ import java.util.logging.Logger;
  * @author werapan
  */
 public class Database {
+
     private static Database instance = new Database();
     private Connection conn;
+
     private Database() {
     }
+
     public static Database getInstance() {
-        
+
         String dbPath = "./db/store.db";
         try {
-            if(instance.conn==null || instance.conn.isClosed()) {
+            if (instance.conn == null || instance.conn.isClosed()) {
                 Class.forName("org.sqlite.JDBC");
                 instance.conn = DriverManager.getConnection("jdbc:sqlite:" + dbPath);
                 System.out.println("Database connection");
@@ -38,9 +41,10 @@ public class Database {
 
         return instance;
     }
+
     public static void close() {
         try {
-            if(instance.conn != null && !instance.conn.isClosed()) {
+            if (instance.conn != null && !instance.conn.isClosed()) {
                 instance.conn.close();
             }
         } catch (SQLException ex) {
@@ -48,6 +52,7 @@ public class Database {
         }
         instance.conn = null;
     }
+
     public Connection getConnection() {
         return instance.conn;
     }

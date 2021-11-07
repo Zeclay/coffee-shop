@@ -133,7 +133,7 @@ public class FruitPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 DaoProduct daoPro = new DaoProduct();
     private void btnBluePeaLemonIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBluePeaLemonIceActionPerformed
-         int amount = 0;
+        int amount = 0;
         try {
             amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
         } catch (java.lang.NumberFormatException e) {

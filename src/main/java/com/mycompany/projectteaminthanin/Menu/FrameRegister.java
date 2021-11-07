@@ -17,7 +17,7 @@ public class FrameRegister extends javax.swing.JFrame {
      * Creates new form FrameRegister
      */
     public FrameRegister() {
-        
+
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         regisScreen.setViewportView(new RegisterForm(this));

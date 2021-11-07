@@ -19,7 +19,7 @@ public class ReceiptDetail {
 
     @Override
     public String toString() {
-        return "ReceiptDetail{" + "repde_id=" + repde_id +  ", prod_id=" + product + ", amount=" + amount + ", total=" + this.getTotal() + "}";
+        return "ReceiptDetail{" + "repde_id=" + repde_id + ", prod_id=" + product + ", amount=" + amount + ", total=" + this.getTotal() + "}";
     }
 
     public int getRepde_id() {
@@ -29,8 +29,9 @@ public class ReceiptDetail {
     public void addAmount(int amount) {
         this.amount += amount;
     }
-    public ReceiptDetail( Receipt receipt,Product product, int amount, double price) {
-        this(-1,receipt,product,amount,price);
+
+    public ReceiptDetail(Receipt receipt, Product product, int amount, double price) {
+        this(-1, receipt, product, amount, price);
     }
 
     public void setRepde_id(int repde_id) {
@@ -62,7 +63,7 @@ public class ReceiptDetail {
     }
 
     public double getTotal() {
-        return amount*product.getPrice();
+        return amount * product.getPrice();
     }
 
     public void setPrice(double price) {

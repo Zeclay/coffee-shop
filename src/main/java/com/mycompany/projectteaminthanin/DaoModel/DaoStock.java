@@ -19,7 +19,7 @@ import model.Stock;
  *
  * @author NITRO 5
  */
-public class DaoStock implements DaoInterface<Stock>{
+public class DaoStock implements DaoInterface<Stock> {
 
     @Override
     public int add(Stock stock) {
@@ -60,7 +60,7 @@ public class DaoStock implements DaoInterface<Stock>{
                 String stockname = result.getString("stockprod_name");
                 int amount = result.getInt("amount");
                 double price = result.getDouble("price");
-                 Stock stock = new Stock(stockid,stockname,amount,price);
+                Stock stock = new Stock(stockid, stockname, amount, price);
                 list.add(stock);
             }
         } catch (SQLException ex) {
@@ -84,7 +84,7 @@ public class DaoStock implements DaoInterface<Stock>{
                 String stockname = result.getString("stockprod_name");
                 int amount = result.getInt("amount");
                 double price = result.getDouble("price");
-                 Stock stock = new Stock(stockid,stockname,amount,price);
+                Stock stock = new Stock(stockid, stockname, amount, price);
                 return stock;
             }
         } catch (SQLException ex) {
@@ -135,14 +135,15 @@ public class DaoStock implements DaoInterface<Stock>{
         db.close();
         return row;
     }
+
     public static void main(String[] args) {
-        DaoStock dao =new DaoStock();
+        DaoStock dao = new DaoStock();
 //        System.out.println(dao.getAll());
 //System.out.println(dao.get(1));
 //int id = dao.add(new Stock(-1,"Boyice",12,120.0));
 //        System.out.println("id "+id);
 //        dao.delete(13);
-    Stock laststock = dao.get(1);
+        Stock laststock = dao.get(1);
         System.out.println("Last Product" + laststock);
         laststock.setPrice(1300.0);
         int row = dao.update(laststock);
@@ -150,5 +151,5 @@ public class DaoStock implements DaoInterface<Stock>{
         System.out.println("Update Product" + updateStock);
 
     }
-    
+
 }

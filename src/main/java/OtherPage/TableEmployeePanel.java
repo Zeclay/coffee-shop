@@ -86,7 +86,8 @@ public class TableEmployeePanel extends javax.swing.JPanel {
         editEmployee.setType(txtType.getText());
         editEmployee.setSalary(Double.parseDouble(txtSalary.getText()));
     }
-    public void refreshTable(){
+
+    public void refreshTable() {
         DaoEmployee dao = new DaoEmployee();
         ArrayList<Employee> newList = dao.getAll();
         EmployeeList.clear();
@@ -94,7 +95,8 @@ public class TableEmployeePanel extends javax.swing.JPanel {
         tblEmployee.revalidate();
         tblEmployee.repaint();
     }
-    public void clearEditForm(){
+
+    public void clearEditForm() {
         editEmployee = null;
         lblShowID.setText("");
         txtName.setText("");
@@ -358,7 +360,7 @@ public class TableEmployeePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        editEmployee = new Employee(-1,"","","","","","","", 0.0);
+        editEmployee = new Employee(-1, "", "", "", "", "", "", "", 0.0);
         loadEmployeeToForm();
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -432,21 +434,24 @@ public class TableEmployeePanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
     private class EmployeeTableModel extends AbstractTableModel {
-        
-       private final ArrayList<Employee> data;
-       String[] columnName = {"ID","Name","PID","Phone","Birthday","Address","Gender","Type","Salary"};
-       
-       private EmployeeTableModel(ArrayList<Employee> data){
-           this.data=data;
-       }
-       public int getRowCount(){
-           return this.data.size();
-       }
-       public int getColumnCount(){
-           return 9;
-       }
-       public Object getValueAt(int rowIndex, int columnIndex) {
-             Employee employee = this.data.get(rowIndex);
+
+        private final ArrayList<Employee> data;
+        String[] columnName = {"ID", "Name", "PID", "Phone", "Birthday", "Address", "Gender", "Type", "Salary"};
+
+        private EmployeeTableModel(ArrayList<Employee> data) {
+            this.data = data;
+        }
+
+        public int getRowCount() {
+            return this.data.size();
+        }
+
+        public int getColumnCount() {
+            return 9;
+        }
+
+        public Object getValueAt(int rowIndex, int columnIndex) {
+            Employee employee = this.data.get(rowIndex);
             if (columnIndex == 0) {
                 return employee.getEmployeeId();
             }
@@ -459,26 +464,27 @@ public class TableEmployeePanel extends javax.swing.JPanel {
             if (columnIndex == 3) {
                 return employee.getPhone();
             }
-            if (columnIndex == 4){
+            if (columnIndex == 4) {
                 return employee.getBirthDay();
             }
-            if (columnIndex == 5){
+            if (columnIndex == 5) {
                 return employee.getAddress();
             }
-            if (columnIndex == 6){
+            if (columnIndex == 6) {
                 return employee.getGender();
             }
-            if (columnIndex == 7){
+            if (columnIndex == 7) {
                 return employee.getType();
             }
-            if (columnIndex == 8){
+            if (columnIndex == 8) {
                 return employee.getSalary();
             }
             return "";
         }
-       public String getColumnName(int column){
-           return columnName[column];
-       }
+
+        public String getColumnName(int column) {
+            return columnName[column];
+        }
     }
 
 }

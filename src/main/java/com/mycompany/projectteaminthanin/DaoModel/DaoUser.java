@@ -146,9 +146,7 @@ public class DaoUser implements DaoInterface<User> {
 //        User last = dao.get(5);
 //        last.setPassword("password");
 //        dao.update(last);
-System.out.println(dao.getAll());
-
-
+        System.out.println(dao.getAll());
 
     }
 

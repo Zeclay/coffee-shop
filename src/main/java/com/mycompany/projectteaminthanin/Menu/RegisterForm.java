@@ -116,7 +116,7 @@ public class RegisterForm extends javax.swing.JPanel {
         String phoneNumber = tfPnumber.getText();
         String name = tfName.getText();
         String birthDay = tfBD.getText();
-        dao.add(new Customer(-1,name,phoneNumber,birthDay));
+        dao.add(new Customer(-1, name, phoneNumber, birthDay));
         frameRegister.dispose();
     }//GEN-LAST:event_btnConfirmActionPerformed
 

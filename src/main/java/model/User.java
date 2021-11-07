@@ -10,9 +10,10 @@ package model;
  * @author ADMIN
  */
 public class User {
+
     private int user_id;
     private Employee employee;
-    private String username , password;
+    private String username, password;
 
     public User(int user_id, Employee emp_id, String username, String password) {
         this.user_id = user_id;
@@ -34,7 +35,7 @@ public class User {
     }
 
     public void setEmployee(int emp_id) {
-      employee.setEmployeeId(emp_id);
+        employee.setEmployeeId(emp_id);
     }
 
     public String getUsername() {
@@ -52,9 +53,9 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public int getEmpID(){
-        return  employee.getEmployeeId();
+
+    public int getEmpID() {
+        return employee.getEmployeeId();
     }
 
     @Override
@@ -62,7 +63,4 @@ public class User {
         return "User{" + "user_id=" + user_id + ", emp_id=" + employee + ", username=" + username + ", password=" + password + '}';
     }
 
-    
-    
-    
 }

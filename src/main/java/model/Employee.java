@@ -108,9 +108,8 @@ public class Employee {
     public Employee() {
     }
 
-
-@Override
-        public String toString() {
+    @Override
+    public String toString() {
         return "Employee{" + "EmployeeId=" + EmployeeId + ", Name=" + Name
                 + ", PID=" + PID + ", Phone=" + Phone + ", BirthDay=" + BirthDay
                 + ", Address=" + Address + ", Gender=" + Gender + ", Type=" + Type

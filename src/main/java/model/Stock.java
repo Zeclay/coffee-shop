@@ -10,6 +10,7 @@ package model;
  * @author NITRO 5
  */
 public class Stock {
+
     int stock_id;
     String stockprod_name;
     int amount;
@@ -58,5 +59,5 @@ public class Stock {
         this.amount = amount;
         this.price = price;
     }
-    
+
 }

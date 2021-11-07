@@ -22,19 +22,20 @@ import model.User;
  */
 public class Point_of_sell extends javax.swing.JPanel {
 
-    public static DefaultTableModel CartModel  ;
+    public static DefaultTableModel CartModel;
     public boolean beMember = false;
     public ArrayList<Cart> cart = new ArrayList<>();
     public double total = 0;
+
     /**
      * Creates new form Point_of_sell
      */
-    public  Point_of_sell() {
+    public Point_of_sell() {
         initComponents();
         scpmenu.setViewportView(new CoffeePanel(this));
         CartModel = (DefaultTableModel) table.getModel();
         btnDelete.setEnabled(false);
-        
+
     }
 
     public DefaultTableModel getCartModel() {
@@ -363,8 +364,8 @@ public class Point_of_sell extends javax.swing.JPanel {
         tfSearch.setText("");
     }//GEN-LAST:event_tfSearchActionPerformed
 
-    public void setlblTotal(double total){
-        txtTotal.setText("Total : "+total);
+    public void setlblTotal(double total) {
+        txtTotal.setText("Total : " + total);
     }
     private void tfSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfSearchMouseClicked
         tfSearch.setText("");
@@ -377,17 +378,19 @@ public class Point_of_sell extends javax.swing.JPanel {
 
     private void btnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayActionPerformed
         System.out.println(cart);
-        System.out.println("Price : "+total);
+        System.out.println("Price : " + total);
+
+
     }//GEN-LAST:event_btnPayActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         cart.clear();
-        int cTable =table.getRowCount();
-        for(int i = 0;i<cTable;i++){
+        int cTable = table.getRowCount();
+        for (int i = 0; i < cTable; i++) {
             CartModel.removeRow(0);
         }
         total = 0;
-        txtTotal.setText("Total : "+total);
+        txtTotal.setText("Total : " + total);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
@@ -395,12 +398,12 @@ public class Point_of_sell extends javax.swing.JPanel {
     }//GEN-LAST:event_tableMouseClicked
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-       int choose = table.getSelectedRow();
-       CartModel.removeRow(choose);
-       Cart lastTotal = cart.remove(choose);
-       total -= lastTotal.getAmount()*lastTotal.getProduct().getPrice();
-       txtTotal.setText("Total : "+total);
-       btnDelete.setEnabled(false);
+        int choose = table.getSelectedRow();
+        CartModel.removeRow(choose);
+        Cart lastTotal = cart.remove(choose);
+        total -= lastTotal.getAmount() * lastTotal.getProduct().getPrice();
+        txtTotal.setText("Total : " + total);
+        btnDelete.setEnabled(false);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 

@@ -221,7 +221,6 @@ public class DaoReceipt implements DaoInterface<Receipt> {
         //      System.out.println("Get all" + dao.getAll());
 
 // System.out.println(receipt);
-
 //        DaoReceipt dao = new DaoReceipt();
 //        System.out.println(dao.get(2));
 //        System.out.println(receipt.getReceiptDetail().get(0).toString());

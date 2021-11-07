@@ -26,6 +26,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
 
     private MainFrame mainFrame;
     Timer timer;
+
     /**
      * Creates new form MainMenuPanel
      */
@@ -40,7 +41,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
     }
 
     private void timerController() {
-        ActionListener actionListener = new ActionListener(){
+        ActionListener actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Date date = new Date();
@@ -48,9 +49,9 @@ public class MainMenuPanel extends javax.swing.JPanel {
                 String time = timerFormat.format(date);
                 lblTimer.setText(time);
             }
-            
+
         };
-        timer = new Timer(1000,actionListener);
+        timer = new Timer(1000, actionListener);
         timer.setInitialDelay(0);
         timer.start();
     }
