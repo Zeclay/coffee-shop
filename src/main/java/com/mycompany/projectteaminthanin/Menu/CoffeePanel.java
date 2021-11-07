@@ -6,7 +6,10 @@
 package com.mycompany.projectteaminthanin.Menu;
 
 import com.mycompany.projectteaminthanin.Cart;
+import com.mycompany.projectteaminthanin.DaoModel.DaoProduct;
+import com.mycompany.projectteaminthanin.Point_of_sell;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.Product;
 
 /**
@@ -15,14 +18,14 @@ import model.Product;
  */
 public class CoffeePanel extends javax.swing.JPanel {
 
-    ArrayList<Cart> cart;
+    Point_of_sell POS;
 
     /**
      * Creates new form CoffeePanel
      */
-    public CoffeePanel(ArrayList<Cart> cart) {
+    public CoffeePanel(Point_of_sell pos) {
         initComponents();
-        this.cart = cart;
+        this.POS = pos;
     }
 
     /**
@@ -168,32 +171,72 @@ public class CoffeePanel extends javax.swing.JPanel {
         jLabel1.setText("Espresso 35฿/50฿");
 
         btnEspressoHot.setText("Hot");
+        btnEspressoHot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEspressoHotActionPerformed(evt);
+            }
+        });
 
         btnEspressoIce.setText("Ice");
         btnEspressoIce.setMaximumSize(new java.awt.Dimension(49, 23));
         btnEspressoIce.setMinimumSize(new java.awt.Dimension(49, 23));
+        btnEspressoIce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEspressoIceActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Americano 35฿/50฿");
 
         btnAmericanoHot.setText("Hot");
+        btnAmericanoHot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAmericanoHotActionPerformed(evt);
+            }
+        });
 
         btnAmericanoIce.setText("Ice");
         btnAmericanoIce.setMaximumSize(new java.awt.Dimension(49, 23));
         btnAmericanoIce.setMinimumSize(new java.awt.Dimension(49, 23));
+        btnAmericanoIce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAmericanoIceActionPerformed(evt);
+            }
+        });
 
         btnAllDayHot.setText("Hot");
+        btnAllDayHot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAllDayHotActionPerformed(evt);
+            }
+        });
 
         btnAllDayIce.setText("Ice");
         btnAllDayIce.setMaximumSize(new java.awt.Dimension(49, 23));
         btnAllDayIce.setMinimumSize(new java.awt.Dimension(49, 23));
+        btnAllDayIce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAllDayIceActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("InAllDay 40฿/55฿");
 
         btnCappuccinoHot.setText("Hot");
+        btnCappuccinoHot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCappuccinoHotActionPerformed(evt);
+            }
+        });
 
         btnCappuccinoIce.setText("Ice");
         btnCappuccinoIce.setMaximumSize(new java.awt.Dimension(49, 23));
         btnCappuccinoIce.setMinimumSize(new java.awt.Dimension(49, 23));
+        btnCappuccinoIce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCappuccinoIceActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Cappuccino 45฿/60฿");
 
@@ -236,28 +279,58 @@ public class CoffeePanel extends javax.swing.JPanel {
         );
 
         btnLatteHot.setText("Hot");
+        btnLatteHot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLatteHotActionPerformed(evt);
+            }
+        });
 
         btnLatteIce.setText("Ice");
         btnLatteIce.setMaximumSize(new java.awt.Dimension(49, 23));
         btnLatteIce.setMinimumSize(new java.awt.Dimension(49, 23));
+        btnLatteIce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLatteIceActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Café Latte 50฿/65฿");
 
         jLabel6.setText("Mocha 50฿/65฿");
 
         btnMochaHot.setText("Hot");
+        btnMochaHot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMochaHotActionPerformed(evt);
+            }
+        });
 
         btnMochaIce.setText("Ice");
         btnMochaIce.setMaximumSize(new java.awt.Dimension(49, 23));
         btnMochaIce.setMinimumSize(new java.awt.Dimension(49, 23));
+        btnMochaIce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMochaIceActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("InthaninBlend 60฿/70฿");
 
         btnInthaninBlendHot.setText("Hot");
+        btnInthaninBlendHot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInthaninBlendHotActionPerformed(evt);
+            }
+        });
 
         btnInthaninBlendIce.setText("Ice");
         btnInthaninBlendIce.setMaximumSize(new java.awt.Dimension(49, 23));
         btnInthaninBlendIce.setMinimumSize(new java.awt.Dimension(49, 23));
+        btnInthaninBlendIce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInthaninBlendIceActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -373,6 +446,289 @@ public class CoffeePanel extends javax.swing.JPanel {
                 .addContainerGap(88, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    DaoProduct daoPro = new DaoProduct();
+    private void btnEspressoHotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEspressoHotActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+
+        POS.cart.add(new Cart(daoPro.get(14), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(14).getProductName(),
+            amount,
+            daoPro.get(14).getPrice() * amount
+        });
+        POS.total += daoPro.get(14).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnEspressoHotActionPerformed
+
+    private void btnEspressoIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEspressoIceActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+        POS.cart.add(new Cart(daoPro.get(1), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(1).getProductName(),
+            amount,
+            daoPro.get(1).getPrice() * amount
+        });
+        POS.total += daoPro.get(1).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnEspressoIceActionPerformed
+
+    private void btnAmericanoHotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAmericanoHotActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+        POS.cart.add(new Cart(daoPro.get(15), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(15).getProductName(),
+            amount,
+            daoPro.get(15).getPrice() * amount
+        });
+        POS.total += daoPro.get(15).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnAmericanoHotActionPerformed
+
+    private void btnAmericanoIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAmericanoIceActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+        POS.cart.add(new Cart(daoPro.get(2), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(2).getProductName(),
+            amount,
+            daoPro.get(2).getPrice() * amount
+        });
+        POS.total += daoPro.get(2).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnAmericanoIceActionPerformed
+
+    private void btnAllDayHotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllDayHotActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+        POS.cart.add(new Cart(daoPro.get(16), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(16).getProductName(),
+            amount,
+            daoPro.get(16).getPrice() * amount
+        });
+        POS.total += daoPro.get(16).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnAllDayHotActionPerformed
+
+    private void btnAllDayIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllDayIceActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+        POS.cart.add(new Cart(daoPro.get(3), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(3).getProductName(),
+            amount,
+            daoPro.get(3).getPrice() * amount
+        });
+        POS.total += daoPro.get(3).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnAllDayIceActionPerformed
+
+    private void btnCappuccinoHotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCappuccinoHotActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+        POS.cart.add(new Cart(daoPro.get(17), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(17).getProductName(),
+            amount,
+            daoPro.get(17).getPrice() * amount
+        });
+        POS.total += daoPro.get(17).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnCappuccinoHotActionPerformed
+
+    private void btnCappuccinoIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCappuccinoIceActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+        POS.cart.add(new Cart(daoPro.get(4), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(4).getProductName(),
+            amount,
+            daoPro.get(4).getPrice() * amount
+        });
+        POS.total += daoPro.get(4).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnCappuccinoIceActionPerformed
+
+    private void btnLatteHotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLatteHotActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+        POS.cart.add(new Cart(daoPro.get(18), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(18).getProductName(),
+            amount,
+            daoPro.get(18).getPrice() * amount
+        });
+        POS.total += daoPro.get(18).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnLatteHotActionPerformed
+
+    private void btnLatteIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLatteIceActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+        POS.cart.add(new Cart(daoPro.get(5), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(5).getProductName(),
+            amount,
+            daoPro.get(5).getPrice() * amount
+        });
+        POS.total += daoPro.get(5).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnLatteIceActionPerformed
+
+    private void btnMochaHotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMochaHotActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+        POS.cart.add(new Cart(daoPro.get(19), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(19).getProductName(),
+            amount,
+            daoPro.get(19).getPrice() * amount
+        });
+        POS.total += daoPro.get(19).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnMochaHotActionPerformed
+
+    private void btnMochaIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMochaIceActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+        POS.cart.add(new Cart(daoPro.get(6), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(6).getProductName(),
+            amount,
+            daoPro.get(6).getPrice() * amount
+        });
+        POS.total += daoPro.get(6).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnMochaIceActionPerformed
+
+    private void btnInthaninBlendHotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInthaninBlendHotActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+        POS.cart.add(new Cart(daoPro.get(20), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(20).getProductName(),
+            amount,
+            daoPro.get(20).getPrice() * amount
+        });
+        POS.total += daoPro.get(20).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnInthaninBlendHotActionPerformed
+
+    private void btnInthaninBlendIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInthaninBlendIceActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+        POS.cart.add(new Cart(daoPro.get(7), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(7).getProductName(),
+            amount,
+            daoPro.get(7).getPrice() * amount
+        });
+        POS.total += daoPro.get(7).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnInthaninBlendIceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

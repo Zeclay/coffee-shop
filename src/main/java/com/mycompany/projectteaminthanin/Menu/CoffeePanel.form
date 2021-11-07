@@ -361,6 +361,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Hot"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEspressoHotActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnEspressoIce">
       <Properties>
@@ -372,6 +375,9 @@
           <Dimension value="[49, 23]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEspressoIceActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -382,6 +388,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Hot"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAmericanoHotActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAmericanoIce">
       <Properties>
@@ -393,11 +402,17 @@
           <Dimension value="[49, 23]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAmericanoIceActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAllDayHot">
       <Properties>
         <Property name="text" type="java.lang.String" value="Hot"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAllDayHotActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAllDayIce">
       <Properties>
@@ -409,6 +424,9 @@
           <Dimension value="[49, 23]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAllDayIceActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -419,6 +437,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Hot"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCappuccinoHotActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCappuccinoIce">
       <Properties>
@@ -430,6 +451,9 @@
           <Dimension value="[49, 23]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCappuccinoIceActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -518,6 +542,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Hot"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLatteHotActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnLatteIce">
       <Properties>
@@ -529,6 +556,9 @@
           <Dimension value="[49, 23]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLatteIceActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -544,6 +574,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Hot"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMochaHotActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnMochaIce">
       <Properties>
@@ -555,6 +588,9 @@
           <Dimension value="[49, 23]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMochaIceActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
@@ -565,6 +601,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Hot"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInthaninBlendHotActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnInthaninBlendIce">
       <Properties>
@@ -576,6 +615,9 @@
           <Dimension value="[49, 23]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInthaninBlendIceActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

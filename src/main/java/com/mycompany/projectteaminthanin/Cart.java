@@ -37,4 +37,9 @@ public class Cart {
         this.amount = amount;
     }
 
+    @Override
+    public String toString() {
+        return "Cart{" + "product=" + product + ", amount=" + amount + '}';
+    }
+
 }
