@@ -83,7 +83,7 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblGreenTeaImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblGreenTeaImg.setText("Green Tea LatteImg");
+        lblGreenTeaImg.setText("Green TeaImg");
         lblGreenTeaImg.setMaximumSize(new java.awt.Dimension(48, 14));
         lblGreenTeaImg.setMinimumSize(new java.awt.Dimension(48, 14));
         lblGreenTeaImg.setPreferredSize(new java.awt.Dimension(48, 14));

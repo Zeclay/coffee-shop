@@ -49,7 +49,7 @@ public class FruitPanel extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblBluePeaLemonImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBluePeaLemonImg.setText("Blue Pea LemonImg");
+        lblBluePeaLemonImg.setText("Blue PeaImg");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

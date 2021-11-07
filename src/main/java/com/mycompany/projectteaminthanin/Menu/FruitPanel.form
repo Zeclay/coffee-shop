@@ -82,7 +82,7 @@
         <Component class="javax.swing.JLabel" name="lblBluePeaLemonImg">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Blue Pea LemonImg"/>
+            <Property name="text" type="java.lang.String" value="Blue PeaImg"/>
           </Properties>
         </Component>
       </SubComponents>
