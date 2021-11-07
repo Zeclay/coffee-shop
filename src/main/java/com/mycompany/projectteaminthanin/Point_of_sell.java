@@ -6,6 +6,7 @@
 package com.mycompany.projectteaminthanin;
 
 import com.mycompany.projectteaminthanin.DaoModel.DaoCustomer;
+import com.mycompany.projectteaminthanin.DaoModel.DaoReceipt;
 import com.mycompany.projectteaminthanin.Menu.CoffeePanel;
 import com.mycompany.projectteaminthanin.Menu.FrameRegister;
 import com.mycompany.projectteaminthanin.Menu.FruitPanel;
@@ -16,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Customer;
 import model.Product;
+import model.Receipt;
 import model.User;
 
 /**
@@ -51,6 +53,7 @@ public class Point_of_sell extends javax.swing.JPanel {
     }
 
     public void disableCheckOut() {
+        txtCashChange.setText("Cash : ");
         txtCashChange.setVisible(false);
         tfcash.setVisible(false);
         tfChange.setVisible(false);
@@ -60,7 +63,7 @@ public class Point_of_sell extends javax.swing.JPanel {
     public void enableCheckOut() {
         txtCashChange.setVisible(true);
         tfcash.setVisible(true);
-        btnPrintReceipt.setEnabled(true);
+        
         disableLeft();
         disableScreen();
     }
@@ -73,7 +76,11 @@ public class Point_of_sell extends javax.swing.JPanel {
         btnClear.setEnabled(false);
     }
     public void disableScreen(){
-        scpmenu.setEnabled(false); // cant disable
+        scpmenu.setViewportView(new ClearPanel());
+        btnPay.setEnabled(false);
+        btnCoffee.setEnabled(false);
+        btnFriut.setEnabled(false);
+        btnTea.setEnabled(false);
     }
 
     /**
@@ -318,6 +325,16 @@ public class Point_of_sell extends javax.swing.JPanel {
         tfcash.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tfcash.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfcash.setText("cash");
+        tfcash.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfcashMouseClicked(evt);
+            }
+        });
+        tfcash.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfcashActionPerformed(evt);
+            }
+        });
 
         txtCashChange.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtCashChange.setText("change money :");
@@ -480,6 +497,30 @@ public class Point_of_sell extends javax.swing.JPanel {
         txtTotal.setText("Total : " + total);
         btnDelete.setEnabled(false);
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void tfcashMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfcashMouseClicked
+        tfcash.setText("");
+    }//GEN-LAST:event_tfcashMouseClicked
+    double cash = 0;
+    public int lastId = 0;
+    private void tfcashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcashActionPerformed
+        cash = Double.parseDouble(tfcash.getText());
+        if(total <= cash){
+            btnPrintReceipt.setEnabled(true);
+            Receipt rep = new Receipt(currentEmp.getEmployee(),currentCustomer);
+            for(int i = 0;i<cart.size();i++){
+                rep.addReceiptDetail(cart.get(i).getProduct(), cart.get(i).getAmount());
+            }
+            DaoReceipt daoReceipt = new DaoReceipt();
+            lastId = daoReceipt.add(rep);
+            //////////////////////////////////////////////////////////////////////
+            
+        }else{
+            JOptionPane.showMessageDialog(new JFrame(), "Cash < Total", "Warning",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_tfcashActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
