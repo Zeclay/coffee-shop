@@ -514,7 +514,7 @@ public class Point_of_sell extends javax.swing.JPanel {
             DaoReceipt daoReceipt = new DaoReceipt();
             lastId = daoReceipt.add(rep);
             //////////////////////////////////////////////////////////////////////
-            
+            System.out.println(lastId);
         }else{
             JOptionPane.showMessageDialog(new JFrame(), "Cash < Total", "Warning",
                     JOptionPane.ERROR_MESSAGE);

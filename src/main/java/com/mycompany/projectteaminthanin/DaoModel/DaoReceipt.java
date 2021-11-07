@@ -35,6 +35,7 @@ public class DaoReceipt implements DaoInterface<Receipt> {
         Database db = Database.getInstance();
         conn = db.getConnection();
         int id = -1;
+        int rep_id = -1;
         try {
             String sql = "INSERT INTO Receipt (emp_id,cus_id,total,cash,change)VALUES (?,?,?,?,?);";
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -48,8 +49,8 @@ public class DaoReceipt implements DaoInterface<Receipt> {
 
             ResultSet result = stmt.getGeneratedKeys();
             if (result.next()) {
-                id = result.getInt(1);
-                object.setRep_id(id);
+                rep_id = result.getInt(1);
+                object.setRep_id(rep_id);
             }
             for (ReceiptDetail r : object.getReceiptDetail()) {
                 String sqlDetail = "INSERT INTO Receiptdetail (rep_id,prod_id,amount,total) VALUES (?,?,?,?);";
@@ -70,7 +71,7 @@ public class DaoReceipt implements DaoInterface<Receipt> {
             System.out.println("Database Error");
         }
         db.close();
-        return id;
+        return rep_id;
     }
 
     @Override
