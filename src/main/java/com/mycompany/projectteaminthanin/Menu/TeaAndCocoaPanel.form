@@ -224,11 +224,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Hot"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThaiTeaHotActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnThaiTeaIce">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ice"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThaiTeaIceActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -239,11 +245,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Hot"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGreenTeaHotActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnGreenTeaIce">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ice"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGreenTeaIceActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -254,11 +266,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Hot"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCocoaHotActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCocoaIce">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ice"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCocoaIceActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel4">
       <Properties>
@@ -308,6 +326,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ice"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBlackTeaIceActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel5">
       <Properties>
@@ -357,6 +378,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ice"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLemonTeaIceActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -6,7 +6,10 @@
 package com.mycompany.projectteaminthanin.Menu;
 
 import com.mycompany.projectteaminthanin.Cart;
+import com.mycompany.projectteaminthanin.DaoModel.DaoProduct;
+import com.mycompany.projectteaminthanin.Point_of_sell;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.Product;
 
 /**
@@ -14,13 +17,15 @@ import model.Product;
  * @author SUPAKIT KONGKAM
  */
 public class FruitPanel extends javax.swing.JPanel {
-ArrayList<Cart> cart;
+
+    Point_of_sell POS;
+
     /**
      * Creates new form FruitPanel
      */
-    public FruitPanel(ArrayList<Cart> cart) {
+    public FruitPanel(Point_of_sell POS) {
         initComponents();
-        this.cart =cart;
+        this.POS = POS;
     }
 
     /**
@@ -76,10 +81,20 @@ ArrayList<Cart> cart;
         jLabel1.setText("Blue Pea Lemon 45฿");
 
         btnBluePeaLemonIce.setText("Ice");
+        btnBluePeaLemonIce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBluePeaLemonIceActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Punch 45฿");
 
         btnPunchIce.setText("Ice");
+        btnPunchIce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPunchIceActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -116,6 +131,48 @@ ArrayList<Cart> cart;
                 .addContainerGap(275, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+DaoProduct daoPro = new DaoProduct();
+    private void btnBluePeaLemonIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBluePeaLemonIceActionPerformed
+         int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+
+        POS.cart.add(new Cart(daoPro.get(12), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(12).getProductName(),
+            amount,
+            daoPro.get(12).getPrice() * amount
+        });
+        POS.total += daoPro.get(12).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnBluePeaLemonIceActionPerformed
+
+    private void btnPunchIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPunchIceActionPerformed
+        int amount = 0;
+        try {
+            amount = Integer.parseInt(JOptionPane.showInputDialog("Input Amount : "));
+        } catch (java.lang.NumberFormatException e) {
+            System.out.println("Cancle");
+        }
+        if (amount == 0) {
+            return;
+        }
+
+        POS.cart.add(new Cart(daoPro.get(13), amount));
+        POS.getCartModel().addRow(new Object[]{
+            daoPro.get(13).getProductName(),
+            amount,
+            daoPro.get(13).getPrice() * amount
+        });
+        POS.total += daoPro.get(13).getPrice() * amount;
+        POS.setlblTotal(POS.total);
+    }//GEN-LAST:event_btnPunchIceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

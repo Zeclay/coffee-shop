@@ -323,11 +323,11 @@ public class Point_of_sell extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCoffeeActionPerformed
 
     private void btnTeaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeaActionPerformed
-        scpmenu.setViewportView(new TeaAndCocoaPanel(cart));
+        scpmenu.setViewportView(new TeaAndCocoaPanel(this));
     }//GEN-LAST:event_btnTeaActionPerformed
 
     private void btnFriutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFriutActionPerformed
-        scpmenu.setViewportView(new FruitPanel(cart));
+        scpmenu.setViewportView(new FruitPanel(this));
     }//GEN-LAST:event_btnFriutActionPerformed
 
     DaoCustomer daoCus = new DaoCustomer();
@@ -377,6 +377,7 @@ public class Point_of_sell extends javax.swing.JPanel {
 
     private void btnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayActionPerformed
         System.out.println(cart);
+        System.out.println("Price : "+total);
     }//GEN-LAST:event_btnPayActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
