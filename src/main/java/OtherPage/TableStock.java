@@ -112,6 +112,7 @@ public class TableStock extends javax.swing.JPanel {
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(207, 192, 183));
         setPreferredSize(new java.awt.Dimension(888, 469));
 
         tblStock.setModel(new javax.swing.table.DefaultTableModel(
@@ -127,13 +128,15 @@ public class TableStock extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblStock);
 
-        lblnameStock.setText("Name : ");
+        jPanel1.setBackground(new java.awt.Color(112, 84, 62));
 
-        lblidStock.setText("ID      :");
+        lblnameStock.setText("Name    : ");
+
+        lblidStock.setText("ID         :");
 
         lbamountStock.setText("Amount :");
 
-        lblpriceStock.setText("Price   : ");
+        lblpriceStock.setText("Price     : ");
 
         txtamountStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,6 +146,7 @@ public class TableStock extends javax.swing.JPanel {
 
         lblshowidStock.setText("?");
 
+        btnsaveStock.setBackground(new java.awt.Color(0, 153, 153));
         btnsaveStock.setText("Save");
         btnsaveStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +154,7 @@ public class TableStock extends javax.swing.JPanel {
             }
         });
 
+        btncancleStock.setBackground(new java.awt.Color(102, 102, 102));
         btncancleStock.setText("Cancle");
         btncancleStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,7 +179,7 @@ public class TableStock extends javax.swing.JPanel {
                         .addComponent(btnsaveStock, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btncancleStock)
-                        .addContainerGap(654, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblshowidStock)
@@ -209,6 +214,9 @@ public class TableStock extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(new java.awt.Color(110, 95, 56));
+
+        btnAdd.setBackground(new java.awt.Color(102, 102, 102));
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,6 +224,7 @@ public class TableStock extends javax.swing.JPanel {
             }
         });
 
+        btnEdit.setBackground(new java.awt.Color(102, 102, 102));
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,6 +232,7 @@ public class TableStock extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(102, 102, 102));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -258,11 +268,12 @@ public class TableStock extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 868, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 868, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
