@@ -43,6 +43,8 @@ public class RegisterForm extends javax.swing.JPanel {
         btnConfirm = new javax.swing.JButton();
         btnCancle = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Register Form");
 
@@ -52,6 +54,7 @@ public class RegisterForm extends javax.swing.JPanel {
 
         jLabel4.setText("Birthday (DD/MM/YYYY)");
 
+        btnConfirm.setBackground(new java.awt.Color(153, 153, 0));
         btnConfirm.setText("Confirm");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +62,8 @@ public class RegisterForm extends javax.swing.JPanel {
             }
         });
 
+        btnCancle.setBackground(new java.awt.Color(251, 102, 102));
+        btnCancle.setForeground(new java.awt.Color(255, 255, 255));
         btnCancle.setText("Cancle");
         btnCancle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

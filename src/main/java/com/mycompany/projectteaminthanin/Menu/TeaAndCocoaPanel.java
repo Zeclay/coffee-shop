@@ -61,6 +61,8 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         btnLemonTeaIce = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblThaiTeaLatteImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

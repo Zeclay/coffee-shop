@@ -123,7 +123,9 @@ public class Point_of_sell extends javax.swing.JPanel {
 
         btnCoffee2.setText("COFFEE");
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(159, 133, 116));
+
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
         txtMember.setBackground(new java.awt.Color(255, 255, 255));
         txtMember.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -162,6 +164,7 @@ public class Point_of_sell extends javax.swing.JPanel {
                 .addGap(0, 1, Short.MAX_VALUE))
         );
 
+        txtTotal.setBackground(new java.awt.Color(153, 153, 153));
         txtTotal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtTotal.setText("TOTAL");
@@ -183,6 +186,7 @@ public class Point_of_sell extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        btnRegister.setBackground(new java.awt.Color(153, 153, 153));
         btnRegister.setText("Register");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,7 +194,9 @@ public class Point_of_sell extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(228, 55, 55));
         btnDelete.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,6 +204,7 @@ public class Point_of_sell extends javax.swing.JPanel {
             }
         });
 
+        btnClear.setBackground(new java.awt.Color(255, 255, 0));
         btnClear.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnClear.setText("CLEAR");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
@@ -221,6 +228,7 @@ public class Point_of_sell extends javax.swing.JPanel {
         });
         tableCart.setViewportView(table);
 
+        btnPrintReceipt.setBackground(new java.awt.Color(255, 255, 255));
         btnPrintReceipt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnPrintReceipt.setText("PrintReceipt");
 
@@ -303,8 +311,9 @@ public class Point_of_sell extends javax.swing.JPanel {
 
         scpmenu.setViewportView(jPanel3);
 
-        btnPay.setBackground(new java.awt.Color(255, 255, 255));
+        btnPay.setBackground(new java.awt.Color(153, 153, 0));
         btnPay.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnPay.setForeground(new java.awt.Color(255, 255, 255));
         btnPay.setText("Confirm");
         btnPay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -312,7 +321,9 @@ public class Point_of_sell extends javax.swing.JPanel {
             }
         });
 
+        btnCoffee.setBackground(new java.awt.Color(91, 103, 63));
         btnCoffee.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCoffee.setForeground(new java.awt.Color(255, 255, 255));
         btnCoffee.setText("COFFEE");
         btnCoffee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -320,7 +331,9 @@ public class Point_of_sell extends javax.swing.JPanel {
             }
         });
 
+        btnTea.setBackground(new java.awt.Color(91, 103, 63));
         btnTea.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnTea.setForeground(new java.awt.Color(255, 255, 255));
         btnTea.setText("TEA & COCOA");
         btnTea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -328,7 +341,9 @@ public class Point_of_sell extends javax.swing.JPanel {
             }
         });
 
+        btnFriut.setBackground(new java.awt.Color(91, 103, 63));
         btnFriut.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnFriut.setForeground(new java.awt.Color(255, 255, 255));
         btnFriut.setText("FRUIT DRINK");
         btnFriut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,6 +367,7 @@ public class Point_of_sell extends javax.swing.JPanel {
         });
 
         txtCashChange.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        txtCashChange.setForeground(new java.awt.Color(255, 255, 255));
         txtCashChange.setText("change money :");
 
         tfChange.setEditable(false);
@@ -406,7 +422,7 @@ public class Point_of_sell extends javax.swing.JPanel {
                     .addComponent(txtCashChange, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfcash, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfChange, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         scrMenuPanel.setViewportView(jPanel1);
