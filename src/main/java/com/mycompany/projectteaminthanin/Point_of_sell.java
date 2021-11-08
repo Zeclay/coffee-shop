@@ -31,14 +31,14 @@ public class Point_of_sell extends javax.swing.JPanel {
     public boolean beMember = false;
     public ArrayList<Cart> cart = new ArrayList<>();
     public double total = 0;
-
+    MainMenuPanel mainmenu;
     /**
      * Creates new form Point_of_sell
      */
-    public Point_of_sell() {
+    public Point_of_sell(MainMenuPanel mainmenu) {
         initComponents();
         disableCheckOut();
-
+        this.mainmenu = mainmenu;
         scpmenu.setViewportView(new CoffeePanel(this));
         CartModel = (DefaultTableModel) table.getModel();
         btnDelete.setEnabled(false);
@@ -64,7 +64,7 @@ public class Point_of_sell extends javax.swing.JPanel {
     public void enableCheckOut() {
         txtCashChange.setVisible(true);
         tfcash.setVisible(true);
-        
+
         disableLeft();
         disableScreen();
     }
@@ -76,12 +76,14 @@ public class Point_of_sell extends javax.swing.JPanel {
         btnDelete.setEnabled(false);
         btnClear.setEnabled(false);
     }
-    public void disableScreen(){
+
+    public void disableScreen() {
         scpmenu.setViewportView(new ClearPanel());
         btnPay.setEnabled(false);
         btnCoffee.setEnabled(false);
         btnFriut.setEnabled(false);
         btnTea.setEnabled(false);
+
     }
 
     /**
@@ -165,7 +167,7 @@ public class Point_of_sell extends javax.swing.JPanel {
         );
 
         txtTotal.setBackground(new java.awt.Color(153, 153, 153));
-        txtTotal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtTotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtTotal.setText("TOTAL");
 
@@ -231,11 +233,16 @@ public class Point_of_sell extends javax.swing.JPanel {
         btnPrintReceipt.setBackground(new java.awt.Color(255, 255, 255));
         btnPrintReceipt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnPrintReceipt.setText("PrintReceipt");
+        btnPrintReceipt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrintReceiptActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("Member :");
+        jLabel1.setText("Discount :");
 
         lblStatusMember.setForeground(new java.awt.Color(255, 0, 51));
-        lblStatusMember.setText("off");
+        lblStatusMember.setText("0%");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -450,13 +457,14 @@ public class Point_of_sell extends javax.swing.JPanel {
     private void btnFriutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFriutActionPerformed
         scpmenu.setViewportView(new FruitPanel(this));
     }//GEN-LAST:event_btnFriutActionPerformed
-
+    
+    
     DaoCustomer daoCus = new DaoCustomer();
     UserService us = new UserService();
     Customer currentCustomer = daoCus.get(6);
     User currentEmp = us.getCurrentUser();
 
-
+    public double Discount = 0;
     private void tfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchActionPerformed
         String tel = tfSearch.getText();
 
@@ -468,7 +476,7 @@ public class Point_of_sell extends javax.swing.JPanel {
                 tfSearch.setEnabled(false);
                 btnRegister.setEnabled(false);
                 lblStatusMember.setForeground(Color.GREEN);
-                lblStatusMember.setText("on");
+                lblStatusMember.setText("10%");
                 System.out.println("MemberStatus : " + beMember);
                 System.out.println("Customer : " + currentCustomer.getName());
                 System.out.println("EMP : " + currentEmp.getEmployee().getName());
@@ -499,6 +507,13 @@ public class Point_of_sell extends javax.swing.JPanel {
 
     private void btnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayActionPerformed
         if (CartModel.getRowCount() > 0) {
+            if (beMember == true) {
+                Discount = total * 0.01;
+                Discount = Math.ceil(Discount);
+                total -= Discount;
+                txtTotal.setText("Discounted Total : " + total);
+
+            }
             System.out.println(cart);
             System.out.println("Price : " + total);
             enableCheckOut();
@@ -536,36 +551,43 @@ public class Point_of_sell extends javax.swing.JPanel {
         tfcash.setText("");
     }//GEN-LAST:event_tfcashMouseClicked
     double cash = 0;
+    double change = 0;
     public int lastId = 0;
     private void tfcashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcashActionPerformed
         cash = Double.parseDouble(tfcash.getText());
-        if(total <= cash){
+        if (total <= cash) {
             btnPrintReceipt.setEnabled(true);
-            Receipt rep = new Receipt(currentEmp.getEmployee(),currentCustomer);
-            for(int i = 0;i<cart.size();i++){
+            Receipt rep = new Receipt(currentEmp.getEmployee(), currentCustomer);
+            for (int i = 0; i < cart.size(); i++) {
                 rep.addReceiptDetail(cart.get(i).getProduct(), cart.get(i).getAmount());
             }
             rep.setTotal(total);
             rep.setCash(cash);
-            double change = cash-total;
+            change = cash - total;
             rep.setChange(change);
             DaoReceipt daoReceipt = new DaoReceipt();
             tfcash.setVisible(false);
             txtCashChange.setText("Change : ");
             tfChange.setVisible(true);
-            tfChange.setText(""+change);
-            
+            tfChange.setText("" + change);
+
             //////////////////////////////////////////////////////////////////////
             lastId = daoReceipt.add(rep);
             //////////////////////////////////////////////////////////////////////
             System.out.println(lastId);
-            
-        }else{
+
+        } else {
             JOptionPane.showMessageDialog(new JFrame(), "Cash < Total", "Warning",
                     JOptionPane.ERROR_MESSAGE);
         }
-        
+
     }//GEN-LAST:event_tfcashActionPerformed
+
+    private void btnPrintReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintReceiptActionPerformed
+        PrintReceipt pr = new PrintReceipt(new javax.swing.JFrame(), true, this,mainmenu);
+        pr.setVisible(true);
+
+    }//GEN-LAST:event_btnPrintReceiptActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

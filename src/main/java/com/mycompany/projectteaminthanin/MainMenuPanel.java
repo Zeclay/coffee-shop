@@ -74,7 +74,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Date date = new Date();
-                DateFormat timerFormat = new SimpleDateFormat("HH:mm:ss");
+                DateFormat timerFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
                 String time = timerFormat.format(date);
                 lblTimer.setText(time);
             }
@@ -332,9 +332,13 @@ public class MainMenuPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void resetPointOfSell(){
+         lblTitle.setText("Point Of Sell");
+         pnlShowFrame.setViewportView(new Point_of_sell(this));
+    }
     private void btnpointofsellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpointofsellActionPerformed
         lblTitle.setText("Point Of Sell");
-        pnlShowFrame.setViewportView(new Point_of_sell());
+        pnlShowFrame.setViewportView(new Point_of_sell(this));
     }//GEN-LAST:event_btnpointofsellActionPerformed
 
     private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
