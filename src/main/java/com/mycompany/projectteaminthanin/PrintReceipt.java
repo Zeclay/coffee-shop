@@ -32,19 +32,23 @@ public class PrintReceipt extends javax.swing.JDialog {
         txtReceipt.setText(txtReceipt.getText()+"------------------------------------------------------\n");
         int i = 1;
         int amount = 0;
+        double total = 0;
         for(Cart c : POS.cart){
             txtReceipt.setText(txtReceipt.getText()+c.getAmount()+"  "+c.getProduct().getProductName()+"\t"+c.getProduct().getPrice()*c.getAmount()+"\n");
             amount+= c.getAmount();
             i++;
+            total+=c.getProduct().getPrice() * c.getAmount();
         }
         txtReceipt.setText(txtReceipt.getText()+"------------------------------------------------------\n");
         txtReceipt.setText(txtReceipt.getText()+"ยอดสุทธิ "+amount);
+        txtReceipt.setText(txtReceipt.getText()+"\tPrice\t"+total+" Baht\n");
+        txtReceipt.setText(txtReceipt.getText()+"\tDiscount\t"+POS.Discount+" Baht\n\n");
         txtReceipt.setText(txtReceipt.getText()+"\tTotal\t"+POS.total+" Baht\n");
-        txtReceipt.setText(txtReceipt.getText()+"\tDiscount\t"+POS.Discount+" Baht\n");
         txtReceipt.setText(txtReceipt.getText()+"\tCash\t"+POS.cash+" Baht\n");
         txtReceipt.setText(txtReceipt.getText()+"\tChange\t"+POS.change+" Baht\n");
         txtReceipt.setText(txtReceipt.getText()+"------------------------------------------------------\n");
         txtReceipt.setText(txtReceipt.getText()+"                      Inthanin Coffee                      \n");
+        txtReceipt.setText(txtReceipt.getText()+"                    Tel. 088-088-0888 \n");
         txtReceipt.setText(txtReceipt.getText()+"------------------------------------------------------\n");
         txtReceipt.setText(txtReceipt.getText()+daoRep.get(POS.lastId).getDate());
     }

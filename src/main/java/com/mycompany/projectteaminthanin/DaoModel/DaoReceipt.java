@@ -190,11 +190,15 @@ public class DaoReceipt implements DaoInterface<Receipt> {
         conn = db.getConnection();
         int row = 0;
         try {
-            String sql = "DELETE FROM receipt WHERE ID = ?";
+            String sql = "DELETE FROM Receiptdetail  WHERE rep_id  = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
             row = stmt.executeUpdate();
-
+            String sql2 = "DELETE FROM Receipt\n"
+                    + "      WHERE rep_id = ?";
+            PreparedStatement stmt2 = conn.prepareStatement(sql2);
+            stmt2.setInt(1, id);
+            row = stmt2.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Error: Unable to delete receipt!!");
         }

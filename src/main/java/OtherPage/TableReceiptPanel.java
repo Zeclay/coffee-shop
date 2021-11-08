@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import model.Receipt;
+import model.ReceiptDetail;
 
 /**
  *
@@ -34,21 +35,10 @@ public class TableReceiptPanel extends javax.swing.JPanel {
     public TableReceiptPanel() {
         initComponents();
         DaoReceipt dao = new DaoReceipt();
-        initForm();
+        btnDelete.setEnabled(false);
+        txtDetail.setVisible(false);
+        jScrollPane2.setVisible(false);
         loadTable(dao);
-    }
-
-    public void initForm() {
-        lblidReceipt.setEnabled(false);
-        txtEMPIDReceipt.setEnabled(false);
-        txtDateReceipt.setEnabled(false);
-        txtCUSIDReceipt.setEnabled(false);
-        txtCashReceipt.setEnabled(false);
-        txtChangeReceipt.setEnabled(false);
-        txtTotalReceipt.setEnabled(false);
-
-        btnsaveReceipt.setEnabled(false);
-        btncancleReceipt.setEnabled(false);
     }
 
     public void refreshTable() {
@@ -60,64 +50,10 @@ public class TableReceiptPanel extends javax.swing.JPanel {
         tblReceipt.repaint();
     }
 
-    public void clearEditForm() {
-        editedReceipt = null;
-        lblshowidReceipt.setText("");
-        txtEMPIDReceipt.setText("");
-        txtDateReceipt.setText("");
-        txtCUSIDReceipt.setText("");
-        txtCashReceipt.setText("");
-        txtChangeReceipt.setText("");
-        txtTotalReceipt.setText("");
-        initForm();
-
-    }
-
-    public void loadFormToReceipt() {
-
-        try {
-            editedReceipt.setEmpID(Integer.parseInt(txtEMPIDReceipt.getText()));
-            String sDate1 = txtDateReceipt.getText();
-            Date date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(sDate1);
-            editedReceipt.setDate(date1);
-            editedReceipt.setCusID(Integer.parseInt(txtCUSIDReceipt.getText()));
-            editedReceipt.setTotal(Double.parseDouble(txtTotalReceipt.getText()));
-            editedReceipt.setCash(Double.parseDouble(txtCashReceipt.getText()));
-            editedReceipt.setChange(Double.parseDouble(txtChangeReceipt.getText()));
-
-        } catch (ParseException ex) {
-            System.out.println("ERRORRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
-        }
-
-    }
-
     public void loadTable(DaoReceipt dao) {
         receiptList = dao.getAll();
         model = new ReceiptTablemodel(receiptList);
         tblReceipt.setModel(model);
-    }
-
-    public void loadReceiptToForm() {
-        if (editedReceipt.getRep_id() >= 0) {
-            lblshowidReceipt.setText("" + editedReceipt.getRep_id());
-        }
-        txtEMPIDReceipt.setText(editedReceipt.getEmpID() + "");
-        Date date = editedReceipt.getDate();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String strDate = dateFormat.format(date);
-        txtDateReceipt.setText(strDate);
-        txtCUSIDReceipt.setText("" + editedReceipt.getCusID());
-        txtTotalReceipt.setText(editedReceipt.getTotal() + "");
-        txtCashReceipt.setText("" + editedReceipt.getCash());
-        txtChangeReceipt.setText("" + editedReceipt.getChange());
-        txtEMPIDReceipt.setEnabled(true);
-        txtDateReceipt.setEnabled(true);
-        txtCUSIDReceipt.setEnabled(true);
-        txtTotalReceipt.setEnabled(true);
-        txtCashReceipt.setEnabled(true);
-        txtChangeReceipt.setEnabled(true);
-        btnsaveReceipt.setEnabled(true);
-        btncancleReceipt.setEnabled(true);
     }
 
     /**
@@ -131,26 +67,10 @@ public class TableReceiptPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblReceipt = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        lblEmpIdReceipt = new javax.swing.JLabel();
-        lblidReceipt = new javax.swing.JLabel();
-        lbDateReceipt = new javax.swing.JLabel();
-        lblCusIdReceipt = new javax.swing.JLabel();
-        txtEMPIDReceipt = new javax.swing.JTextField();
-        txtDateReceipt = new javax.swing.JTextField();
-        txtCUSIDReceipt = new javax.swing.JTextField();
-        lblshowidReceipt = new javax.swing.JLabel();
-        btnsaveReceipt = new javax.swing.JButton();
-        btncancleReceipt = new javax.swing.JButton();
-        lblTotalReceipt = new javax.swing.JLabel();
-        txtTotalReceipt = new javax.swing.JTextField();
-        lbCashReceipt = new javax.swing.JLabel();
-        txtCashReceipt = new javax.swing.JTextField();
-        lbChangeReceipt = new javax.swing.JLabel();
-        txtChangeReceipt = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtDetail = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(207, 192, 183));
         setPreferredSize(new java.awt.Dimension(888, 469));
@@ -166,141 +86,14 @@ public class TableReceiptPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblReceipt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblReceiptMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblReceipt);
 
-        jPanel1.setBackground(new java.awt.Color(112, 84, 62));
-
-        lblEmpIdReceipt.setText("EMPID : ");
-
-        lblidReceipt.setText("ID : ");
-
-        lbDateReceipt.setText("Date : ");
-
-        lblCusIdReceipt.setText("CUSID : ");
-
-        txtDateReceipt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDateReceiptActionPerformed(evt);
-            }
-        });
-
-        lblshowidReceipt.setText("?");
-
-        btnsaveReceipt.setBackground(new java.awt.Color(0, 153, 153));
-        btnsaveReceipt.setText("Save");
-        btnsaveReceipt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsaveReceiptActionPerformed(evt);
-            }
-        });
-
-        btncancleReceipt.setBackground(new java.awt.Color(102, 102, 102));
-        btncancleReceipt.setText("Cancle");
-        btncancleReceipt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncancleReceiptActionPerformed(evt);
-            }
-        });
-
-        lblTotalReceipt.setText("Total : ");
-
-        lbCashReceipt.setText("Cash : ");
-
-        txtCashReceipt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCashReceiptActionPerformed(evt);
-            }
-        });
-
-        lbChangeReceipt.setText("Change : ");
-
-        txtChangeReceipt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtChangeReceiptActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(lbDateReceipt)
-                    .addComponent(lblidReceipt)
-                    .addComponent(lblEmpIdReceipt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblCusIdReceipt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnsaveReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btncancleReceipt)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblshowidReceipt)
-                            .addComponent(txtDateReceipt, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(txtCUSIDReceipt)
-                            .addComponent(txtEMPIDReceipt))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbCashReceipt)
-                                    .addComponent(lblTotalReceipt)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(lbChangeReceipt)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTotalReceipt)
-                            .addComponent(txtCashReceipt)
-                            .addComponent(txtChangeReceipt))
-                        .addGap(500, 500, 500))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblidReceipt)
-                    .addComponent(lblshowidReceipt))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEmpIdReceipt)
-                    .addComponent(txtEMPIDReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTotalReceipt)
-                    .addComponent(txtTotalReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbDateReceipt)
-                    .addComponent(txtDateReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbCashReceipt)
-                    .addComponent(txtCashReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCusIdReceipt)
-                    .addComponent(txtCUSIDReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbChangeReceipt)
-                    .addComponent(txtChangeReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnsaveReceipt)
-                    .addComponent(btncancleReceipt))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         jPanel2.setBackground(new java.awt.Color(110, 95, 56));
-
-        btnEdit.setBackground(new java.awt.Color(102, 102, 102));
-        btnEdit.setText("Edit");
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
-            }
-        });
 
         btnDelete.setBackground(new java.awt.Color(102, 102, 102));
         btnDelete.setText("Delete");
@@ -315,73 +108,50 @@ public class TableReceiptPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
                 .addComponent(btnDelete)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDelete)
-                    .addComponent(btnEdit))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDelete)
+                .addContainerGap())
         );
+
+        txtDetail.setEditable(false);
+        txtDetail.setColumns(20);
+        txtDetail.setFont(new java.awt.Font("AngsanaUPC", 0, 18)); // NOI18N
+        txtDetail.setRows(5);
+        jScrollPane2.setViewportView(txtDetail);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 868, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtDateReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateReceiptActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDateReceiptActionPerformed
-
-    private void btnsaveReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveReceiptActionPerformed
-        loadFormToReceipt();
-        DaoReceipt dao = new DaoReceipt();
-        if (editedReceipt.getRep_id() >= 0) {
-            dao.update(editedReceipt);
-        } else {
-            dao.add(editedReceipt);
-        }
-        refreshTable();
-        clearEditForm();
-    }//GEN-LAST:event_btnsaveReceiptActionPerformed
-
-    private void btncancleReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancleReceiptActionPerformed
-        clearEditForm();
-    }//GEN-LAST:event_btncancleReceiptActionPerformed
-
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        if (tblReceipt.getSelectedRow() >= 0) {
-            editedReceipt = receiptList.get(tblReceipt.getSelectedRow());
-            loadReceiptToForm();
-        }
-    }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         if (JOptionPane.showConfirmDialog(null, "Are you sure?", "WARNING",
@@ -393,40 +163,62 @@ public class TableReceiptPanel extends javax.swing.JPanel {
             }
             refreshTable();
         }
+        btnDelete.setEnabled(false);
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void txtCashReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCashReceiptActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCashReceiptActionPerformed
+    public void showDetail() {
+        DaoReceipt daoShow = new DaoReceipt();
+        txtDetail.setText("");
+        if (tblReceipt.getSelectedRow() >= 0) {
+            int table = receiptList.get(tblReceipt.getSelectedRow()).getRep_id();
+            txtDetail.setText(txtDetail.getText() + "------------------------------------------------------\n");
+            txtDetail.setText(txtDetail.getText() + "                       ร้านกาแฟ Inthanin                \n");
+            txtDetail.setText(txtDetail.getText() + "                   สาขา  มหาวิทยาลัยบูรพา            \n");
+            txtDetail.setText(txtDetail.getText() + "รหัสใบเสร็จเลขที่\t" + daoShow.get(table).getRep_id() + "   \n");
+            txtDetail.setText(txtDetail.getText() + "ผู้ขาย \t" + daoShow.get(table).getEmployee().getName() + "\n");
+            txtDetail.setText(txtDetail.getText() + "------------------------------------------------------\n");
+            int i = 1;
+            int amount = 0;
+            double total = 0;
+            for (ReceiptDetail c : daoShow.get(table).getReceiptDetail()) {
+                txtDetail.setText(txtDetail.getText() + c.getAmount() + "  " + c.getProduct().getProductName() + "\t" + c.getProduct().getPrice() * c.getAmount() + "\n");
+                amount += c.getAmount();
+                i++;
+                total+=c.getProduct().getPrice() * c.getAmount();
+            }
+            txtDetail.setText(txtDetail.getText() + "------------------------------------------------------\n");
+            txtDetail.setText(txtDetail.getText() + "ยอดสุทธิ " + amount);
+            txtDetail.setText(txtDetail.getText() + "\tPrice\t" + total + " Baht\n");
+            txtDetail.setText(txtDetail.getText() + "\tDiscount\t" + (total-daoShow.get(table).getTotal()) + " Baht\n\n");
+            
+            txtDetail.setText(txtDetail.getText() + "\tTotal\t" + daoShow.get(table).getTotal() + " Baht\n");
+            txtDetail.setText(txtDetail.getText() + "\tCash\t" + daoShow.get(table).getCash() + " Baht\n");
+            txtDetail.setText(txtDetail.getText() + "\tChange\t" + daoShow.get(table).getChange() + " Baht\n");
+            txtDetail.setText(txtDetail.getText() + "------------------------------------------------------\n");
+            txtDetail.setText(txtDetail.getText() + "                      Inthanin Coffee                      \n");
+            txtDetail.setText(txtDetail.getText() + "                    Tel. 088-088-0888 \n");
+            txtDetail.setText(txtDetail.getText() + "------------------------------------------------------\n");
+            txtDetail.setText(txtDetail.getText() + daoShow.get(table).getDate());
+        }
+        refreshTable();
+    }
 
-    private void txtChangeReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtChangeReceiptActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtChangeReceiptActionPerformed
+    private void tblReceiptMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblReceiptMouseClicked
+        btnDelete.setEnabled(true);
+        jScrollPane2.setVisible(true);
+        txtDetail.setVisible(true);
+        showDetail();
+    }//GEN-LAST:event_tblReceiptMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btncancleReceipt;
-    private javax.swing.JButton btnsaveReceipt;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbCashReceipt;
-    private javax.swing.JLabel lbChangeReceipt;
-    private javax.swing.JLabel lbDateReceipt;
-    private javax.swing.JLabel lblCusIdReceipt;
-    private javax.swing.JLabel lblEmpIdReceipt;
-    private javax.swing.JLabel lblTotalReceipt;
-    private javax.swing.JLabel lblidReceipt;
-    private javax.swing.JLabel lblshowidReceipt;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblReceipt;
-    private javax.swing.JTextField txtCUSIDReceipt;
-    private javax.swing.JTextField txtCashReceipt;
-    private javax.swing.JTextField txtChangeReceipt;
-    private javax.swing.JTextField txtDateReceipt;
-    private javax.swing.JTextField txtEMPIDReceipt;
-    private javax.swing.JTextField txtTotalReceipt;
+    private javax.swing.JTextArea txtDetail;
     // End of variables declaration//GEN-END:variables
 private class ReceiptTablemodel extends AbstractTableModel {
 
