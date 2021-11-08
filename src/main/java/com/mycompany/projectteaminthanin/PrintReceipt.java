@@ -25,8 +25,8 @@ public class PrintReceipt extends javax.swing.JDialog {
         this.mainmenu = mainmenu;
         DaoReceipt daoRep = new DaoReceipt();
         txtReceipt.setText(txtReceipt.getText()+"------------------------------------------------------\n");
-        txtReceipt.setText(txtReceipt.getText()+"                        ร้านกาแฟ Inthanin                \n");
-        txtReceipt.setText(txtReceipt.getText()+"                    สาขา  มหาวิทยาลัยบูรพา            \n");
+        txtReceipt.setText(txtReceipt.getText()+"                       ร้านกาแฟ Inthanin                \n");
+        txtReceipt.setText(txtReceipt.getText()+"                   สาขา  มหาวิทยาลัยบูรพา            \n");
         txtReceipt.setText(txtReceipt.getText()+"รหัสใบเสร็จเลขที่\t"+POS.lastId+"   \n");
         txtReceipt.setText(txtReceipt.getText()+"ผู้ขาย \t"+POS.currentEmp.getEmployee().getName()+"\n");
         txtReceipt.setText(txtReceipt.getText()+"------------------------------------------------------\n");
@@ -46,6 +46,7 @@ public class PrintReceipt extends javax.swing.JDialog {
         txtReceipt.setText(txtReceipt.getText()+"------------------------------------------------------\n");
         txtReceipt.setText(txtReceipt.getText()+"                      Inthanin Coffee                      \n");
         txtReceipt.setText(txtReceipt.getText()+"------------------------------------------------------\n");
+        txtReceipt.setText(txtReceipt.getText()+daoRep.get(POS.lastId).getDate());
     }
 
 

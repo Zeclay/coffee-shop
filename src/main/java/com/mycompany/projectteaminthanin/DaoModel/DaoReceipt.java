@@ -82,12 +82,12 @@ public class DaoReceipt implements DaoInterface<Receipt> {
         conn = db.getConnection();
         try {
 
-            String sql = "SELECT rep_id,date,emp_id,emp.Name as empName,cus_id,c.Name as cus_name ,r.total,r.cash,r.change FROM Receipt r ,Customer c, Employee emp WHERE r.cus_id = c.CustomerId AND r.emp_id = emp.EmployeeId ORDER BY date DESC;";
+            String sql = "SELECT rep_id,datetime(date, 'localtime') as ldate ,emp_id,emp.Name as empName,cus_id,c.Name as cus_name ,r.total,r.cash,r.change FROM Receipt r ,Customer c, Employee emp WHERE r.cus_id = c.CustomerId AND r.emp_id = emp.EmployeeId ORDER BY date DESC;";
             Statement stmt = conn.createStatement();
             ResultSet result = stmt.executeQuery(sql);
             while (result.next()) {
                 int repid = result.getInt("rep_id");
-                Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(result.getString("date"));//date can fix
+                Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(result.getString("ldate"));//date can fix
                 int emp_id = result.getInt("emp_id");
                 String empName = result.getString("empName");
                 int cusId = result.getInt("cus_id");
@@ -118,7 +118,7 @@ public class DaoReceipt implements DaoInterface<Receipt> {
         conn = db.getConnection();
         try {
 
-            String sql = "SELECT rep_id,date,emp_id,emp.Name as empName,cus_id,c.Name as cus_name ,total,cash,change FROM Receipt r ,Customer c, Employee emp WHERE r.cus_id = c.CustomerId AND r.emp_id = emp.EmployeeId AND rep_id = ? ORDER BY date DESC;";
+            String sql = "SELECT rep_id,datetime(date, 'localtime') as ldate,emp_id,emp.Name as empName,cus_id,c.Name as cus_name ,total,cash,change FROM Receipt r ,Customer c, Employee emp WHERE r.cus_id = c.CustomerId AND r.emp_id = emp.EmployeeId AND rep_id = ? ORDER BY date DESC;";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
 
@@ -128,7 +128,7 @@ public class DaoReceipt implements DaoInterface<Receipt> {
 
                 int repid = result.getInt("rep_id");
 
-                Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(result.getString("date"));//date can fix
+                Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(result.getString("ldate"));//date can fix
                 int emp_id = result.getInt("emp_id");
                 String empName = result.getString("empName");
                 int cusId = result.getInt("cus_id");
