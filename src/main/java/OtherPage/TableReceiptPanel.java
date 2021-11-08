@@ -78,7 +78,7 @@ public class TableReceiptPanel extends javax.swing.JPanel {
         try {
             editedReceipt.setEmpID(Integer.parseInt(txtEMPIDReceipt.getText()));
             String sDate1 = txtDateReceipt.getText();
-            Date date1 = new SimpleDateFormat("yyyy-mm-dd").parse(sDate1);
+            Date date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(sDate1);
             editedReceipt.setDate(date1);
             editedReceipt.setCusID(Integer.parseInt(txtCUSIDReceipt.getText()));
             editedReceipt.setTotal(Double.parseDouble(txtTotalReceipt.getText()));
@@ -103,7 +103,7 @@ public class TableReceiptPanel extends javax.swing.JPanel {
         }
         txtEMPIDReceipt.setText(editedReceipt.getEmpID() + "");
         Date date = editedReceipt.getDate();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String strDate = dateFormat.format(date);
         txtDateReceipt.setText(strDate);
         txtCUSIDReceipt.setText("" + editedReceipt.getCusID());
