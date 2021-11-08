@@ -56,15 +56,15 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="lblLogo" min="-2" pref="331" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
-                  <Component id="lblTitle" min="-2" pref="265" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblTitle" min="-2" pref="261" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="32767" attributes="0"/>
                   <Component id="lblEmpic" min="-2" pref="90" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblCurrentUser" min="-2" pref="178" max="-2" attributes="0"/>
                       <Component id="lblWelcome" min="-2" pref="178" max="-2" attributes="0"/>
+                      <Component id="lblCurrentUser" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
