@@ -11,6 +11,7 @@ import com.mycompany.projectteaminthanin.Menu.CoffeePanel;
 import com.mycompany.projectteaminthanin.Menu.FrameRegister;
 import com.mycompany.projectteaminthanin.Menu.FruitPanel;
 import com.mycompany.projectteaminthanin.Menu.TeaAndCocoaPanel;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -108,6 +109,8 @@ public class Point_of_sell extends javax.swing.JPanel {
         tableCart = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         btnPrintReceipt = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        lblStatusMember = new javax.swing.JLabel();
         scpmenu = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         btnPay = new javax.swing.JButton();
@@ -221,6 +224,11 @@ public class Point_of_sell extends javax.swing.JPanel {
         btnPrintReceipt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnPrintReceipt.setText("PrintReceipt");
 
+        jLabel1.setText("Member :");
+
+        lblStatusMember.setForeground(new java.awt.Color(255, 0, 51));
+        lblStatusMember.setText("off");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -235,7 +243,10 @@ public class Point_of_sell extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                                 .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblStatusMember)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(tableCart, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(pnlTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -260,7 +271,10 @@ public class Point_of_sell extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRegister)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegister)
+                    .addComponent(jLabel1)
+                    .addComponent(lblStatusMember))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tableCart, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -437,7 +451,8 @@ public class Point_of_sell extends javax.swing.JPanel {
                 beMember = true;
                 tfSearch.setEnabled(false);
                 btnRegister.setEnabled(false);
-
+                lblStatusMember.setForeground(Color.GREEN);
+                lblStatusMember.setText("on");
                 System.out.println("MemberStatus : " + beMember);
                 System.out.println("Customer : " + currentCustomer.getName());
                 System.out.println("EMP : " + currentEmp.getEmployee().getName());
@@ -547,9 +562,11 @@ public class Point_of_sell extends javax.swing.JPanel {
     private javax.swing.JButton btnPrintReceipt;
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton btnTea;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblStatusMember;
     private javax.swing.JPanel pnlShowname;
     private javax.swing.JPanel pnlTotal;
     private javax.swing.JScrollPane scpmenu;
