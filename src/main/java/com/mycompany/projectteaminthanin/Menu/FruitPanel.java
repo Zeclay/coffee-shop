@@ -8,7 +8,12 @@ package com.mycompany.projectteaminthanin.Menu;
 import com.mycompany.projectteaminthanin.Cart;
 import com.mycompany.projectteaminthanin.DaoModel.DaoProduct;
 import com.mycompany.projectteaminthanin.Point_of_sell;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import model.Product;
 
@@ -25,6 +30,7 @@ public class FruitPanel extends javax.swing.JPanel {
      */
     public FruitPanel(Point_of_sell POS) {
         initComponents();
+        loadImage();
         this.POS = POS;
     }
 
@@ -51,33 +57,39 @@ public class FruitPanel extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblBluePeaLemonImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBluePeaLemonImg.setText("Blue PeaImg");
+        lblBluePeaLemonImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblBluePeaLemonImg.setMaximumSize(new java.awt.Dimension(48, 14));
+        lblBluePeaLemonImg.setMinimumSize(new java.awt.Dimension(48, 14));
+        lblBluePeaLemonImg.setPreferredSize(new java.awt.Dimension(48, 14));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblBluePeaLemonImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblBluePeaLemonImg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblBluePeaLemonImg, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(lblBluePeaLemonImg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblPunchImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPunchImg.setText("PunchImg");
+        lblPunchImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblPunchImg.setMaximumSize(new java.awt.Dimension(48, 14));
+        lblPunchImg.setMinimumSize(new java.awt.Dimension(48, 14));
+        lblPunchImg.setPreferredSize(new java.awt.Dimension(48, 14));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblPunchImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblPunchImg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblPunchImg, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(lblPunchImg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jLabel1.setText("Blue Pea Lemon 45฿");
@@ -106,12 +118,12 @@ public class FruitPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnBluePeaLemonIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnPunchIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(482, 482, 482))
         );
@@ -154,7 +166,19 @@ DaoProduct daoPro = new DaoProduct();
         POS.total += daoPro.get(12).getPrice() * amount;
         POS.setlblTotal(POS.total);
     }//GEN-LAST:event_btnBluePeaLemonIceActionPerformed
+    private void loadImage() {
+        File file1 = new File("menuimg/12_Ice_BluePeaLemon.png");
+        File file2 = new File("menuimg/13_Ice_Punch.png");
 
+        try {
+            BufferedImage image1 = ImageIO.read(file1);
+            lblBluePeaLemonImg.setIcon(new ImageIcon(image1));
+            BufferedImage image2 = ImageIO.read(file2);
+            lblPunchImg.setIcon(new ImageIcon(image2));
+        } catch (IOException ex) {
+
+        }
+    }
     private void btnPunchIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPunchIceActionPerformed
         int amount = 0;
         try {

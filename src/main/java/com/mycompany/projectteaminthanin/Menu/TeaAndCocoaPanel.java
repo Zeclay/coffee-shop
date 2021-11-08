@@ -8,7 +8,12 @@ package com.mycompany.projectteaminthanin.Menu;
 import com.mycompany.projectteaminthanin.Cart;
 import com.mycompany.projectteaminthanin.DaoModel.DaoProduct;
 import com.mycompany.projectteaminthanin.Point_of_sell;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import model.Product;
 
@@ -25,6 +30,7 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
      */
     public TeaAndCocoaPanel(Point_of_sell pos) {
         initComponents();
+        loadImage();
         this.POS = pos;
     }
 
@@ -53,7 +59,7 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
         btnCocoaHot = new javax.swing.JButton();
         btnCocoaIce = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        btnBlackTeaImg = new javax.swing.JLabel();
+        lblBlackTeaImg = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnBlackTeaIce = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
@@ -66,7 +72,7 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblThaiTeaLatteImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblThaiTeaLatteImg.setText("Thai Tea LatteImg");
+        lblThaiTeaLatteImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblThaiTeaLatteImg.setMaximumSize(new java.awt.Dimension(48, 14));
         lblThaiTeaLatteImg.setMinimumSize(new java.awt.Dimension(48, 14));
         lblThaiTeaLatteImg.setPreferredSize(new java.awt.Dimension(48, 14));
@@ -79,13 +85,13 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblThaiTeaLatteImg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblThaiTeaLatteImg, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblGreenTeaImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblGreenTeaImg.setText("Green TeaImg");
+        lblGreenTeaImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblGreenTeaImg.setMaximumSize(new java.awt.Dimension(48, 14));
         lblGreenTeaImg.setMinimumSize(new java.awt.Dimension(48, 14));
         lblGreenTeaImg.setPreferredSize(new java.awt.Dimension(48, 14));
@@ -98,23 +104,24 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblGreenTeaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblGreenTeaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setPreferredSize(new java.awt.Dimension(102, 102));
 
         lblCocoaImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCocoaImg.setText("CocoaImg");
+        lblCocoaImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblCocoaImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblCocoaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblCocoaImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblCocoaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jLabel1.setText("ThaiTeaLatte 40฿/45฿");
@@ -167,21 +174,21 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnBlackTeaImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnBlackTeaImg.setText("BlackTeaImg");
-        btnBlackTeaImg.setMaximumSize(new java.awt.Dimension(48, 14));
-        btnBlackTeaImg.setMinimumSize(new java.awt.Dimension(48, 14));
-        btnBlackTeaImg.setPreferredSize(new java.awt.Dimension(48, 14));
+        lblBlackTeaImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBlackTeaImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblBlackTeaImg.setMaximumSize(new java.awt.Dimension(48, 14));
+        lblBlackTeaImg.setMinimumSize(new java.awt.Dimension(48, 14));
+        lblBlackTeaImg.setPreferredSize(new java.awt.Dimension(48, 14));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnBlackTeaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblBlackTeaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnBlackTeaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblBlackTeaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jLabel3.setText("Black Tea 45฿ ");
@@ -194,9 +201,10 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
         });
 
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.setPreferredSize(new java.awt.Dimension(102, 102));
 
         lblLemonTeaImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLemonTeaImg.setText("Lemon TeaImg");
+        lblLemonTeaImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblLemonTeaImg.setMaximumSize(new java.awt.Dimension(48, 14));
         lblLemonTeaImg.setMinimumSize(new java.awt.Dimension(48, 14));
         lblLemonTeaImg.setPreferredSize(new java.awt.Dimension(48, 14));
@@ -205,11 +213,11 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblLemonTeaImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblLemonTeaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblLemonTeaImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblLemonTeaImg, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jLabel5.setText("Lemon Tea 45฿");
@@ -243,35 +251,35 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
                         .addComponent(btnGreenTeaIce, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2))
                 .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnCocoaHot, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCocoaIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnCocoaIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBlackTeaIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLemonTeaIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
@@ -293,7 +301,7 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
                         .addComponent(btnCocoaIce))
                     .addComponent(btnBlackTeaIce)
                     .addComponent(btnLemonTeaIce))
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addGap(259, 259, 259))
         );
     }// </editor-fold>//GEN-END:initComponents
     DaoProduct daoPro = new DaoProduct();
@@ -317,7 +325,29 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
         POS.total += daoPro.get(22).getPrice() * amount;
         POS.setlblTotal(POS.total);
     }//GEN-LAST:event_btnThaiTeaHotActionPerformed
+    private void loadImage() {
+        File file1 = new File("menuimg/22_Hot_Thai_Tea.png");
+        File file2 = new File("menuimg/21_Hot_Green_Tea_Lattee.png");
+        File file3 = new File("menuimg/23_Hot_Coco.png");
+        File file4 = new File("menuimg/9_Hot_Blacktea.png");
+        File file5 = new File("menuimg/10_Iced_Lemonicetea.png");
 
+        try {
+            BufferedImage image1 = ImageIO.read(file1);
+            lblThaiTeaLatteImg.setIcon(new ImageIcon(image1));
+            BufferedImage image2 = ImageIO.read(file2);
+            lblGreenTeaImg.setIcon(new ImageIcon(image2));
+            BufferedImage image3 = ImageIO.read(file3);
+            lblCocoaImg.setIcon(new ImageIcon(image3));
+            BufferedImage image4 = ImageIO.read(file4);
+            lblBlackTeaImg.setIcon(new ImageIcon(image4));
+            BufferedImage image5 = ImageIO.read(file5);
+            lblLemonTeaImg.setIcon(new ImageIcon(image5));
+
+        } catch (IOException ex) {
+
+        }
+    }
     private void btnThaiTeaIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThaiTeaIceActionPerformed
         int amount = 0;
         try {
@@ -468,7 +498,6 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBlackTeaIce;
-    private javax.swing.JLabel btnBlackTeaImg;
     private javax.swing.JButton btnCocoaHot;
     private javax.swing.JButton btnCocoaIce;
     private javax.swing.JButton btnGreenTeaHot;
@@ -486,6 +515,7 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel lblBlackTeaImg;
     private javax.swing.JLabel lblCocoaImg;
     private javax.swing.JLabel lblGreenTeaImg;
     private javax.swing.JLabel lblLemonTeaImg;

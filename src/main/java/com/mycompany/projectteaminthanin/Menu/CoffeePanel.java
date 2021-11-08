@@ -8,7 +8,12 @@ package com.mycompany.projectteaminthanin.Menu;
 import com.mycompany.projectteaminthanin.Cart;
 import com.mycompany.projectteaminthanin.DaoModel.DaoProduct;
 import com.mycompany.projectteaminthanin.Point_of_sell;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import model.Product;
 
@@ -25,6 +30,7 @@ public class CoffeePanel extends javax.swing.JPanel {
      */
     public CoffeePanel(Point_of_sell pos) {
         initComponents();
+        loadImage();
         this.POS = pos;
     }
 
@@ -78,7 +84,8 @@ public class CoffeePanel extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblEspressoImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEspressoImg.setText("EspressoImg");
+        lblEspressoImg.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblEspressoImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblEspressoImg.setMaximumSize(new java.awt.Dimension(48, 14));
         lblEspressoImg.setMinimumSize(new java.awt.Dimension(48, 14));
         lblEspressoImg.setPreferredSize(new java.awt.Dimension(48, 14));
@@ -97,7 +104,7 @@ public class CoffeePanel extends javax.swing.JPanel {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblAmericanoImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAmericanoImg.setText("AmericanoImg");
+        lblAmericanoImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblAmericanoImg.setMaximumSize(new java.awt.Dimension(48, 14));
         lblAmericanoImg.setMinimumSize(new java.awt.Dimension(48, 14));
         lblAmericanoImg.setPreferredSize(new java.awt.Dimension(48, 14));
@@ -116,7 +123,7 @@ public class CoffeePanel extends javax.swing.JPanel {
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblInthaninAllDayImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblInthaninAllDayImg.setText("InthaninAllDayImg");
+        lblInthaninAllDayImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblInthaninAllDayImg.setMaximumSize(new java.awt.Dimension(48, 14));
         lblInthaninAllDayImg.setMinimumSize(new java.awt.Dimension(48, 14));
         lblInthaninAllDayImg.setPreferredSize(new java.awt.Dimension(48, 14));
@@ -125,7 +132,9 @@ public class CoffeePanel extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblInthaninAllDayImg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(lblInthaninAllDayImg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,7 +144,7 @@ public class CoffeePanel extends javax.swing.JPanel {
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblCappuccinoImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCappuccinoImg.setText("CappuccinoImg");
+        lblCappuccinoImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblCappuccinoImg.setMaximumSize(new java.awt.Dimension(48, 14));
         lblCappuccinoImg.setMinimumSize(new java.awt.Dimension(48, 14));
         lblCappuccinoImg.setPreferredSize(new java.awt.Dimension(48, 14));
@@ -144,17 +153,18 @@ public class CoffeePanel extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblCappuccinoImg, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblCappuccinoImg, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblCappuccinoImg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblCappuccinoImg, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel6.setPreferredSize(new java.awt.Dimension(102, 102));
 
         lblLatteImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLatteImg.setText("LatteImg");
+        lblLatteImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblLatteImg.setMaximumSize(new java.awt.Dimension(48, 14));
         lblLatteImg.setMinimumSize(new java.awt.Dimension(48, 14));
         lblLatteImg.setPreferredSize(new java.awt.Dimension(48, 14));
@@ -163,7 +173,7 @@ public class CoffeePanel extends javax.swing.JPanel {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblLatteImg, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblLatteImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +255,7 @@ public class CoffeePanel extends javax.swing.JPanel {
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblMochaImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMochaImage.setText("Mocha");
+        lblMochaImage.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblMochaImage.setMaximumSize(new java.awt.Dimension(48, 14));
         lblMochaImage.setMinimumSize(new java.awt.Dimension(48, 14));
         lblMochaImage.setPreferredSize(new java.awt.Dimension(48, 14));
@@ -264,7 +274,7 @@ public class CoffeePanel extends javax.swing.JPanel {
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblInthaninBlendImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblInthaninBlendImg.setText("InthaninBlendImg");
+        lblInthaninBlendImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblInthaninBlendImg.setMaximumSize(new java.awt.Dimension(48, 14));
         lblInthaninBlendImg.setMinimumSize(new java.awt.Dimension(48, 14));
         lblInthaninBlendImg.setPreferredSize(new java.awt.Dimension(48, 14));
@@ -368,12 +378,12 @@ public class CoffeePanel extends javax.swing.JPanel {
                             .addComponent(jLabel3)
                             .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(65, 65, 65)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnAllDayHot, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAllDayIce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnAllDayIce, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(65, 65, 65)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -381,22 +391,25 @@ public class CoffeePanel extends javax.swing.JPanel {
                                 .addComponent(btnCappuccinoHot, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnCappuccinoIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
                         .addGap(65, 65, 65)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnLatteHot, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLatteIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btnLatteIce, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel7)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnInthaninBlendHot, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnInthaninBlendIce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnInthaninBlendHot, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnInthaninBlendIce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -467,6 +480,35 @@ public class CoffeePanel extends javax.swing.JPanel {
         POS.total += daoPro.get(14).getPrice() * amount;
         POS.setlblTotal(POS.total);
     }//GEN-LAST:event_btnEspressoHotActionPerformed
+    private void loadImage() {
+        File file1 = new File("menuimg/14_Hot_Espresso.jpg");
+        File file2 = new File("menuimg/15_Hot_Americano.png");
+        File file3 = new File("menuimg/16_Hot_InthaninAllDay.jpg");
+        File file4 = new File("menuimg/17_Hot_Cappuchino.png");
+        File file5 = new File("menuimg/18_Hot_Latte.png");
+        File file6 = new File("menuimg/19_Hot_Moccha.png");
+        File file7 = new File("menuimg/20_Hot_inthanin_blend.png");
+
+        try {
+            BufferedImage image1 = ImageIO.read(file1);
+            lblEspressoImg.setIcon(new ImageIcon(image1));
+            BufferedImage image2 = ImageIO.read(file2);
+            lblAmericanoImg.setIcon(new ImageIcon(image2));
+            BufferedImage image3 = ImageIO.read(file3);
+            lblInthaninAllDayImg.setIcon(new ImageIcon(image3));
+            BufferedImage image4 = ImageIO.read(file4);
+            lblCappuccinoImg.setIcon(new ImageIcon(image4));
+            BufferedImage image5 = ImageIO.read(file5);
+            lblLatteImg.setIcon(new ImageIcon(image5));
+            BufferedImage image6 = ImageIO.read(file6);
+            lblMochaImage.setIcon(new ImageIcon(image6));
+            BufferedImage image7 = ImageIO.read(file7);
+            lblInthaninBlendImg.setIcon(new ImageIcon(image7));
+
+        } catch (IOException ex) {
+
+        }
+    }
 
     private void btnEspressoIceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEspressoIceActionPerformed
         int amount = 0;

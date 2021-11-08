@@ -22,7 +22,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -43,43 +43,43 @@
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jPanel3" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel4" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="btnCocoaHot" min="-2" pref="49" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnCocoaIce" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jPanel4" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                   <Component id="btnBlackTeaIce" alignment="0" max="32767" attributes="0"/>
                   <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jPanel5" max="32767" attributes="0"/>
-                  <Component id="jLabel5" pref="102" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel5" max="32767" attributes="0"/>
                   <Component id="btnLemonTeaIce" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel5" max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel2" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="jPanel1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="jPanel4" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="jPanel5" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="jPanel3" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -89,7 +89,7 @@
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnThaiTeaHot" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -106,7 +106,7 @@
                   <Component id="btnBlackTeaIce" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="btnLemonTeaIce" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="259" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="259" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -129,7 +129,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="lblThaiTeaLatteImg" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+              <Component id="lblThaiTeaLatteImg" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -137,7 +137,7 @@
         <Component class="javax.swing.JLabel" name="lblThaiTeaLatteImg">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Thai Tea LatteImg"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[48, 14]"/>
             </Property>
@@ -168,7 +168,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="lblGreenTeaImg" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+              <Component id="lblGreenTeaImg" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -176,7 +176,7 @@
         <Component class="javax.swing.JLabel" name="lblGreenTeaImg">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Green TeaImg"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[48, 14]"/>
             </Property>
@@ -197,17 +197,20 @@
             <LineBorder/>
           </Border>
         </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[102, 102]"/>
+        </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="lblCocoaImg" alignment="0" max="32767" attributes="0"/>
+              <Component id="lblCocoaImg" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="lblCocoaImg" alignment="0" max="32767" attributes="0"/>
+              <Component id="lblCocoaImg" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -215,7 +218,7 @@
         <Component class="javax.swing.JLabel" name="lblCocoaImg">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="CocoaImg"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -295,20 +298,20 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="btnBlackTeaImg" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+              <Component id="lblBlackTeaImg" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="btnBlackTeaImg" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+              <Component id="lblBlackTeaImg" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="btnBlackTeaImg">
+        <Component class="javax.swing.JLabel" name="lblBlackTeaImg">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="BlackTeaImg"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[48, 14]"/>
             </Property>
@@ -342,17 +345,20 @@
             <LineBorder/>
           </Border>
         </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[102, 102]"/>
+        </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="lblLemonTeaImg" alignment="0" max="32767" attributes="0"/>
+              <Component id="lblLemonTeaImg" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="lblLemonTeaImg" alignment="0" max="32767" attributes="0"/>
+              <Component id="lblLemonTeaImg" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -360,7 +366,7 @@
         <Component class="javax.swing.JLabel" name="lblLemonTeaImg">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Lemon TeaImg"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[48, 14]"/>
             </Property>
