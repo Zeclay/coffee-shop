@@ -31,7 +31,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel2" max="32767" attributes="0"/>
-                  <Component id="pnlShowFrame" pref="570" max="32767" attributes="0"/>
+                  <Component id="pnlShowFrame" pref="559" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -72,10 +72,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="lblTitle" alignment="0" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="lblWelcome" min="-2" pref="37" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblCurrentUser" pref="24" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Component id="lblLogo" alignment="0" max="32767" attributes="0"/>
               <Component id="lblEmpic" alignment="1" max="32767" attributes="0"/>

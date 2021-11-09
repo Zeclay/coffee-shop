@@ -8,7 +8,9 @@ package OtherPage;
 import com.mycompany.projectteaminthanin.DaoModel.DaoStock;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableRowSorter;
 import model.Stock;
 
 /**
@@ -111,6 +113,7 @@ public class TableStock extends javax.swing.JPanel {
         btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        txtSearch = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(207, 192, 183));
         setPreferredSize(new java.awt.Dimension(888, 469));
@@ -217,7 +220,6 @@ public class TableStock extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(110, 95, 56));
 
         btnAdd.setBackground(new java.awt.Color(255, 255, 255));
-        btnAdd.setForeground(new java.awt.Color(0, 0, 0));
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,7 +228,6 @@ public class TableStock extends javax.swing.JPanel {
         });
 
         btnEdit.setBackground(new java.awt.Color(255, 255, 255));
-        btnEdit.setForeground(new java.awt.Color(0, 0, 0));
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,11 +236,22 @@ public class TableStock extends javax.swing.JPanel {
         });
 
         btnDelete.setBackground(new java.awt.Color(255, 255, 255));
-        btnDelete.setForeground(new java.awt.Color(0, 0, 0));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
+            }
+        });
+
+        txtSearch.setText("Search");
+        txtSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtSearchMouseClicked(evt);
+            }
+        });
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
             }
         });
 
@@ -254,7 +266,9 @@ public class TableStock extends javax.swing.JPanel {
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDelete)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,7 +277,8 @@ public class TableStock extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnDelete)
-                    .addComponent(btnEdit))
+                    .addComponent(btnEdit)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -336,6 +351,17 @@ public class TableStock extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void txtSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSearchMouseClicked
+        txtSearch.setText("");
+    }//GEN-LAST:event_txtSearchMouseClicked
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        model = (Stocktablemodel) tblStock.getModel();
+        TableRowSorter <Stocktablemodel> trs = new TableRowSorter<>(model);
+        tblStock.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(txtSearch.getText()));
+    }//GEN-LAST:event_txtSearchKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
@@ -352,6 +378,7 @@ public class TableStock extends javax.swing.JPanel {
     private javax.swing.JLabel lblpriceStock;
     private javax.swing.JLabel lblshowidStock;
     private javax.swing.JTable tblStock;
+    private javax.swing.JTextField txtSearch;
     private javax.swing.JTextField txtamountStock;
     private javax.swing.JTextField txtnameStock;
     private javax.swing.JTextField txtpriceStock;

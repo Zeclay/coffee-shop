@@ -3,7 +3,9 @@ package OtherPage;
 import com.mycompany.projectteaminthanin.DaoModel.DaoEmployee;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableRowSorter;
 import model.Employee;
 import model.Stock;
 
@@ -144,6 +146,7 @@ public class TableEmployeePanel extends javax.swing.JPanel {
         btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        txtSearch = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmployee = new javax.swing.JTable();
 
@@ -286,7 +289,6 @@ public class TableEmployeePanel extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(110, 95, 56));
 
         btnAdd.setBackground(new java.awt.Color(255, 255, 255));
-        btnAdd.setForeground(new java.awt.Color(0, 0, 0));
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -295,7 +297,6 @@ public class TableEmployeePanel extends javax.swing.JPanel {
         });
 
         btnEdit.setBackground(new java.awt.Color(255, 255, 255));
-        btnEdit.setForeground(new java.awt.Color(0, 0, 0));
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -304,11 +305,22 @@ public class TableEmployeePanel extends javax.swing.JPanel {
         });
 
         btnDelete.setBackground(new java.awt.Color(255, 255, 255));
-        btnDelete.setForeground(new java.awt.Color(0, 0, 0));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
+            }
+        });
+
+        txtSearch.setText("Search");
+        txtSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtSearchMouseClicked(evt);
+            }
+        });
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
             }
         });
 
@@ -323,7 +335,9 @@ public class TableEmployeePanel extends javax.swing.JPanel {
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDelete)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -332,7 +346,8 @@ public class TableEmployeePanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnDelete)
-                    .addComponent(btnEdit))
+                    .addComponent(btnEdit)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -418,6 +433,17 @@ public class TableEmployeePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPIDActionPerformed
 
+    private void txtSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSearchMouseClicked
+        txtSearch.setText("");
+    }//GEN-LAST:event_txtSearchMouseClicked
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        Emmodel = (EmployeeTableModel) tblEmployee.getModel();
+        TableRowSorter <EmployeeTableModel> trs = new TableRowSorter<>(Emmodel);
+        tblEmployee.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(txtSearch.getText()));
+    }//GEN-LAST:event_txtSearchKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
@@ -446,6 +472,7 @@ public class TableEmployeePanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtPID;
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtSalary;
+    private javax.swing.JTextField txtSearch;
     private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
     private class EmployeeTableModel extends AbstractTableModel {
