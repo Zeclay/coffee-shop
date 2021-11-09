@@ -58,12 +58,15 @@ public class Point_of_sell extends javax.swing.JPanel {
         txtCashChange.setVisible(false);
         tfcash.setVisible(false);
         tfChange.setVisible(false);
+        btnPrintReceipt.setVisible(false);
         btnPrintReceipt.setEnabled(false);
+        
     }
 
     public void enableCheckOut() {
         txtCashChange.setVisible(true);
         tfcash.setVisible(true);
+        
 
         disableLeft();
         disableScreen();
@@ -223,6 +226,7 @@ public class Point_of_sell extends javax.swing.JPanel {
                 "Product", "Amount", "Price"
             }
         ));
+        table.setRowHeight(25);
         table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableMouseClicked(evt);
@@ -556,6 +560,7 @@ public class Point_of_sell extends javax.swing.JPanel {
     private void tfcashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcashActionPerformed
         cash = Double.parseDouble(tfcash.getText());
         if (total <= cash) {
+            btnPrintReceipt.setVisible(true);
             btnPrintReceipt.setEnabled(true);
             Receipt rep = new Receipt(currentEmp.getEmployee(), currentCustomer);
             for (int i = 0; i < cart.size(); i++) {
