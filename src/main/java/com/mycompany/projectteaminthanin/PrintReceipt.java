@@ -6,6 +6,7 @@
 package com.mycompany.projectteaminthanin;
 
 import com.mycompany.projectteaminthanin.DaoModel.DaoReceipt;
+import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 
 /**
@@ -21,8 +22,10 @@ public class PrintReceipt extends javax.swing.JDialog {
     public PrintReceipt(java.awt.Frame parent, boolean modal,Point_of_sell POS,MainMenuPanel mainmenu) {
         super(parent, modal);
         initComponents();
+        
         this.POS = POS;
         this.mainmenu = mainmenu;
+       
         DaoReceipt daoRep = new DaoReceipt();
         txtReceipt.setText(txtReceipt.getText()+"------------------------------------------------------\n");
         txtReceipt.setText(txtReceipt.getText()+"                       ร้านกาแฟ Inthanin                \n");

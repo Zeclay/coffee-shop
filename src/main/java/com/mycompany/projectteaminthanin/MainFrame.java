@@ -1,5 +1,7 @@
 package com.mycompany.projectteaminthanin;
 
+import javax.swing.ImageIcon;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,6 +18,8 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        ImageIcon img = new ImageIcon("img/shop-icon.png");
+        this.setIconImage(img.getImage());
         pnlScreen.setViewportView(new LoginPanel(this));
         //switchToMainMenu();
     }
