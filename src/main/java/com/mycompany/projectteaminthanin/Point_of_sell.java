@@ -82,6 +82,7 @@ public class Point_of_sell extends javax.swing.JPanel {
 
     public void disableScreen() {
         scpmenu.setViewportView(new ClearPanel());
+        btnCancle.setEnabled(false);
         btnPay.setEnabled(false);
         btnCoffee.setEnabled(false);
         btnFriut.setEnabled(false);
@@ -125,6 +126,7 @@ public class Point_of_sell extends javax.swing.JPanel {
         tfcash = new javax.swing.JTextField();
         txtCashChange = new javax.swing.JLabel();
         tfChange = new javax.swing.JTextField();
+        btnCancle = new javax.swing.JButton();
 
         btnCoffee2.setText("COFFEE");
 
@@ -324,7 +326,6 @@ public class Point_of_sell extends javax.swing.JPanel {
 
         btnPay.setBackground(new java.awt.Color(0, 204, 102));
         btnPay.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnPay.setForeground(new java.awt.Color(0, 0, 0));
         btnPay.setText("Confirm");
         btnPay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -387,6 +388,15 @@ public class Point_of_sell extends javax.swing.JPanel {
         tfChange.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfChange.setText("change");
 
+        btnCancle.setBackground(new java.awt.Color(255, 0, 51));
+        btnCancle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnCancle.setText("Cancle");
+        btnCancle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancleActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -399,6 +409,8 @@ public class Point_of_sell extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnCancle, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtCashChange)
                                 .addGap(18, 18, 18)
@@ -432,7 +444,8 @@ public class Point_of_sell extends javax.swing.JPanel {
                     .addComponent(btnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCashChange, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfcash, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfChange, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfChange, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancle, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -594,8 +607,13 @@ public class Point_of_sell extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnPrintReceiptActionPerformed
 
+    private void btnCancleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancleActionPerformed
+        mainmenu.resetPointOfSell();
+    }//GEN-LAST:event_btnCancleActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancle;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnCoffee;
     private javax.swing.JButton btnCoffee2;
