@@ -31,12 +31,14 @@ public class MainMenuPanel extends javax.swing.JPanel {
 
     private MainFrame mainFrame;
     Timer timer;
+    
 
     /**
      * Creates new form MainMenuPanel
      */
     public MainMenuPanel(MainFrame mainFrame) {
         initComponents();
+        pnlShowFrame.setViewportView(new Point_of_sell(this));
         loadImage();
         loadImageEm();
         timerController();
