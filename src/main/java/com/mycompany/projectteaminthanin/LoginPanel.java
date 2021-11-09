@@ -69,10 +69,12 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
 
-        lblName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblName.setForeground(new java.awt.Color(0, 0, 0));
         lblName.setText("username :");
 
-        lblName1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblName1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblName1.setForeground(new java.awt.Color(0, 0, 0));
         lblName1.setText("password :");
 
         btnLogin.setBackground(new java.awt.Color(153, 87, 43));

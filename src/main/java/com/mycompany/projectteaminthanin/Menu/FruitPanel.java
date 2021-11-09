@@ -94,6 +94,8 @@ public class FruitPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Blue Pea Lemon 45฿");
 
+        btnBluePeaLemonIce.setBackground(new java.awt.Color(0, 204, 204));
+        btnBluePeaLemonIce.setForeground(new java.awt.Color(0, 0, 0));
         btnBluePeaLemonIce.setText("Ice");
         btnBluePeaLemonIce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +105,8 @@ public class FruitPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Punch 45฿");
 
+        btnPunchIce.setBackground(new java.awt.Color(0, 204, 204));
+        btnPunchIce.setForeground(new java.awt.Color(0, 0, 0));
         btnPunchIce.setText("Ice");
         btnPunchIce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

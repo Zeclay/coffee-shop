@@ -146,7 +146,7 @@ public class TableUser extends javax.swing.JPanel {
             }
         });
 
-        btncancelUser.setBackground(new java.awt.Color(102, 102, 102));
+        btncancelUser.setBackground(new java.awt.Color(255, 153, 0));
         btncancelUser.setText("Cancel");
         btncancelUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,7 +209,7 @@ public class TableUser extends javax.swing.JPanel {
                                 .addComponent(lblempIdUser)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtempIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())))
+                        .addContainerGap(609, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +239,8 @@ public class TableUser extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(110, 95, 56));
 
-        btnDelete.setBackground(new java.awt.Color(102, 102, 102));
+        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
+        btnDelete.setForeground(new java.awt.Color(0, 0, 0));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,7 +248,8 @@ public class TableUser extends javax.swing.JPanel {
             }
         });
 
-        btnAdd.setBackground(new java.awt.Color(102, 102, 102));
+        btnAdd.setBackground(new java.awt.Color(255, 255, 255));
+        btnAdd.setForeground(new java.awt.Color(0, 0, 0));
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,7 +257,8 @@ public class TableUser extends javax.swing.JPanel {
             }
         });
 
-        btnEdit.setBackground(new java.awt.Color(102, 102, 102));
+        btnEdit.setBackground(new java.awt.Color(255, 255, 255));
+        btnEdit.setForeground(new java.awt.Color(0, 0, 0));
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

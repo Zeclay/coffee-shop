@@ -126,6 +126,7 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
 
         jLabel1.setText("ThaiTeaLatte 40฿/45฿");
 
+        btnThaiTeaHot.setBackground(new java.awt.Color(255, 153, 0));
         btnThaiTeaHot.setText("Hot");
         btnThaiTeaHot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +134,8 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
             }
         });
 
+        btnThaiTeaIce.setBackground(new java.awt.Color(0, 204, 204));
+        btnThaiTeaIce.setForeground(new java.awt.Color(0, 0, 0));
         btnThaiTeaIce.setText("Ice");
         btnThaiTeaIce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,6 +145,7 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
 
         jLabel2.setText("GreenTeaLatte 40฿/45฿");
 
+        btnGreenTeaHot.setBackground(new java.awt.Color(255, 153, 0));
         btnGreenTeaHot.setText("Hot");
         btnGreenTeaHot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,6 +153,8 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
             }
         });
 
+        btnGreenTeaIce.setBackground(new java.awt.Color(0, 204, 204));
+        btnGreenTeaIce.setForeground(new java.awt.Color(0, 0, 0));
         btnGreenTeaIce.setText("Ice");
         btnGreenTeaIce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +164,7 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
 
         jLabel4.setText("Cocoa 40฿/45฿ ");
 
+        btnCocoaHot.setBackground(new java.awt.Color(255, 153, 0));
         btnCocoaHot.setText("Hot");
         btnCocoaHot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,6 +172,8 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
             }
         });
 
+        btnCocoaIce.setBackground(new java.awt.Color(0, 204, 204));
+        btnCocoaIce.setForeground(new java.awt.Color(0, 0, 0));
         btnCocoaIce.setText("Ice");
         btnCocoaIce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,6 +202,8 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Black Tea 45฿ ");
 
+        btnBlackTeaIce.setBackground(new java.awt.Color(0, 204, 204));
+        btnBlackTeaIce.setForeground(new java.awt.Color(0, 0, 0));
         btnBlackTeaIce.setText("Ice");
         btnBlackTeaIce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,6 +233,8 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
 
         jLabel5.setText("Lemon Tea 45฿");
 
+        btnLemonTeaIce.setBackground(new java.awt.Color(0, 204, 204));
+        btnLemonTeaIce.setForeground(new java.awt.Color(0, 0, 0));
         btnLemonTeaIce.setText("Ice");
         btnLemonTeaIce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -275,9 +288,9 @@ public class TeaAndCocoaPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

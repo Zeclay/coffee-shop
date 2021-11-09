@@ -73,9 +73,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel2" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="jPanel1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="jPanel4" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel4" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jPanel5" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="jPanel3" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
@@ -230,6 +230,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnThaiTeaHot">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Hot"/>
       </Properties>
       <Events>
@@ -238,6 +241,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnThaiTeaIce">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="0" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Ice"/>
       </Properties>
       <Events>
@@ -251,6 +260,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnGreenTeaHot">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Hot"/>
       </Properties>
       <Events>
@@ -259,6 +271,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnGreenTeaIce">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="0" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Ice"/>
       </Properties>
       <Events>
@@ -272,6 +290,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnCocoaHot">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Hot"/>
       </Properties>
       <Events>
@@ -280,6 +301,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnCocoaIce">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="0" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Ice"/>
       </Properties>
       <Events>
@@ -332,6 +359,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnBlackTeaIce">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="0" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Ice"/>
       </Properties>
       <Events>
@@ -387,6 +420,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnLemonTeaIce">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="0" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Ice"/>
       </Properties>
       <Events>

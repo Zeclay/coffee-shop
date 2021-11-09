@@ -77,6 +77,9 @@ public class PrintReceipt extends javax.swing.JDialog {
         txtReceipt.setRows(5);
         jScrollPane1.setViewportView(txtReceipt);
 
+        btnReceiptConfirm.setBackground(new java.awt.Color(102, 204, 0));
+        btnReceiptConfirm.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btnReceiptConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnReceiptConfirm.setText("Confirm");
         btnReceiptConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +103,7 @@ public class PrintReceipt extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReceiptConfirm)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         pack();

@@ -322,9 +322,9 @@ public class Point_of_sell extends javax.swing.JPanel {
 
         scpmenu.setViewportView(jPanel3);
 
-        btnPay.setBackground(new java.awt.Color(153, 153, 0));
+        btnPay.setBackground(new java.awt.Color(0, 204, 102));
         btnPay.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnPay.setForeground(new java.awt.Color(255, 255, 255));
+        btnPay.setForeground(new java.awt.Color(0, 0, 0));
         btnPay.setText("Confirm");
         btnPay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -332,7 +332,7 @@ public class Point_of_sell extends javax.swing.JPanel {
             }
         });
 
-        btnCoffee.setBackground(new java.awt.Color(91, 103, 63));
+        btnCoffee.setBackground(new java.awt.Color(153, 153, 0));
         btnCoffee.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnCoffee.setForeground(new java.awt.Color(255, 255, 255));
         btnCoffee.setText("COFFEE");
@@ -342,7 +342,7 @@ public class Point_of_sell extends javax.swing.JPanel {
             }
         });
 
-        btnTea.setBackground(new java.awt.Color(91, 103, 63));
+        btnTea.setBackground(new java.awt.Color(153, 153, 0));
         btnTea.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnTea.setForeground(new java.awt.Color(255, 255, 255));
         btnTea.setText("TEA & COCOA");
@@ -352,7 +352,7 @@ public class Point_of_sell extends javax.swing.JPanel {
             }
         });
 
-        btnFriut.setBackground(new java.awt.Color(91, 103, 63));
+        btnFriut.setBackground(new java.awt.Color(153, 153, 0));
         btnFriut.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnFriut.setForeground(new java.awt.Color(255, 255, 255));
         btnFriut.setText("FRUIT DRINK");
