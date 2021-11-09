@@ -39,7 +39,7 @@ public class TableProductPanel extends javax.swing.JPanel {
         txtType.setEnabled(false);
         txtPrice.setEnabled(false);
         btnSave.setEnabled(false);
-        btnCancle.setEnabled(false);
+        btnCancel.setEnabled(false);
     }
 
     public void loadTable(DaoProduct dao) {
@@ -59,7 +59,7 @@ public class TableProductPanel extends javax.swing.JPanel {
         txtType.setEnabled(true);
         txtPrice.setEnabled(true);
         btnSave.setEnabled(true);
-        btnCancle.setEnabled(true);
+        btnCancel.setEnabled(true);
     }
 
     public void loadFormToProduct() {
@@ -106,7 +106,7 @@ public class TableProductPanel extends javax.swing.JPanel {
         txtPrice = new javax.swing.JTextField();
         lblShowID = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
-        btnCancle = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
@@ -143,11 +143,11 @@ public class TableProductPanel extends javax.swing.JPanel {
             }
         });
 
-        btnCancle.setBackground(new java.awt.Color(255, 153, 0));
-        btnCancle.setText("Cancle");
-        btnCancle.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setBackground(new java.awt.Color(255, 153, 0));
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancleActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
@@ -167,7 +167,7 @@ public class TableProductPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCancle)
+                        .addComponent(btnCancel)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -199,7 +199,7 @@ public class TableProductPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
-                    .addComponent(btnCancle))
+                    .addComponent(btnCancel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -331,9 +331,9 @@ public class TableProductPanel extends javax.swing.JPanel {
         clearEditForm();
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void btnCancleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancleActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         clearEditForm();
-    }//GEN-LAST:event_btnCancleActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         if (tblProduct.getSelectedRow() >= 0) {
@@ -368,7 +368,7 @@ public class TableProductPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnCancle;
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSave;

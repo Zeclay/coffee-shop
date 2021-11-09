@@ -39,7 +39,7 @@ public class TableStock extends javax.swing.JPanel {
         txtamountStock.setEnabled(false);
         txtpriceStock.setEnabled(false);
         btnsaveStock.setEnabled(false);
-        btncancleStock.setEnabled(false);
+        btnCancelStock.setEnabled(false);
     }
 
     public void refreshTable() {
@@ -84,7 +84,7 @@ public class TableStock extends javax.swing.JPanel {
         txtamountStock.setEnabled(true);
         txtpriceStock.setEnabled(true);
         btnsaveStock.setEnabled(true);
-        btncancleStock.setEnabled(true);
+        btnCancelStock.setEnabled(true);
     }
 
     /**
@@ -108,7 +108,7 @@ public class TableStock extends javax.swing.JPanel {
         txtpriceStock = new javax.swing.JTextField();
         lblshowidStock = new javax.swing.JLabel();
         btnsaveStock = new javax.swing.JButton();
-        btncancleStock = new javax.swing.JButton();
+        btnCancelStock = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
@@ -157,11 +157,11 @@ public class TableStock extends javax.swing.JPanel {
             }
         });
 
-        btncancleStock.setBackground(new java.awt.Color(255, 153, 0));
-        btncancleStock.setText("Cancle");
-        btncancleStock.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelStock.setBackground(new java.awt.Color(255, 153, 0));
+        btnCancelStock.setText("Cancel");
+        btnCancelStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncancleStockActionPerformed(evt);
+                btnCancelStockActionPerformed(evt);
             }
         });
 
@@ -181,7 +181,7 @@ public class TableStock extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnsaveStock, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btncancleStock)
+                        .addComponent(btnCancelStock)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -213,7 +213,7 @@ public class TableStock extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnsaveStock)
-                    .addComponent(btncancleStock))
+                    .addComponent(btnCancelStock))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -323,9 +323,9 @@ public class TableStock extends javax.swing.JPanel {
         clearEditForm();
     }//GEN-LAST:event_btnsaveStockActionPerformed
 
-    private void btncancleStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancleStockActionPerformed
+    private void btnCancelStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelStockActionPerformed
         clearEditForm();
-    }//GEN-LAST:event_btncancleStockActionPerformed
+    }//GEN-LAST:event_btnCancelStockActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         editedStock = new Stock(-1, "", 0, 0.0);
@@ -365,9 +365,9 @@ public class TableStock extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnCancelStock;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btncancleStock;
     private javax.swing.JButton btnsaveStock;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

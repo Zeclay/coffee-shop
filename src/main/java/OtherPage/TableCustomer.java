@@ -40,7 +40,7 @@ public class TableCustomer extends javax.swing.JPanel {
         txtphoneCustomer.setEnabled(false);
         txtbirthdayCustomer.setEnabled(false);
         btnsaveCustomer.setEnabled(false);
-        btncancleCustomer.setEnabled(false);
+        btnCancelCustomer.setEnabled(false);
     }
 
     public void refreshTable() {
@@ -85,7 +85,7 @@ public class TableCustomer extends javax.swing.JPanel {
         txtphoneCustomer.setEnabled(true);
         txtbirthdayCustomer.setEnabled(true);
         btnsaveCustomer.setEnabled(true);
-        btncancleCustomer.setEnabled(true);
+        btnCancelCustomer.setEnabled(true);
     }
 
     /**
@@ -109,7 +109,7 @@ public class TableCustomer extends javax.swing.JPanel {
         txtbirthdayCustomer = new javax.swing.JTextField();
         lblshowidCustomer = new javax.swing.JLabel();
         btnsaveCustomer = new javax.swing.JButton();
-        btncancleCustomer = new javax.swing.JButton();
+        btnCancelCustomer = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
@@ -158,11 +158,11 @@ public class TableCustomer extends javax.swing.JPanel {
             }
         });
 
-        btncancleCustomer.setBackground(new java.awt.Color(204, 102, 0));
-        btncancleCustomer.setText("Cancle");
-        btncancleCustomer.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelCustomer.setBackground(new java.awt.Color(204, 102, 0));
+        btnCancelCustomer.setText("Cancel");
+        btnCancelCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncancleCustomerActionPerformed(evt);
+                btnCancelCustomerActionPerformed(evt);
             }
         });
 
@@ -186,7 +186,7 @@ public class TableCustomer extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnsaveCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btncancleCustomer)
+                        .addComponent(btnCancelCustomer)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -218,7 +218,7 @@ public class TableCustomer extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnsaveCustomer)
-                    .addComponent(btncancleCustomer))
+                    .addComponent(btnCancelCustomer))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -328,9 +328,9 @@ public class TableCustomer extends javax.swing.JPanel {
         clearEditForm();
     }//GEN-LAST:event_btnsaveCustomerActionPerformed
 
-    private void btncancleCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancleCustomerActionPerformed
+    private void btnCancelCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelCustomerActionPerformed
         clearEditForm();
-    }//GEN-LAST:event_btncancleCustomerActionPerformed
+    }//GEN-LAST:event_btnCancelCustomerActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         editedCustomer = new Customer(-1, " ", "", "");
@@ -371,9 +371,9 @@ public class TableCustomer extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnCancelCustomer;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btncancleCustomer;
     private javax.swing.JButton btnsaveCustomer;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

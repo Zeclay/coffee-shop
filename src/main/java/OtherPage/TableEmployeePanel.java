@@ -45,7 +45,7 @@ public class TableEmployeePanel extends javax.swing.JPanel {
         txtType.setEnabled(false);
         txtSalary.setEnabled(false);
         btnSave.setEnabled(false);
-        btnCancle.setEnabled(false);
+        btnCancel.setEnabled(false);
     }
 
     public void loadTable(DaoEmployee dao) {
@@ -75,7 +75,7 @@ public class TableEmployeePanel extends javax.swing.JPanel {
         txtType.setEnabled(true);
         txtSalary.setEnabled(true);
         btnSave.setEnabled(true);
-        btnCancle.setEnabled(true);
+        btnCancel.setEnabled(true);
     }
 
     public void loadFormToEmployee() {
@@ -130,7 +130,7 @@ public class TableEmployeePanel extends javax.swing.JPanel {
         txtPID = new javax.swing.JTextField();
         txtPhone = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
-        btnCancle = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         lblShowID = new javax.swing.JLabel();
         lblBirthDay = new javax.swing.JLabel();
         txtBirthDay = new javax.swing.JTextField();
@@ -177,11 +177,11 @@ public class TableEmployeePanel extends javax.swing.JPanel {
             }
         });
 
-        btnCancle.setBackground(new java.awt.Color(255, 153, 0));
-        btnCancle.setText("Cancle");
-        btnCancle.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setBackground(new java.awt.Color(255, 153, 0));
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancleActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
@@ -214,7 +214,7 @@ public class TableEmployeePanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCancle))
+                        .addComponent(btnCancel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,7 +282,7 @@ public class TableEmployeePanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnSave)
-                            .addComponent(btnCancle))))
+                            .addComponent(btnCancel))))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -413,9 +413,9 @@ public class TableEmployeePanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void btnCancleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancleActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         clearEditForm();
-    }//GEN-LAST:event_btnCancleActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         loadFormToEmployee();
@@ -447,7 +447,7 @@ public class TableEmployeePanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnCancle;
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSave;

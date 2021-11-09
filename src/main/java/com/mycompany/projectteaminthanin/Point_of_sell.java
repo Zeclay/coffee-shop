@@ -32,6 +32,7 @@ public class Point_of_sell extends javax.swing.JPanel {
     public ArrayList<Cart> cart = new ArrayList<>();
     public double total = 0;
     MainMenuPanel mainmenu;
+
     /**
      * Creates new form Point_of_sell
      */
@@ -60,13 +61,12 @@ public class Point_of_sell extends javax.swing.JPanel {
         tfChange.setVisible(false);
         btnPrintReceipt.setVisible(false);
         btnPrintReceipt.setEnabled(false);
-        
+
     }
 
     public void enableCheckOut() {
         txtCashChange.setVisible(true);
         tfcash.setVisible(true);
-        
 
         disableLeft();
         disableScreen();
@@ -82,7 +82,7 @@ public class Point_of_sell extends javax.swing.JPanel {
 
     public void disableScreen() {
         scpmenu.setViewportView(new ClearPanel());
-        btnCancle.setEnabled(false);
+        btnCancel.setEnabled(false);
         btnPay.setEnabled(false);
         btnCoffee.setEnabled(false);
         btnFriut.setEnabled(false);
@@ -126,7 +126,7 @@ public class Point_of_sell extends javax.swing.JPanel {
         tfcash = new javax.swing.JTextField();
         txtCashChange = new javax.swing.JLabel();
         tfChange = new javax.swing.JTextField();
-        btnCancle = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
 
         btnCoffee2.setText("COFFEE");
 
@@ -388,12 +388,12 @@ public class Point_of_sell extends javax.swing.JPanel {
         tfChange.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfChange.setText("change");
 
-        btnCancle.setBackground(new java.awt.Color(255, 0, 51));
-        btnCancle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnCancle.setText("Cancle");
-        btnCancle.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setBackground(new java.awt.Color(255, 0, 51));
+        btnCancel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancleActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
@@ -410,7 +410,7 @@ public class Point_of_sell extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCancle, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtCashChange)
                                 .addGap(18, 18, 18)
@@ -445,7 +445,7 @@ public class Point_of_sell extends javax.swing.JPanel {
                     .addComponent(txtCashChange, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfcash, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfChange, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancle, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -474,8 +474,7 @@ public class Point_of_sell extends javax.swing.JPanel {
     private void btnFriutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFriutActionPerformed
         scpmenu.setViewportView(new FruitPanel(this));
     }//GEN-LAST:event_btnFriutActionPerformed
-    
-    
+
     DaoCustomer daoCus = new DaoCustomer();
     UserService us = new UserService();
     Customer currentCustomer = daoCus.get(6);
@@ -595,25 +594,28 @@ public class Point_of_sell extends javax.swing.JPanel {
             System.out.println(lastId);
 
         } else {
-            JOptionPane.showMessageDialog(new JFrame(), "Cash < Total", "Warning",
+            JOptionPane.showMessageDialog(new JFrame(), "Input Wrong Try Again.", "Warning",
                     JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_tfcashActionPerformed
 
     private void btnPrintReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintReceiptActionPerformed
-        PrintReceipt pr = new PrintReceipt(new javax.swing.JFrame(), true, this,mainmenu);
+        PrintReceipt pr = new PrintReceipt(new javax.swing.JFrame(), true, this, mainmenu);
         pr.setVisible(true);
 
     }//GEN-LAST:event_btnPrintReceiptActionPerformed
 
-    private void btnCancleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancleActionPerformed
-        mainmenu.resetPointOfSell();
-    }//GEN-LAST:event_btnCancleActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Do you want to clear this order ?", "WARNING",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            mainmenu.resetPointOfSell();
+        }
+    }//GEN-LAST:event_btnCancelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancle;
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnCoffee;
     private javax.swing.JButton btnCoffee2;
