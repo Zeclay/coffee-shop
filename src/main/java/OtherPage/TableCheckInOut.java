@@ -13,6 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.table.AbstractTableModel;
 import model.CheckInOut;
@@ -28,6 +29,7 @@ public class TableCheckInOut extends javax.swing.JPanel {
     private ArrayList<CheckInOut> CheckList;
     private CheckInOutTablemodel model;
     MainMenuPanel mainMenu;
+
     /**
      * Creates new form TableCheckInOut
      */
@@ -37,8 +39,9 @@ public class TableCheckInOut extends javax.swing.JPanel {
         timerController();
         DaoCheckInOut dao = new DaoCheckInOut();
         loadTable(dao);
-        
+
     }
+
     public void refreshTable() {
         DaoCheckInOut dcio = new DaoCheckInOut();
         ArrayList<CheckInOut> cio = dcio.getAll();
@@ -69,7 +72,7 @@ public class TableCheckInOut extends javax.swing.JPanel {
         CheckList = dao.getAll();
         model = new CheckInOutTablemodel(CheckList);
         tblCheck.setModel(model);
-        
+
     }
 
     /**
@@ -86,6 +89,7 @@ public class TableCheckInOut extends javax.swing.JPanel {
         btnCheckIn = new javax.swing.JButton();
         btnCheckOut = new javax.swing.JButton();
         lblTimerBox = new javax.swing.JLabel();
+        btnClear = new javax.swing.JButton();
 
         tblCheck.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,6 +122,13 @@ public class TableCheckInOut extends javax.swing.JPanel {
         lblTimerBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTimerBox.setText("TimerBox");
 
+        btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,7 +142,8 @@ public class TableCheckInOut extends javax.swing.JPanel {
                         .addComponent(btnCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -142,7 +154,8 @@ public class TableCheckInOut extends javax.swing.JPanel {
                 .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCheckIn)
-                    .addComponent(btnCheckOut))
+                    .addComponent(btnCheckOut)
+                    .addComponent(btnClear))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -151,21 +164,32 @@ public class TableCheckInOut extends javax.swing.JPanel {
 
     private void btnCheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckInActionPerformed
         DaoCheckInOut dcio = new DaoCheckInOut();
-        dcio.add(new CheckInOut(-1,new Employee(mainMenu.getCurrentUser().getEmployeeId(),mainMenu.getCurrentUser().getName(),"","","","","","",0.0),"CheckIn",null));
-        
+        dcio.add(new CheckInOut(-1, new Employee(mainMenu.getCurrentUser().getEmployeeId(), mainMenu.getCurrentUser().getName(), "", "", "", "", "", "", 0.0), "CheckIn", null));
+
         refreshTable();
     }//GEN-LAST:event_btnCheckInActionPerformed
 
     private void btnCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutActionPerformed
         DaoCheckInOut dcio = new DaoCheckInOut();
-        dcio.add(new CheckInOut(-1,new Employee(mainMenu.getCurrentUser().getEmployeeId(),mainMenu.getCurrentUser().getName(),"","","","","","",0.0),"CheckOut",null));
+        dcio.add(new CheckInOut(-1, new Employee(mainMenu.getCurrentUser().getEmployeeId(), mainMenu.getCurrentUser().getName(), "", "", "", "", "", "", 0.0), "CheckOut", null));
         refreshTable();
     }//GEN-LAST:event_btnCheckOutActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Do You Want To Clear All?", "WARNING",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            DaoCheckInOut dcio = new DaoCheckInOut();
+            dcio.deleteAll();
+            refreshTable();
+        }
+
+    }//GEN-LAST:event_btnClearActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCheckIn;
     private javax.swing.JButton btnCheckOut;
+    private javax.swing.JButton btnClear;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTimerBox;
     private javax.swing.JTable tblCheck;
@@ -174,14 +198,14 @@ private class CheckInOutTablemodel extends AbstractTableModel {
 
         private final ArrayList<CheckInOut> data;
         String[] columnName = {"ID", "Emp_id", "Type", "DateTime"};
-        
+
         private CheckInOutTablemodel(ArrayList<CheckInOut> data) {
             this.data = data;
         }
-        
+
         @Override
         public int getRowCount() {
-           return this.data.size();
+            return this.data.size();
         }
 
         @Override
@@ -206,6 +230,7 @@ private class CheckInOutTablemodel extends AbstractTableModel {
             }
             return "";
         }
+
         @Override
         public String getColumnName(int column) {
             return columnName[column];

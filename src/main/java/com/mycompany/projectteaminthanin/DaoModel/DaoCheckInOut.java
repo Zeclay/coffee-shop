@@ -77,6 +77,24 @@ public class DaoCheckInOut implements DaoInterface<CheckInOut> {
         }
         return list;
     }
+    
+    public void deleteAll(){
+        Connection conn = null;
+        Database db = Database.getInstance();
+        conn = db.getConnection();
+         int row = 0;
+         
+        try {
+            String sql = "DELETE FROM CheckInOut;";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.executeUpdate();
+            String sql2 = "UPDATE SQLITE_SEQUENCE SET SEQ=0 WHERE NAME=\"CheckInOut\"";
+            PreparedStatement stmt2 = conn.prepareStatement(sql2);
+            stmt2.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoCheckInOut.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     @Override
     public CheckInOut get(int id) {
