@@ -191,7 +191,6 @@ public class CoffeePanel extends javax.swing.JPanel {
         });
 
         btnEspressoIce.setBackground(new java.awt.Color(0, 204, 204));
-        btnEspressoIce.setForeground(new java.awt.Color(0, 0, 0));
         btnEspressoIce.setText("Ice");
         btnEspressoIce.setMaximumSize(new java.awt.Dimension(49, 23));
         btnEspressoIce.setMinimumSize(new java.awt.Dimension(49, 23));
@@ -212,7 +211,6 @@ public class CoffeePanel extends javax.swing.JPanel {
         });
 
         btnAmericanoIce.setBackground(new java.awt.Color(0, 204, 204));
-        btnAmericanoIce.setForeground(new java.awt.Color(0, 0, 0));
         btnAmericanoIce.setText("Ice");
         btnAmericanoIce.setMaximumSize(new java.awt.Dimension(49, 23));
         btnAmericanoIce.setMinimumSize(new java.awt.Dimension(49, 23));
@@ -231,7 +229,6 @@ public class CoffeePanel extends javax.swing.JPanel {
         });
 
         btnAllDayIce.setBackground(new java.awt.Color(0, 204, 204));
-        btnAllDayIce.setForeground(new java.awt.Color(0, 0, 0));
         btnAllDayIce.setText("Ice");
         btnAllDayIce.setMaximumSize(new java.awt.Dimension(49, 23));
         btnAllDayIce.setMinimumSize(new java.awt.Dimension(49, 23));
@@ -252,7 +249,6 @@ public class CoffeePanel extends javax.swing.JPanel {
         });
 
         btnCappuccinoIce.setBackground(new java.awt.Color(0, 204, 204));
-        btnCappuccinoIce.setForeground(new java.awt.Color(0, 0, 0));
         btnCappuccinoIce.setText("Ice");
         btnCappuccinoIce.setMaximumSize(new java.awt.Dimension(49, 23));
         btnCappuccinoIce.setMinimumSize(new java.awt.Dimension(49, 23));
@@ -311,7 +307,6 @@ public class CoffeePanel extends javax.swing.JPanel {
         });
 
         btnLatteIce.setBackground(new java.awt.Color(0, 204, 204));
-        btnLatteIce.setForeground(new java.awt.Color(0, 0, 0));
         btnLatteIce.setText("Ice");
         btnLatteIce.setMaximumSize(new java.awt.Dimension(49, 23));
         btnLatteIce.setMinimumSize(new java.awt.Dimension(49, 23));
@@ -334,7 +329,6 @@ public class CoffeePanel extends javax.swing.JPanel {
         });
 
         btnMochaIce.setBackground(new java.awt.Color(0, 204, 204));
-        btnMochaIce.setForeground(new java.awt.Color(0, 0, 0));
         btnMochaIce.setText("Ice");
         btnMochaIce.setMaximumSize(new java.awt.Dimension(49, 23));
         btnMochaIce.setMinimumSize(new java.awt.Dimension(49, 23));
@@ -355,7 +349,6 @@ public class CoffeePanel extends javax.swing.JPanel {
         });
 
         btnInthaninBlendIce.setBackground(new java.awt.Color(0, 204, 204));
-        btnInthaninBlendIce.setForeground(new java.awt.Color(0, 0, 0));
         btnInthaninBlendIce.setText("Ice");
         btnInthaninBlendIce.setMaximumSize(new java.awt.Dimension(49, 23));
         btnInthaninBlendIce.setMinimumSize(new java.awt.Dimension(49, 23));
@@ -382,7 +375,7 @@ public class CoffeePanel extends javax.swing.JPanel {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(btnEspressoHot)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnEspressoIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btnEspressoIce, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
                                 .addComponent(jLabel1)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -395,7 +388,7 @@ public class CoffeePanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnAmericanoHot, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAmericanoIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btnAmericanoIce, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
                             .addComponent(jLabel3)
                             .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(65, 65, 65)
@@ -407,22 +400,22 @@ public class CoffeePanel extends javax.swing.JPanel {
                                 .addComponent(btnAllDayIce, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(65, 65, 65)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnCappuccinoHot, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCappuccinoIce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btnCappuccinoIce, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, Short.MAX_VALUE))
-                        .addGap(65, 65, 65)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnLatteHot, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnLatteIce, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(18, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
