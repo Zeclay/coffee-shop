@@ -46,7 +46,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
         loadImageEm();
         timerController();
         this.mainFrame = mainFrame;
-        lblTitle.setText("MainMenu");
+        lblTitle.setText("Point Of Sell");
         us = new UserService();
         lblCurrentUser.setText(us.getCurrentUser().getEmployee().getName());
 //        System.out.println(us.getCurrentUser().getUsername());
