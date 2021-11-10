@@ -356,45 +356,54 @@ public class MainMenuPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     public void resetPointOfSell() {
+        lblTimer.setVisible(true);
         lblTitle.setText("Point Of Sell");
         pnlShowFrame.setViewportView(new Point_of_sell(this));
     }
 
     public void resetCheckInOut() {
+        lblTimer.setVisible(false);
         lblTitle.setText("CheckIn-Out");
         pnlShowFrame.setViewportView(new TableCheckInOut(this));
     }
     private void btnpointofsellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpointofsellActionPerformed
+       lblTimer.setVisible(true);
         lblTitle.setText("Point Of Sell");
         pnlShowFrame.setViewportView(new Point_of_sell(this));
     }//GEN-LAST:event_btnpointofsellActionPerformed
 
     private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
+       lblTimer.setVisible(true);
         lblTitle.setText("Employee Management");
         pnlShowFrame.setViewportView(new TableEmployeePanel());
     }//GEN-LAST:event_btnEmployeeActionPerformed
 
     private void btnCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerActionPerformed
+       lblTimer.setVisible(true);
         lblTitle.setText("Customer Management");
         pnlShowFrame.setViewportView(new TableCustomer());
     }//GEN-LAST:event_btnCustomerActionPerformed
 
     private void btnStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockActionPerformed
+        lblTimer.setVisible(true);
         lblTitle.setText("Stock Management");
         pnlShowFrame.setViewportView(new TableStock());
     }//GEN-LAST:event_btnStockActionPerformed
 
     private void btnReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceiptActionPerformed
+        lblTimer.setVisible(true);
         lblTitle.setText("Receipt Management");
         pnlShowFrame.setViewportView(new TableReceiptPanel());
     }//GEN-LAST:event_btnReceiptActionPerformed
 
     private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
+        lblTimer.setVisible(true);
         lblTitle.setText("Product Management");
         pnlShowFrame.setViewportView(new TableProductPanel());
     }//GEN-LAST:event_btnProductActionPerformed
 
     private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
+        lblTimer.setVisible(true);
         lblTitle.setText("User Management");
         pnlShowFrame.setViewportView(new TableUser());
     }//GEN-LAST:event_btnUserActionPerformed
@@ -408,6 +417,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_lblTitleAncestorMoved
 
     private void btnCheckInOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckInOutActionPerformed
+        lblTimer.setVisible(false);
         lblTitle.setText("CheckIn-Out");
         pnlShowFrame.setViewportView(new TableCheckInOut(this));
     }//GEN-LAST:event_btnCheckInOutActionPerformed
