@@ -82,7 +82,7 @@ public class Point_of_sell extends javax.swing.JPanel {
 
     public void disableScreen() {
         scpmenu.setViewportView(new ClearPanel());
-        btnCancel.setEnabled(false);
+        
         btnPay.setEnabled(false);
         btnCoffee.setEnabled(false);
         btnFriut.setEnabled(false);
@@ -572,6 +572,7 @@ public class Point_of_sell extends javax.swing.JPanel {
     private void tfcashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcashActionPerformed
         cash = Double.parseDouble(tfcash.getText());
         if (total <= cash) {
+            btnCancel.setEnabled(false);
             btnPrintReceipt.setVisible(true);
             btnPrintReceipt.setEnabled(true);
             Receipt rep = new Receipt(currentEmp.getEmployee(), currentCustomer);
