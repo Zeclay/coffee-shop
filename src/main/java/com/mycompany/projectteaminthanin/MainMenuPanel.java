@@ -5,6 +5,7 @@
  */
 package com.mycompany.projectteaminthanin;
 
+import OtherPage.TableCheckInOut;
 import OtherPage.TableCustomer;
 import OtherPage.TableEmployeePanel;
 import OtherPage.TableProductPanel;
@@ -22,6 +23,8 @@ import java.util.Date;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
+import model.Employee;
+import model.User;
 
 /**
  *
@@ -31,7 +34,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
 
     private MainFrame mainFrame;
     Timer timer;
-    
+    UserService us;
 
     /**
      * Creates new form MainMenuPanel
@@ -44,30 +47,35 @@ public class MainMenuPanel extends javax.swing.JPanel {
         timerController();
         this.mainFrame = mainFrame;
         lblTitle.setText("MainMenu");
-        UserService us = new UserService();
+        us = new UserService();
         lblCurrentUser.setText(us.getCurrentUser().getEmployee().getName());
 //        System.out.println(us.getCurrentUser().getUsername());
+    }
+
+    public Employee getCurrentUser() {
+        return us.getCurrentUser().getEmployee();
     }
 
     public void loadImage() {
         File file = new File("img/inthaninMain.png");
         try {
             BufferedImage image = ImageIO.read(file);
-            
+
             lblLogo.setIcon(new ImageIcon(image));
         } catch (IOException ex) {
-            
+
         }
-        
+
     }
-    public void loadImageEm(){
+
+    public void loadImageEm() {
         File file = new File("img/Empic.jpg");
         try {
             BufferedImage image = ImageIO.read(file);
-            
+
             lblEmpic.setIcon(new ImageIcon(image));
         } catch (IOException ex) {
-            
+
         }
     }
 
@@ -86,7 +94,6 @@ public class MainMenuPanel extends javax.swing.JPanel {
         timer.setInitialDelay(0);
         timer.start();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -113,6 +120,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
         btnUser = new javax.swing.JButton();
         btnLogOut = new javax.swing.JButton();
         lblTimer = new javax.swing.JLabel();
+        btnCheckInOut = new javax.swing.JButton();
         pnlShowFrame = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
 
@@ -259,22 +267,32 @@ public class MainMenuPanel extends javax.swing.JPanel {
         lblTimer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTimer.setText("TimerBox");
 
+        btnCheckInOut.setBackground(new java.awt.Color(179, 127, 75));
+        btnCheckInOut.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCheckInOut.setText("CheckInOut");
+        btnCheckInOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckInOutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblTimer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnpointofsell, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                    .addComponent(btnEmployee, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCustomer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnStock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnReceipt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnProduct, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnUser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTimer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLogOut, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnpointofsell, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                    .addComponent(btnEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReceipt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCheckInOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -284,19 +302,21 @@ public class MainMenuPanel extends javax.swing.JPanel {
                 .addComponent(lblTimer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnpointofsell, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnStock, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUser, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCheckInOut, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90)
                 .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -331,13 +351,18 @@ public class MainMenuPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlShowFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)))
+                    .addComponent(pnlShowFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    public void resetPointOfSell(){
-         lblTitle.setText("Point Of Sell");
-         pnlShowFrame.setViewportView(new Point_of_sell(this));
+    public void resetPointOfSell() {
+        lblTitle.setText("Point Of Sell");
+        pnlShowFrame.setViewportView(new Point_of_sell(this));
+    }
+
+    public void resetCheckInOut() {
+        lblTitle.setText("CheckIn-Out");
+        pnlShowFrame.setViewportView(new TableCheckInOut(this));
     }
     private void btnpointofsellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpointofsellActionPerformed
         lblTitle.setText("Point Of Sell");
@@ -382,8 +407,14 @@ public class MainMenuPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_lblTitleAncestorMoved
 
+    private void btnCheckInOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckInOutActionPerformed
+        lblTitle.setText("CheckIn-Out");
+        pnlShowFrame.setViewportView(new TableCheckInOut(this));
+    }//GEN-LAST:event_btnCheckInOutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCheckInOut;
     private javax.swing.JButton btnCustomer;
     private javax.swing.JButton btnEmployee;
     private javax.swing.JButton btnLogOut;
