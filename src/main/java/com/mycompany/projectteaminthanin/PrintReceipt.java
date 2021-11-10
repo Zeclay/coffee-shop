@@ -8,6 +8,7 @@ package com.mycompany.projectteaminthanin;
 import com.mycompany.projectteaminthanin.DaoModel.DaoReceipt;
 import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
+import model.ReceiptDetail;
 
 /**
  *
@@ -25,35 +26,36 @@ public class PrintReceipt extends javax.swing.JDialog {
         
         this.POS = POS;
         this.mainmenu = mainmenu;
-       
-        DaoReceipt daoRep = new DaoReceipt();
-        txtReceipt.setText(txtReceipt.getText()+"------------------------------------------------------\n");
-        txtReceipt.setText(txtReceipt.getText()+"                       ร้านกาแฟ Inthanin                \n");
-        txtReceipt.setText(txtReceipt.getText()+"                   สาขา  มหาวิทยาลัยบูรพา            \n");
-        txtReceipt.setText(txtReceipt.getText()+"รหัสใบเสร็จเลขที่\t"+POS.lastId+"   \n");
-        txtReceipt.setText(txtReceipt.getText()+"ผู้ขาย \t"+POS.currentEmp.getEmployee().getName()+"\n");
-        txtReceipt.setText(txtReceipt.getText()+"------------------------------------------------------\n");
-        int i = 1;
-        int amount = 0;
-        double total = 0;
-        for(Cart c : POS.cart){
-            txtReceipt.setText(txtReceipt.getText()+c.getAmount()+"  "+c.getProduct().getProductName()+"\t"+c.getProduct().getPrice()*c.getAmount()+"\n");
-            amount+= c.getAmount();
-            i++;
-            total+=c.getProduct().getPrice() * c.getAmount();
-        }
-        txtReceipt.setText(txtReceipt.getText()+"------------------------------------------------------\n");
-        txtReceipt.setText(txtReceipt.getText()+"ยอดสุทธิ "+amount);
-        txtReceipt.setText(txtReceipt.getText()+"\tPrice\t"+total+" Baht\n");
-        txtReceipt.setText(txtReceipt.getText()+"\tDiscount\t"+POS.Discount+" Baht\n\n");
-        txtReceipt.setText(txtReceipt.getText()+"\tTotal\t"+POS.total+" Baht\n");
-        txtReceipt.setText(txtReceipt.getText()+"\tCash\t"+POS.cash+" Baht\n");
-        txtReceipt.setText(txtReceipt.getText()+"\tChange\t"+POS.change+" Baht\n");
-        txtReceipt.setText(txtReceipt.getText()+"------------------------------------------------------\n");
-        txtReceipt.setText(txtReceipt.getText()+"                      Inthanin Coffee                      \n");
-        txtReceipt.setText(txtReceipt.getText()+"                    Tel. 088-088-0888 \n");
-        txtReceipt.setText(txtReceipt.getText()+"------------------------------------------------------\n");
-        txtReceipt.setText(txtReceipt.getText()+daoRep.get(POS.lastId).getDate());
+       DaoReceipt daoShow = new DaoReceipt();
+        int table = POS.lastId;
+            txtDetail.setText(txtDetail.getText() + "------------------------------------------------------\n");
+            txtDetail.setText(txtDetail.getText() + "                       ร้านกาแฟ Inthanin                \n");
+            txtDetail.setText(txtDetail.getText() + "                   สาขา  มหาวิทยาลัยบูรพา            \n");
+            txtDetail.setText(txtDetail.getText() + "รหัสใบเสร็จเลขที่\t" + daoShow.get(table).getRep_id() + "   \n");
+            txtDetail.setText(txtDetail.getText() + "ผู้ขาย \t" + daoShow.get(table).getEmployee().getName() + "\n");
+            txtDetail.setText(txtDetail.getText() + "------------------------------------------------------\n");
+            int i = 1;
+            int amount = 0;
+            double total = 0;
+            for (ReceiptDetail c : daoShow.get(table).getReceiptDetail()) {
+                txtDetail.setText(txtDetail.getText() + c.getAmount() + "  " + c.getProduct().getProductName() + "\t" + c.getProduct().getPrice() * c.getAmount() + "\n");
+                amount += c.getAmount();
+                i++;
+                total+=c.getProduct().getPrice() * c.getAmount();
+            }
+            txtDetail.setText(txtDetail.getText() + "------------------------------------------------------\n");
+            txtDetail.setText(txtDetail.getText() + "ยอดสุทธิ " + amount);
+            txtDetail.setText(txtDetail.getText() + "\tPrice\t" + total + " Baht\n");
+            txtDetail.setText(txtDetail.getText() + "\tDiscount\t" + (total-daoShow.get(table).getTotal()) + " Baht\n\n");
+            
+            txtDetail.setText(txtDetail.getText() + "\tTotal\t" + daoShow.get(table).getTotal() + " Baht\n");
+            txtDetail.setText(txtDetail.getText() + "\tCash\t" + daoShow.get(table).getCash() + " Baht\n");
+            txtDetail.setText(txtDetail.getText() + "\tChange\t" + daoShow.get(table).getChange() + " Baht\n");
+            txtDetail.setText(txtDetail.getText() + "------------------------------------------------------\n");
+            txtDetail.setText(txtDetail.getText() + "                      Inthanin Coffee                      \n");
+            txtDetail.setText(txtDetail.getText() + "                    Tel. 088-088-0888 \n");
+            txtDetail.setText(txtDetail.getText() + "------------------------------------------------------\n");
+            txtDetail.setText(txtDetail.getText() + daoShow.get(table).getDate());
     }
 
 
@@ -69,20 +71,19 @@ public class PrintReceipt extends javax.swing.JDialog {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtReceipt = new javax.swing.JTextArea();
+        txtDetail = new javax.swing.JTextArea();
         btnReceiptConfirm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        txtReceipt.setEditable(false);
-        txtReceipt.setColumns(20);
-        txtReceipt.setFont(new java.awt.Font("AngsanaUPC", 0, 18)); // NOI18N
-        txtReceipt.setRows(5);
-        jScrollPane1.setViewportView(txtReceipt);
+        txtDetail.setEditable(false);
+        txtDetail.setColumns(20);
+        txtDetail.setFont(new java.awt.Font("AngsanaUPC", 0, 18)); // NOI18N
+        txtDetail.setRows(5);
+        jScrollPane1.setViewportView(txtDetail);
 
         btnReceiptConfirm.setBackground(new java.awt.Color(102, 204, 0));
         btnReceiptConfirm.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        btnReceiptConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnReceiptConfirm.setText("Confirm");
         btnReceiptConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,6 +163,6 @@ public class PrintReceipt extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReceiptConfirm;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtReceipt;
+    private javax.swing.JTextArea txtDetail;
     // End of variables declaration//GEN-END:variables
 }
